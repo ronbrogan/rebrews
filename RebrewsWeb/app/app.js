@@ -38,28 +38,37 @@
                     }
                 }
             })
-            .state("account.login", {
-                url: "/login",
-                views: {
-                    "maininner": {
-                        templateUrl: "/app/account/login.template.html"
+                .state("account.login", {
+                    url: "/login",
+                    views: {
+                        "maininner": {
+                            templateUrl: "/app/account/login.template.html"
+                        }
                     }
-                }
-            })
-            .state("account.register", {
-                url: "/register",
-                views: {
-                    "maininner": {
-                        templateUrl: "/app/account/register.template.html"
+                })
+                .state("account.register", {
+                    url: "/register",
+                    views: {
+                        "maininner": {
+                            templateUrl: "/app/account/register.template.html"
+                        }
                     }
-                }
-            })
+                })
             .state("dashboard", {
                 url: "/dashboard",
                 sticky: true,
                 views: {
                     "main": {
                         templateUrl: "/app/dashboard/dashboard.template.html"
+                    }
+                }
+            })
+            .state("recipe", {
+                url: "/recipe",
+                sticky: true,
+                views: {
+                    "main": {
+                        templateUrl: "/app/recipe/recipe.template.html"
                     }
                 }
             })

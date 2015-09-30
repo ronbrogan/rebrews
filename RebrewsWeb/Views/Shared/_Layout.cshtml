@@ -4,11 +4,12 @@
     <base href="/">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300" rel="stylesheet" type="text/css">
     <title>Ho.mebre.ws</title>
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -25,6 +26,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/dashboard">Dashboard</a></li>
                 </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="/recipe">Recipe</a></li>
+                </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/account/register">Register</a></li>
@@ -35,17 +39,18 @@
             </div>
         </div>
     </div>
-<div class="container body-content" ui-view="main">
-    @RenderBody()
-    <hr/>
+    <div class="container body-content" ui-view="main">
+        @RenderBody()
+    </div>
     <footer>
         <p>&copy; @DateTime.Now.Year - Homebrews</p>
     </footer>
-</div>
+    
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/angular")
-    @RenderSection("scripts", required: false)
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/angular")
+@RenderSection("scripts", required: false)
 </body>
 </html>

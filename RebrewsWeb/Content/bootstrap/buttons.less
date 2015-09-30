@@ -11,6 +11,7 @@
   margin-bottom: 0; // For input.btn
   font-weight: @btn-font-weight;
   text-align: center;
+  text-transform: uppercase;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
@@ -19,6 +20,7 @@
   white-space: nowrap;
   .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
   .user-select(none);
+  border-radius: 2px;
 
   &,
   &:active,
@@ -93,7 +95,7 @@
 // Make a button look and behave like a link
 .btn-link {
   color: @link-color;
-  font-weight: normal;
+  font-weight: bold;
   border-radius: 0;
 
   &,

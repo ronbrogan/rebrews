@@ -6,13 +6,14 @@
 .button-variant(@color; @background; @border) {
   color: @color;
   background-color: @background;
-  border-color: @border;
+  border-color: transparent;
 
   &:focus,
   &.focus {
     color: @color;
-    background-color: darken(@background, 10%);
+    background-color: darken(@background, 5%);
         border-color: darken(@border, 25%);
+    box-shadow: 0 2px 2px #000;
   }
   &:hover {
     color: @color;
