@@ -18,9 +18,9 @@
             <table class="material-table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th class="buttons"><i class="glyphicon glyphicon-plus"></i></th>
                         <th>Amt</th>
-                        <th>Name</th>
+                        <th class="important">Name</th>
                         <th>Prop</th>
                         <th>Prop2</th>
                     </tr>
@@ -52,7 +52,35 @@
             <div class="card-header">
                 <h1>Hops</h1>
             </div>
-            (table)
+            <table class="material-table">
+                <thead>
+                    <tr>
+                        <th class="buttons"><i class="glyphicon glyphicon-plus"></i></th>
+                        <th>Amt</th>
+                        <th class="important">Name</th>
+                        <th>Prop</th>
+                        <th>Prop2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="glyphicon glyphicon-remove"></i></td>
+                        <td>1 oz</td>
+                        <td>Cascade</td>
+                        <td>11% AA</td>
+                        <td>60 min</td>
+                    </tr>
+                    <tr>
+                        <td><i class="glyphicon glyphicon-remove"></i></td>
+                        <td>1 oz</td>
+                        <td>Cascade</td>
+                        <td>11% AA</td>
+                        <td>60 min</td>
+                    </tr>
+                </tbody>
+
+
+            </table>
         </div>
     </div>
 
@@ -61,7 +89,36 @@
             <div class="card-header">
                 <h1>Yeast</h1>
             </div>
-            (table)
+            <material-table api-url="/api/Data"
+                            cols-def='[
+                {
+                    "binding"   : "id",
+                    "hidden"    : "true"
+                },
+                {
+                    "binding"   : "amount",
+                    "heading"   : "Amount",
+                    "type"      : "editable",
+                    "append"    : " lbs"      
+                },
+                {
+                    "binding"   : "name",
+                    "heading"   : "Name",
+                    "type"      : "ingredient",
+                    "class"     : "important"      
+                },
+                {
+                    "binding"   : "degreesLovibond",
+                    "heading"   : "°L",
+                    "append"    : " °L"        
+                },
+                {
+                    "binding"   : "ppg",
+                    "heading"   : "PPG"  
+                }
+                            
+            ]'>
+            </material-table>
         </div>
     </div>
 

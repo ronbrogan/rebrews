@@ -25,7 +25,10 @@ namespace RebrewsWeb
                      "~/Scripts/ct-ui-router-extras.js",
                      "~/app/app.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/directives").Include());
+            bundles.Add(new ScriptBundle("~/bundles/directives").Include(
+                    "~/app/_directives/material-table/material-table.js",
+                    "~/app/_directives/dbl-edit/dbl-edit.js"
+                    ));
         }
     }
 }

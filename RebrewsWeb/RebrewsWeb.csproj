@@ -178,7 +178,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FermentableController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,14 +199,26 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\account\login.template.html" />
     <Content Include="app\account\register.template.html" />
     <Content Include="app\app.js" />
+    <Content Include="app\dashboard\dashboard.template.html" />
+    <Content Include="app\discover\discover.template.html" />
     <Content Include="app\home\home.template.html" />
+    <Content Include="app\recipe\recipe.template.html" />
+    <Content Include="app\_directives\dbl-edit\dbl-edit.js" />
+    <Content Include="app\_directives\dbl-edit\dbl-edit.template.html" />
+    <Content Include="app\_directives\material-table\material-table.js" />
+    <Content Include="app\_directives\material-table\material-table.template.html" />
+    <Content Include="app\_services\ingredientService.js" />
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
     </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Site.css">
@@ -341,6 +355,7 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Content\bootstrap\colors.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

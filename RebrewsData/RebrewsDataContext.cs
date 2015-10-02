@@ -8,6 +8,6 @@ namespace RebrewsData
     public class RebrewsDataContext : DbContext
     {
         // Orders
-        public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<Fermentable> Fermentables { get; set; }
     }
 }

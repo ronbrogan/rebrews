@@ -18,22 +18,41 @@ body {
     padding-right: 15px;
 }
 
+.edit-window{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    width: 150px;
+    height: 50px;
+    box-shadow: rgba(0,0,0,.25) 0 0 10px;
+    opacity: 1;
+
+    input {
+        width: 100%;
+        .form-control();
+    }
+
+}
+
+
 .card {
-    padding: @padding-base-horizontal;
     margin-top: @padding-base-horizontal;
+    padding-top: @padding-base-horizontal;
+    padding-bottom: @padding-base-horizontal;
     background-color: #fff;
     box-shadow: rgba(0,0,0,.25) 0 0 10px;
     min-height: 15em;
     position: relative;
 
-    .card-header{
+    .card-header {
         min-height: 30px;
         border-bottom: 1px solid #ddd;
         padding: 0 @padding-base-horizontal*2;
-        margin: 0 -@padding-base-horizontal 15px -@padding-base-horizontal;
+        margin-bottom: @padding-base-horizontal;
         text-align: left;
 
-        h1{
+        h1 {
             font-size: large;
             margin: 0;
         }
@@ -46,50 +65,54 @@ body {
         min-height: 20px;
         border-top: 1px solid #ddd;
         padding: 5px @padding-base-horizontal*2;
-        margin: 0 -@padding-base-horizontal 15px -@padding-base-horizontal;
     }
 
-    .material-table{
-        position: absolute;
+    .material-table {
+        position: relative;
         width: 100%;
-        margin: 0 -@padding-base-horizontal;
-        thead > tr{
-            padding-left: 6px;
-            border-bottom: 1px solid #ddd;
 
-            &:first-child{
-                padding-left: 6px;
-            }
-
-            &:last-child{
-                padding-right: 6px;
-            }
-
-            &> th{
-
-                font-weight:normal;
-                color: #000;
-                opacity: .54;
-                text-align: right;
-            }
-           
+        .buttons{
+            white-space: nowrap;
+            width: 45px;
         }
 
-        tbody > tr{
-            
-            padding-left: 6px;
+        .important{
+            width: 99%;
+        }
 
-            &> td{
-                min-height: 24px;
-                font-weight:normal;
-                text-align: right;
-                color: #000;
-                opacity: .87;
-            }
+        td, th{
+            font-weight: normal;
+            white-space: nowrap;
+            color: #000;
+            padding: 5px 8px;
+        }
 
-            &:not(:last-child){
-                border-bottom: 1px solid #ddd;
+        th {
+            opacity: .54;
+        }
+
+        td {
+            opacity: .87;
+        }
+
+        thead, tbody {
+            tr {
+                >:first-child {
+                    padding-left: @padding-base-horizontal*2;
+                }
+
+                >:last-child {
+                    padding-right: @padding-base-horizontal*2;
+                }
             }
+        }
+
+        thead tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:not(:last-child) {
+            border-bottom: 1px solid #ddd;
         }
     }
 }

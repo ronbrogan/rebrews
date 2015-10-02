@@ -1,0 +1,23 @@
+<table class="material-table">
+    <thead>
+        <tr>
+            <th class="buttons"><i class="glyphicon glyphicon-plus"></i></th>
+            <th ng-repeat="column in matab.columnsDefinition" ng-hide="column.hidden">{{column.heading}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in matab.items | orderBy:'amount':true">
+            <td class="buttons"><i class="glyphicon glyphicon-remove"></i></td>
+            <td ng-repeat="column in matab.columnsDefinition" ng-hide="column.hidden" class="{{column.class}}" ng-switch="column.type">
+
+
+
+
+
+
+                <span ng-switch-when="editable" dbl-edit display-value="item[column.binding]" append-value="column.append"></span>
+                <span ng-switch-default>{{item[column.binding]}}{{column.append}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

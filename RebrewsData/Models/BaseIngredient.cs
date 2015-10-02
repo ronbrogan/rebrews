@@ -7,12 +7,12 @@ using System.Web;
 
 namespace RebrewsData.Models
 {
-    public class Ingredient
+    public abstract class BaseIngredient
     {
         [Key]
         public int Id { get; set; }
 
-        public double Amount { get; set; }
+        public string Name { get; set; }
 
     }
 }
