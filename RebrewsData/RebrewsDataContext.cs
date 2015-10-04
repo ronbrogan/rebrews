@@ -7,7 +7,19 @@ namespace RebrewsData
 {
     public class RebrewsDataContext : DbContext
     {
-        // Orders
-        public DbSet<Fermentable> Fermentables { get; set; }
+        // Base Items
+        public DbSet<BaseFermentable> Fermentables { get; set; }
+        public DbSet<BaseHop> Hops { get; set; }
+        public DbSet<BaseYeast> Yeasts { get; set; }
+
+
+        //Recipe Items
+        public DbSet<RecipeFermentable> RecipeFermentables { get; set; }
+        public DbSet<RecipeHop> RecipeHops { get; set; }
+        public DbSet<RecipeYeast> RecipeYeasts { get; set; }
+
+
+
+        //Brewday Items
     }
 }

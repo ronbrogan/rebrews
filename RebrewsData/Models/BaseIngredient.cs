@@ -12,7 +12,7 @@ namespace RebrewsData.Models
         [Key]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
     }
 }

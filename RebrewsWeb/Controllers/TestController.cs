@@ -15,59 +15,41 @@ namespace RebrewsWeb.Controllers
         [Route("api/Data")]
         public HttpResponseMessage GetData()
         {
-            List<Fermentable> ings = new List<Fermentable>
+            List<RecipeFermentable> ings = new List<RecipeFermentable>
             {
-                new Fermentable()
+                new RecipeFermentable()
                 {
                     Id = 1,
-                    Amount = 12,
-                    Name="2 Row",
-                    PPG = 34,
-                    DegreesLovibond = 4
+                    Amount = 12
                 },
 
-                new Fermentable()
+                new RecipeFermentable()
                 {
                     Id = 2,
-                    Amount = 11,
-                    Name="Wheat",
-                    PPG = 31,
-                    DegreesLovibond = 2
+                    Amount = 11
                 },
 
-                new Fermentable()
+                new RecipeFermentable()
                 {
                     Id = 3,
-                    Amount = .5,
-                    Name="Crystal 60",
-                    PPG = 12,
-                    DegreesLovibond = 60
+                    Amount = (decimal).5
                 },
-                new Fermentable()
+                new RecipeFermentable()
                 {
                     Id = 1,
-                    Amount = 12,
-                    Name="2 Row",
-                    PPG = 34,
-                    DegreesLovibond = 4
+                    Amount = 12
                 },
 
-                new Fermentable()
+                new RecipeFermentable()
                 {
                     Id = 2,
-                    Amount = 11,
-                    Name="Wheat",
-                    PPG = 31,
-                    DegreesLovibond = 2
+                    Amount = 11
                 },
 
-                new Fermentable()
+                new RecipeFermentable()
                 {
                     Id = 3,
-                    Amount = .5,
-                    Name="Crystal 60",
-                    PPG = 12,
-                    DegreesLovibond = 60
+                    Amount = (decimal)0.5
                 },
             };
 
@@ -79,35 +61,5 @@ namespace RebrewsWeb.Controllers
 
 
 
-    }
-
-    [DataContract]
-    public static class TestData
-    {
-        
-        public static dynamic value = new[]
-        {
-            new
-            {
-                itemName = "2 Row",
-                property1 = "4degL",
-                property2 = "34ppg",
-                amount = "12 lb"
-            },
-            new
-            {
-                itemName = "White Wheat",
-                property1 = "4degL",
-                property2 = "26ppg",
-                amount = "2 lb"
-            },
-            new
-            {
-                itemName = "Crystal 60",
-                property1 = "60degL",
-                property2 = "4ppg",
-                amount = "0.5 lb"
-            }
-        };
     }
 }
