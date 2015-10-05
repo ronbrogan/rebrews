@@ -10,6 +10,12 @@ namespace RebrewsWeb.ViewModels
     public class RecipeHopViewModel
     {
         [DataMember]
+        public int Id { get; set; }
+
+        [DataMember]
+        public decimal Amount { get; set; }
+
+        [DataMember]
         public int? BaseHop_Id { get; set; }
 
         [DataMember]

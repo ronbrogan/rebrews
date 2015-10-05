@@ -6,6 +6,7 @@ using Microsoft.Owin;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
+using RebrewsWeb.Core;
 
 [assembly: OwinStartup(typeof(RebrewsWeb.Startup))]
 
@@ -16,7 +17,7 @@ namespace RebrewsWeb
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            
+            AutoMapperConfigurator.Configure();
         }
     }
 }

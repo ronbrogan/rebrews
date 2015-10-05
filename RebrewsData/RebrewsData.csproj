@@ -106,6 +106,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\FermentablePhType.cs" />
     <Compile Include="Migrations\201509290157147_Initial.cs" />
     <Compile Include="Migrations\201509290157147_Initial.Designer.cs">
       <DependentUpon>201509290157147_Initial.cs</DependentUpon>
@@ -113,6 +114,26 @@
     <Compile Include="Migrations\201510020037305_Fermentable.cs" />
     <Compile Include="Migrations\201510020037305_Fermentable.Designer.cs">
       <DependentUpon>201510020037305_Fermentable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510050004360_InitialModelState.cs" />
+    <Compile Include="Migrations\201510050004360_InitialModelState.Designer.cs">
+      <DependentUpon>201510050004360_InitialModelState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510050017072_FermentableTweaks.cs" />
+    <Compile Include="Migrations\201510050017072_FermentableTweaks.Designer.cs">
+      <DependentUpon>201510050017072_FermentableTweaks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510050040399_Recipe.cs" />
+    <Compile Include="Migrations\201510050040399_Recipe.Designer.cs">
+      <DependentUpon>201510050040399_Recipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510050051191_RecipeName.cs" />
+    <Compile Include="Migrations\201510050051191_RecipeName.Designer.cs">
+      <DependentUpon>201510050051191_RecipeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510050113001_YeastFixes.cs" />
+    <Compile Include="Migrations\201510050113001_YeastFixes.Designer.cs">
+      <DependentUpon>201510050113001_YeastFixes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseFermentable.cs" />
@@ -133,6 +154,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510020037305_Fermentable.resx">
       <DependentUpon>201510020037305_Fermentable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510050004360_InitialModelState.resx">
+      <DependentUpon>201510050004360_InitialModelState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510050017072_FermentableTweaks.resx">
+      <DependentUpon>201510050017072_FermentableTweaks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510050040399_Recipe.resx">
+      <DependentUpon>201510050040399_Recipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510050051191_RecipeName.resx">
+      <DependentUpon>201510050051191_RecipeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510050113001_YeastFixes.resx">
+      <DependentUpon>201510050113001_YeastFixes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

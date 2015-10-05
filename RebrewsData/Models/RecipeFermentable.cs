@@ -11,8 +11,13 @@ namespace RebrewsData.Models
         [ForeignKey("BaseFermentable")]
         public int? BaseFermentable_Id { get; set; }
 
-        public BaseFermentable BaseFermentable { get; set; }
+        public virtual BaseFermentable BaseFermentable { get; set; }
 
-        public bool ContributesSugars { get; set; }
+        public bool SteepOnly { get; set; }
+
+        [ForeignKey("Recipe")]
+        public int? Recipe_Id { get; set; }
+
+        public Recipe Recipe { get; set; }
     }
 }

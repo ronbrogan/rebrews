@@ -7,8 +7,14 @@ using System.Web;
 namespace RebrewsWeb.ViewModels
 {
     [DataContract]
-    public class BaseFermentableViewModel : BaseIngredientViewModel
+    public class BaseFermentableViewModel
     {
+        [DataMember]
+        public int Id { get; set; }
+
+        [DataMember]
+        public string Name { get; set; }
+
         [DataMember]
         public int PPG { get; set; }
 

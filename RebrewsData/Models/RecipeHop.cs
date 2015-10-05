@@ -11,12 +11,18 @@ namespace RebrewsData.Models
         [ForeignKey("BaseHop")]
         public int? BaseHop_Id { get; set; }
 
-        public BaseHop BaseHop { get; set; }
+        public virtual BaseHop BaseHop { get; set; }
 
         public int BoilTime { get; set; }
 
         public bool DryHop { get; set; }
 
         public bool IsLeaf { get; set; }
+
+        [ForeignKey("Recipe")]
+        public int? Recipe_Id { get; set; }
+
+        public Recipe Recipe { get; set; }
+
     }
 }
