@@ -219,13 +219,6 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\BaseFermentableViewModel.cs" />
-    <Compile Include="ViewModels\BaseHopViewModel.cs" />
-    <Compile Include="ViewModels\RecipeHopViewModel.cs" />
-    <Compile Include="ViewModels\BaseYeastViewModel.cs" />
-    <Compile Include="ViewModels\RecipeYeastViewModel.cs" />
-    <Compile Include="ViewModels\RecipeFermentableViewModel.cs" />
-    <Compile Include="ViewModels\RecipeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\account\login.template.html" />
@@ -235,11 +228,15 @@
     <Content Include="app\discover\discover.template.html" />
     <Content Include="app\home\home.template.html" />
     <Content Include="app\recipe\recipe.template.html" />
+    <Content Include="app\recipe\recipeController.js" />
     <Content Include="app\_directives\dbl-edit\dbl-edit.js" />
     <Content Include="app\_directives\dbl-edit\dbl-edit.template.html" />
     <Content Include="app\_directives\material-table\material-table.js" />
     <Content Include="app\_directives\material-table\material-table.template.html" />
+    <Content Include="app\_directives\realtime-chart\realtime-chart.js" />
+    <Content Include="app\_directives\realtime-chart\realtime-chart.template.html" />
     <Content Include="app\_services\ingredientService.js" />
+    <Content Include="app\_services\rttService.js" />
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
@@ -292,6 +289,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ct-ui-router-extras.js" />
+    <Content Include="Scripts\d3.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -1173,6 +1171,10 @@
     <ProjectReference Include="..\RebrewsData\RebrewsData.csproj">
       <Project>{0d274ae8-c47d-4e4a-933b-f68c8623d29f}</Project>
       <Name>RebrewsData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RebrewsViewModels\RebrewsViewModels.csproj">
+      <Project>{1eb763db-641f-4a95-8d48-ab085ec047ed}</Project>
+      <Name>RebrewsViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

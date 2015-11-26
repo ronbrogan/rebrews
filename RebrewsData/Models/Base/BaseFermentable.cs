@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using RebrewsData.Enums;
+﻿using RebrewsData.Enums;
 
-namespace RebrewsData.Models
+namespace RebrewsData.Models.Base
 {
     public class BaseFermentable : BaseIngredient
     {

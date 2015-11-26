@@ -125,6 +125,24 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
+                <h1>Requests</h1>
+            </div>
+            {{recipe.requests | json}}
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h1>Resolved</h1>
+            </div>
+            {{recipe.resolved | json}}
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
                 <h1>Mash Profile</h1>
             </div>
             (table)
@@ -136,7 +154,9 @@
             <div class="card-header">
                 <h1>Fermentation</h1>
             </div>
-            (table)
+            <p ng-repeat="item in $root.resolved">
+                {{item}}
+            </p>
         </div>
     </div>
 

@@ -139,6 +139,20 @@ fieldset[disabled] .edit-window input {
 textarea.edit-window input {
   height: auto;
 }
+svg {
+  background-color: #878787;
+}
+svg .axis path,
+svg .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+svg .line {
+  fill: none;
+  stroke: #23c2ff;
+  stroke-width: 3px;
+}
 .card {
   margin-top: 12px;
   padding-top: 12px;

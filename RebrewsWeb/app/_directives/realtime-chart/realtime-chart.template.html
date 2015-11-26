@@ -1,0 +1,8 @@
+<svg ng-attr-width="{{chart.width}}" ng-attr-height="{{chart.height}}">
+    <g class="x axis" ng-attr-transform="translate(0, {{chart.height}})" ng-load="chart.xAxis()"></g>
+    <g class="y axis" ng-load="chart.yAxis()">
+        <text transform="rotate(-90)" y="6" dy=".71em" style="text-anchor: end;">Scale Text</text>
+    </g>
+
+    <path class="line" stroke-linecap="round" ng-attr-d="{{chart.line(chart.points)}}"></path>
+</svg>

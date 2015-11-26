@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Web.Http;
 using Newtonsoft.Json;
 using RebrewsData.Models;
+using RebrewsData.Models.Recipe;
 
 namespace RebrewsWeb.Controllers
 {

@@ -1,15 +1,17 @@
 ﻿(function() {
     angular.module("rebrews", ["ui.router", "ct.ui.router.extras"]).config(config).run(run);
 
-    config.$inject = ["$locationProvider", "$stateProvider", "$urlRouterProvider", "$stickyStateProvider"];
+    config.$inject = ["$locationProvider", "$stateProvider", "$urlRouterProvider", "$stickyStateProvider", "$httpProvider"];
 
-    function config($locationProvider, $stateProvider, $urlRouterProvider, $stickyStateProvider) {
+    function config($locationProvider, $stateProvider, $urlRouterProvider, $stickyStateProvider, $httpProvider) {
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
 
         $stickyStateProvider.enableDebug(true);
 
         $urlRouterProvider.otherwise("/");
+
+        $httpProvider.interceptors.push("rttService");
 
         $stateProvider
             .state("home", {
@@ -68,7 +70,8 @@
                 sticky: true,
                 views: {
                     "main": {
-                        templateUrl: "/app/recipe/recipe.template.html"
+                        templateUrl: "/app/recipe/recipe.template.html",
+                        controller: "recipeController as recipe"
                     }
                 }
             })
@@ -77,9 +80,26 @@
 
     }
 
-    run.$inject = [];
+    run.$inject = ["$rootScope"];
 
-    function run() {
+    function run($rootScope) {
+        $rootScope.requests = {};
+        $rootScope.resolved = [];
+        
+        $rootScope.addRequest = function(hash) {
+            $rootScope.requests[hash] = new Date().getTime();
+        }
+
+        $rootScope.resolveRequest = function (hash) {
+            var end = new Date().getTime();
+            var begin = $rootScope.requests[hash];
+            delete $rootScope.requests[hash];
+
+            var duration = end - begin;
+            $rootScope.resolved.push({ 'Request Length': duration + "ms", 'Time': new Date(end) });
+
+        }
+
 
     };
 

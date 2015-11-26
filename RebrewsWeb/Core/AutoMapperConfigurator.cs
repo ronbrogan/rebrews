@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
-using RebrewsData.Models;
-using RebrewsWeb.ViewModels;
+using RebrewsData.Models.Base;
+using RebrewsData.Models.Recipe;
+using RebrewsViewModels.ViewModels.Base;
+using RebrewsViewModels.ViewModels.Recipe;
 
 namespace RebrewsWeb.Core
 {

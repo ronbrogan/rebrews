@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using RebrewsData.Models;
+using RebrewsData.Models.Base;
+using RebrewsData.Models.Recipe;
 
 namespace RebrewsData
 {

@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0D274AE8-C47D-4E4A-933B-F68C8623D29F}</ProjectGuid>
+    <ProjectGuid>{1EB763DB-641F-4A95-8D48-AB085EC047ED}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RebrewsData</RootNamespace>
-    <AssemblyName>RebrewsData</AssemblyName>
+    <RootNamespace>RebrewsViewModels</RootNamespace>
+    <AssemblyName>RebrewsViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,39 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AutoMapper.EF6, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.EF6.0.1.1\lib\net45\AutoMapper.EF6.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DelegateDecompiler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
-      <HintPath>..\packages\DelegateDecompiler.0.16.0\lib\net40-Client\DelegateDecompiler.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DelegateDecompiler.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
-      <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.16.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Mono.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mono.Reflection.1.0.0.0\lib\Mono.Reflection.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -106,73 +79,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\FermentablePhType.cs" />
-    <Compile Include="Migrations\201509290157147_Initial.cs" />
-    <Compile Include="Migrations\201509290157147_Initial.Designer.cs">
-      <DependentUpon>201509290157147_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510020037305_Fermentable.cs" />
-    <Compile Include="Migrations\201510020037305_Fermentable.Designer.cs">
-      <DependentUpon>201510020037305_Fermentable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510050004360_InitialModelState.cs" />
-    <Compile Include="Migrations\201510050004360_InitialModelState.Designer.cs">
-      <DependentUpon>201510050004360_InitialModelState.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510050017072_FermentableTweaks.cs" />
-    <Compile Include="Migrations\201510050017072_FermentableTweaks.Designer.cs">
-      <DependentUpon>201510050017072_FermentableTweaks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510050040399_Recipe.cs" />
-    <Compile Include="Migrations\201510050040399_Recipe.Designer.cs">
-      <DependentUpon>201510050040399_Recipe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510050051191_RecipeName.cs" />
-    <Compile Include="Migrations\201510050051191_RecipeName.Designer.cs">
-      <DependentUpon>201510050051191_RecipeName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510050113001_YeastFixes.cs" />
-    <Compile Include="Migrations\201510050113001_YeastFixes.Designer.cs">
-      <DependentUpon>201510050113001_YeastFixes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Base\BaseFermentable.cs" />
-    <Compile Include="Models\Base\BaseHop.cs" />
-    <Compile Include="Models\Base\BaseIngredient.cs" />
-    <Compile Include="Models\Recipe\Recipe.cs" />
-    <Compile Include="Models\Recipe\RecipeFermentable.cs" />
-    <Compile Include="Models\Recipe\RecipeHop.cs" />
-    <Compile Include="Models\Recipe\RecipeIngredient.cs" />
-    <Compile Include="Models\Base\BaseYeast.cs" />
-    <Compile Include="Models\Recipe\RecipeYeast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RebrewsDataContext.cs" />
+    <Compile Include="ViewModels\Base\BaseFermentableViewModel.cs" />
+    <Compile Include="ViewModels\Base\BaseHopViewModel.cs" />
+    <Compile Include="ViewModels\Base\BaseYeastViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\RecipeFermentableViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\RecipeHopViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\RecipeViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\RecipeYeastViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201509290157147_Initial.resx">
-      <DependentUpon>201509290157147_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510020037305_Fermentable.resx">
-      <DependentUpon>201510020037305_Fermentable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510050004360_InitialModelState.resx">
-      <DependentUpon>201510050004360_InitialModelState.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510050017072_FermentableTweaks.resx">
-      <DependentUpon>201510050017072_FermentableTweaks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510050040399_Recipe.resx">
-      <DependentUpon>201510050040399_Recipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510050051191_RecipeName.resx">
-      <DependentUpon>201510050051191_RecipeName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510050113001_YeastFixes.resx">
-      <DependentUpon>201510050113001_YeastFixes.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Brewday\" />
+    <Folder Include="ViewModels\Brewday\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -187,9 +104,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51315</DevelopmentServerPort>
+          <DevelopmentServerPort>63816</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51315/</IISUrl>
+          <IISUrl>http://localhost:63816/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
