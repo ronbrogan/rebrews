@@ -67,6 +67,15 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -147,7 +156,12 @@
     <Compile Include="Migrations\201602040058136_RecipeIngredients.Designer.cs">
       <DependentUpon>201602040058136_RecipeIngredients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602040423394_ApiUserChanges.cs" />
+    <Compile Include="Migrations\201602040423394_ApiUserChanges.Designer.cs">
+      <DependentUpon>201602040423394_ApiUserChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Authentication\ApiUser.cs" />
     <Compile Include="Models\Base\BaseFermentable.cs" />
     <Compile Include="Models\Base\BaseHop.cs" />
     <Compile Include="Models\Base\BaseIngredient.cs" />
@@ -192,9 +206,15 @@
     <EmbeddedResource Include="Migrations\201602040058136_RecipeIngredients.resx">
       <DependentUpon>201602040058136_RecipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602040423394_ApiUserChanges.resx">
+      <DependentUpon>201602040423394_ApiUserChanges.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Brewday\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

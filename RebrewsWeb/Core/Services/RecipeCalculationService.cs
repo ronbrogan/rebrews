@@ -32,6 +32,7 @@ namespace RebrewsWeb.Core
         {
             var totalPoints = 0d;
 
+
             fermentables.ForEach(f => totalPoints += (double)(f.Amount*f.Base.PPG));
 
             return (totalPoints/batchSize)*(extractionEfficiency);

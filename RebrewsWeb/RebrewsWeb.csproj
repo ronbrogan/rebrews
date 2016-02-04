@@ -209,22 +209,14 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\AutoMapperConfigurator.cs" />
-    <Compile Include="Core\RecipeCalculationService.cs" />
-    <Compile Include="Core\ColorLookup.cs" />
+    <Compile Include="Core\Services\RecipeCalculationService.cs" />
+    <Compile Include="Core\Services\ColorLookup.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509040141457_InitialMigration.cs" />
-    <Compile Include="Migrations\201509040141457_InitialMigration.Designer.cs">
-      <DependentUpon>201509040141457_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountBindingModels.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Core\Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Core\Classes\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1179,11 +1171,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201509040141457_InitialMigration.resx">
-      <DependentUpon>201509040141457_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RebrewsData\RebrewsData.csproj">

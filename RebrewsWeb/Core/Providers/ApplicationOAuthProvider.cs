@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using RebrewsWeb.Models;
+using RebrewsData.Models.Authentication;
 
 namespace RebrewsWeb.Providers
 {
@@ -21,7 +21,7 @@ namespace RebrewsWeb.Providers
         {
             if (publicClientId == null)
             {
-                throw new ArgumentNullException("publicClientId");
+                throw new ArgumentNullException(nameof(publicClientId));
             }
 
             _publicClientId = publicClientId;
@@ -31,7 +31,7 @@ namespace RebrewsWeb.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+            ApiUser user = await userManager.FindAsync(context.UserName, context.Password);
 
             if (user == null)
             {
