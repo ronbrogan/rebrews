@@ -1,0 +1,7 @@
+<div ng-if="ctrl.isEditing">
+    <span>Edit</span>
+    <span ng-if="ctrl.selectorItems">Wayo</span>
+</div>
+<div ng-if="!ctrl.isEditing">
+    <span>{{ctrl.item[ctrl.columnDefinition.binding] | descenderFilter:ctrl.columnDefinition.property}}{{ctrl.columnDefinition.append}}</span>
+</div>

@@ -5,13 +5,10 @@ namespace RebrewsData.Models.Recipe
 {
     public class RecipeYeast : RecipeIngredient
     {
-        [ForeignKey("BaseYeast")]
-        public int? BaseYeast_Id { get; set; }
+        [ForeignKey("Base")]
+        public int Base_Id { get; set; }
 
-        public virtual BaseYeast BaseYeast { get; set; }
-
-        [ForeignKey("Recipe")]
-        public int? Recipe_Id { get; set; }
+        public virtual BaseYeast Base { get; set; }
 
         public Recipe Recipe { get; set; }
     }

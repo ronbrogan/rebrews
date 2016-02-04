@@ -135,6 +135,18 @@
     <Compile Include="Migrations\201510050113001_YeastFixes.Designer.cs">
       <DependentUpon>201510050113001_YeastFixes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512130532067_RecipeIngredient.cs" />
+    <Compile Include="Migrations\201512130532067_RecipeIngredient.Designer.cs">
+      <DependentUpon>201512130532067_RecipeIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601270418057_BaseChanges.cs" />
+    <Compile Include="Migrations\201601270418057_BaseChanges.Designer.cs">
+      <DependentUpon>201601270418057_BaseChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602040058136_RecipeIngredients.cs" />
+    <Compile Include="Migrations\201602040058136_RecipeIngredients.Designer.cs">
+      <DependentUpon>201602040058136_RecipeIngredients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\BaseFermentable.cs" />
     <Compile Include="Models\Base\BaseHop.cs" />
@@ -144,6 +156,7 @@
     <Compile Include="Models\Recipe\RecipeHop.cs" />
     <Compile Include="Models\Recipe\RecipeIngredient.cs" />
     <Compile Include="Models\Base\BaseYeast.cs" />
+    <Compile Include="Models\Recipe\RecipeProfile.cs" />
     <Compile Include="Models\Recipe\RecipeYeast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RebrewsDataContext.cs" />
@@ -169,6 +182,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510050113001_YeastFixes.resx">
       <DependentUpon>201510050113001_YeastFixes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512130532067_RecipeIngredient.resx">
+      <DependentUpon>201512130532067_RecipeIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601270418057_BaseChanges.resx">
+      <DependentUpon>201601270418057_BaseChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602040058136_RecipeIngredients.resx">
+      <DependentUpon>201602040058136_RecipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

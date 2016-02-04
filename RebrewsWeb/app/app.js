@@ -7,7 +7,7 @@
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
 
-        $stickyStateProvider.enableDebug(true);
+        $stickyStateProvider.enableDebug(false);
 
         $urlRouterProvider.otherwise("/");
 
@@ -66,12 +66,12 @@
                 }
             })
             .state("recipe", {
-                url: "/recipe",
+                url: "/recipe/:recipe_Id",
                 sticky: true,
                 views: {
                     "main": {
                         templateUrl: "/app/recipe/recipe.template.html",
-                        controller: "recipeController as recipe"
+                        controller: "recipeController as recipeCtrl"
                     }
                 }
             })

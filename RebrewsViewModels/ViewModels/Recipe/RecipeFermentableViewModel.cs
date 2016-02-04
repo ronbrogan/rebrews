@@ -13,13 +13,13 @@ namespace RebrewsViewModels.ViewModels.Recipe
         public decimal Amount { get; set; }
 
         [DataMember]
-        public int? BaseFermentable_Id { get; set; }
+        public int? Base_Id { get; set; }
 
         [DataMember]
-        public BaseFermentableViewModel BaseFermentable { get; set; }
+        public BaseFermentableViewModel Base { get; set; }
 
         [DataMember]
-        public bool ContributesSugars { get; set; }
+        public bool SteepOnly { get; set; }
 
     }
 }

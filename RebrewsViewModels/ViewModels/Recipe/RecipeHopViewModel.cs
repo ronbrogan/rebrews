@@ -13,10 +13,10 @@ namespace RebrewsViewModels.ViewModels.Recipe
         public decimal Amount { get; set; }
 
         [DataMember]
-        public int? BaseHop_Id { get; set; }
+        public int? Base_Id { get; set; }
 
         [DataMember]
-        public BaseHopViewModel BaseHop { get; set; }
+        public BaseHopViewModel Base { get; set; }
 
         [DataMember]
         public int BoilTime { get; set; }

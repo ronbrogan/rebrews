@@ -14,9 +14,9 @@ namespace RebrewsViewModels.ViewModels.Recipe
         public decimal Amount { get; set; }
 
         [DataMember]
-        public int? BaseYeast_Id { get; set; }
+        public int? Base_Id { get; set; }
 
         [DataMember]
-        public BaseYeastViewModel BaseYeast { get; set; }
+        public BaseYeastViewModel Base { get; set; }
     }
 }

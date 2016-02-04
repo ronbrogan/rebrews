@@ -24,5 +24,8 @@ namespace RebrewsViewModels.ViewModels.Recipe
         public ICollection<RecipeYeastViewModel> Yeasts { get; set; }
 
 
+        [DataMember]
+        public RecipeProfileViewModel Profile { get; set; }
+
     }
 }

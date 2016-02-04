@@ -10,7 +10,7 @@
         service.resolved = [];
 
         service.offload = function (arr) {
-            console.log("Average RTT: " + (arr.reduce(function(a, b){return a['RTT']+b['RTT'];}) / arr.length));
+            
         };
 
         service.addRequest = function(hash) {

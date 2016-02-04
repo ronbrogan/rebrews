@@ -20,21 +20,25 @@ namespace RebrewsWeb
                       "~/Content/Site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                     "~/Scripts/angular.js",
+                     "~/Scripts/angularjs/angular.js",
                      "~/Scripts/d3.js",
                      "~/Scripts/angular-ui-router.js",
                      "~/Scripts/ct-ui-router-extras.js",
-                     "~/app/app.js"));
+                     "~/app/app.js",
+                     "~/Scripts/lodash.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/recipe").Include(
-                    "~/app/recipe/recipeController.js"
+                    "~/app/recipe/recipeController.js",
+                    "~/app/_directives/ingredient-table/ingredient-table.js"
                     ));
 
             bundles.Add(new ScriptBundle("~/bundles/directives").Include(
                     "~/app/_directives/material-table/material-table.js",
-                    "~/app/_directives/dbl-edit/dbl-edit.js",
+                    "~/app/_directives/cell-editor/cell-editor.js",
                     "~/app/_directives/realtime-chart/realtime-chart.js",
-                    "~/app/_services/rttService.js"
+                    "~/app/_services/rttService.js",
+                    "~/app/_filters/descender-filter.js",
+                    "~/app/_directives/loading-bar/loading-bar.js"
                     ));
         }
     }

@@ -1,16 +1,21 @@
 ﻿(function () {
 
-    angular.module('rebrews').controller('recipeController', recipeController);
+    angular.module("rebrews").controller("recipeController", recipeController);
 
-    recipeController.$inject = ['rttService'];
+    recipeController.$inject = ["$stateParams", "rttService", "$http"];
 
-    function recipeController(rttService) {
+    function recipeController($stateParams, rttService, $http) {
         var self = this;
-        self.resolved = rttService.resolved;
-        self.requests = rttService.requests;
+        self.recipeId = $stateParams.recipe_Id;
+        self.recipe = {};
 
-        activate();
 
-        function activate() { }
+        function initialize() {
+            $http.get("/api/Recipes/" + self.recipeId).then(function(result) {
+                self.recipe = result.data;
+            });
+        }
+
+        initialize();
     }
 })();
