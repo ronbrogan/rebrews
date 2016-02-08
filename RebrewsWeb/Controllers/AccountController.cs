@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -17,6 +18,7 @@ using RebrewsData.Models.Authentication;
 using RebrewsViewModels.ViewModels.Authentication;
 using RebrewsWeb.Providers;
 using RebrewsWeb.Results;
+using RebrewsWeb.Core.Services;
 
 namespace RebrewsWeb.Controllers
 {
@@ -66,6 +68,23 @@ namespace RebrewsWeb.Controllers
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
         }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public HttpResponseMessage Login(LoginViewModel login)
+        {
+            ApiUser user = UserManager.Find(login.Email, login.Password);
+
+            if (user == null)
+                throw new Exception("Invalid user or password. Please try again.");
+
+            AuthenticationHandler authHandler = new AuthenticationHandler(Authentication);
+
+            authHandler.SignInUser(user, true);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
 
         // POST api/Account/Logout
         [Route("Logout")]
@@ -372,6 +391,14 @@ namespace RebrewsWeb.Controllers
                 return GetErrorResult(result); 
             }
             return Ok();
+        }
+
+        [AllowAnonymous]
+        public HttpResponseMessage GetWhoami()
+        {
+            var me = HttpContext.Current.User.Identity;
+
+            return Request.CreateResponse(HttpStatusCode.OK, me);
         }
 
         protected override void Dispose(bool disposing)

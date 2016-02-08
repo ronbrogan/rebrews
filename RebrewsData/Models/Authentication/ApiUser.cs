@@ -1,13 +1,25 @@
-﻿using System.Security.Claims;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using RebrewsData.Enums;
 
 namespace RebrewsData.Models.Authentication
 {
-    // You can add profile data for the user by adding more properties to your ApiUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApiUser : IdentityUser
     {
+        [MaxLength(100)]
+        public string FirstName { get; set; }
+
+        [MaxLength(100)]
+        public string LastName { get; set; }
+
+        public UserRole Role { get; set; }
+
+
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApiUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -15,5 +27,6 @@ namespace RebrewsData.Models.Authentication
             // Add custom user claims here
             return userIdentity;
         }
+
     }
 }

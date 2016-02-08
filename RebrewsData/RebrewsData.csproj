@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\FermentablePhType.cs" />
+    <Compile Include="Enums\UserRole.cs" />
     <Compile Include="Migrations\201509290157147_Initial.cs" />
     <Compile Include="Migrations\201509290157147_Initial.Designer.cs">
       <DependentUpon>201509290157147_Initial.cs</DependentUpon>
@@ -159,6 +160,14 @@
     <Compile Include="Migrations\201602040423394_ApiUserChanges.cs" />
     <Compile Include="Migrations\201602040423394_ApiUserChanges.Designer.cs">
       <DependentUpon>201602040423394_ApiUserChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602050329123_UserFirstLastName.cs" />
+    <Compile Include="Migrations\201602050329123_UserFirstLastName.Designer.cs">
+      <DependentUpon>201602050329123_UserFirstLastName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602050435139_UserRole.cs" />
+    <Compile Include="Migrations\201602050435139_UserRole.Designer.cs">
+      <DependentUpon>201602050435139_UserRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Authentication\ApiUser.cs" />
@@ -208,6 +217,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602040423394_ApiUserChanges.resx">
       <DependentUpon>201602040423394_ApiUserChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602050329123_UserFirstLastName.resx">
+      <DependentUpon>201602050329123_UserFirstLastName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602050435139_UserRole.resx">
+      <DependentUpon>201602050435139_UserRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

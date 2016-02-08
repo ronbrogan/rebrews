@@ -209,6 +209,7 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\AutoMapperConfigurator.cs" />
+    <Compile Include="Core\Services\AuthenticationHandler.cs" />
     <Compile Include="Core\Services\RecipeCalculationService.cs" />
     <Compile Include="Core\Services\ColorLookup.cs" />
     <Compile Include="Global.asax.cs">
