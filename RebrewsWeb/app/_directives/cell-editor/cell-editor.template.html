@@ -1,6 +1,13 @@
 <div ng-if="ctrl.isEditing">
-    <span>Edit</span>
-    <span ng-if="ctrl.selectorItems">Wayo</span>
+    <span ng-if="!ctrl.selectorItems">
+        <input type="text" ng-model="ctrl.itemValue" class="form-control" />
+
+    </span>
+    <span ng-if="ctrl.selectorItems">
+
+        <select ng-model="ctrl.itemValue" ng-options="item.id as item.name for item in ctrl.selectorItems" class="form-control"></select>
+
+    </span>
 </div>
 <div ng-if="!ctrl.isEditing">
     <span>{{ctrl.item[ctrl.columnDefinition.binding] | descenderFilter:ctrl.columnDefinition.property}}{{ctrl.columnDefinition.append}}</span>

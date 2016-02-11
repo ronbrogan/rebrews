@@ -35,7 +35,7 @@ namespace RebrewsWeb.Controllers
                 case "yeasts":
                     return Request.CreateResponse(HttpStatusCode.OK, db.RecipeYeasts.Where(query).ToList().Select(Mapper.Map<RecipeYeastViewModel>));
                 default:
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                    throw new ArgumentException("Unknown ingredient type.");
 
             }
         }

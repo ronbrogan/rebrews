@@ -6,16 +6,21 @@
     ingredientService.$inject = ["$http"];
     
     function ingredientService($http) {
-        var service = {
-            searchFermentable: function(query) {
-                return $http.get("api/Fermentables/Search/" + query).then(function(result) {
-                    return result.data;
-                }).catch();
-            }
+        var self = this;
 
+        self.searchFermentable = function (query) {
+            return $http.get("api/Fermentables/Search/" + query).then(function (result) {
+                return result.data;
+            }).catch();
+        };
 
-    };
+        self.allIngredients = function (ingredientType) {
+            return $http.get("api/" + ingredientType + "/List").then(function (result) {
+                return result.data;
+            }).catch();
+        };
+    
 
-        return service;
+        return self;
     }
 })();

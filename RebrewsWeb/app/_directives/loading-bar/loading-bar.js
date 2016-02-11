@@ -15,7 +15,6 @@
                 var loadingBar = element.children(".loading-bar").eq(0);
 
                 scope.$on("loadingBar-start", function (e) {
-                    console.log("start event received");
                     e.defaultPrevented = true;
                     e.stopPropagation();
                     loadingBar.css("display", "block");
@@ -24,7 +23,6 @@
                 });
 
                 scope.$on("loadingBar-set", function (e, val) {
-                    console.log("set event received");
                     e.defaultPrevented = true;
                     e.stopPropagation();
                     loadingBar.css("display", "block");
@@ -33,7 +31,6 @@
                 });
 
                 scope.$on("loadingBar-increment", function (e, val) {
-                    console.log("inc event received");
                     e.defaultPrevented = true;
                     e.stopPropagation();
                     loadingBar.css("display", "block");
@@ -42,7 +39,6 @@
                 });
 
                 scope.$on("loadingBar-complete", function (e) {
-                    console.log("complete event received");
                     e.defaultPrevented = true;
                     e.stopPropagation();
                     auto = false;
@@ -77,8 +73,6 @@
                 function getIncVal() {
                     var curr = status;
                     var increment = Math.random() * (1 / ((10 * curr) + 10));
-
-                    console.log("Curr: " + curr + ", increment: " + increment);
 
                     var result = curr + increment;
 

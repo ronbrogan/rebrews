@@ -25,7 +25,8 @@ namespace RebrewsWeb
                      "~/Scripts/angular-ui-router.js",
                      "~/Scripts/ct-ui-router-extras.js",
                      "~/app/app.js",
-                     "~/Scripts/lodash.min.js"));
+                     "~/Scripts/lodash.min.js",
+                     "~/app/_services/ingredientService.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/recipe").Include(
                     "~/app/recipe/recipeController.js",

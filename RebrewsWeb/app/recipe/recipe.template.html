@@ -7,6 +7,27 @@
                     <small>{{recipeCtrl.recipe.style || '(No style information)'}}</small>
                 </h1>
             </div>
+            <div class="row">
+                <div class="col-md-2 text-center">
+                    Style Shite: 
+                </div>
+                <div class="col-md-2 text-center">
+                    OG: {{recipeCtrl.recipe.profile.originalGravity | number:3}}
+                </div>
+                <div class="col-md-2 text-center">
+                    FG: {{recipeCtrl.recipe.profile.finalGravity | number:3}}
+                </div>
+                <div class="col-md-2 text-center">
+                    ABV: {{recipeCtrl.recipe.profile.alcoholByVolume | number:2}}%
+                </div>
+                <div class="col-md-2 text-center">
+                    IBUs: {{recipeCtrl.recipe.profile.internationalBitteringUnits | number:2}}
+                </div>
+                <div class="col-md-2 text-center" style="color: rgb({{recipeCtrl.recipe.profile.colorRGB}});">
+                    SRM: {{recipeCtrl.recipe.profile.colorSRM | number:1}}
+                </div>
+                
+            </div>
         </div>
     </div>
 </div>

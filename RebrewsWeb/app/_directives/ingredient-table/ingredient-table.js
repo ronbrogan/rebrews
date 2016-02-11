@@ -20,9 +20,9 @@
 
     .controller("ingredientTableController", ingredientTableController);
 
-    ingredientTableController.$inject = ["$scope", "$stateParams", "$http", "$timeout"];
+    ingredientTableController.$inject = ["$scope", "$stateParams", "$http", "$timeout", "ingredientService"];
 
-    function ingredientTableController($scope, $stateParams, $http, $timeout) {
+    function ingredientTableController($scope, $stateParams, $http, $timeout, ingredientService) {
         var self = this;
 
         self.listEndpoint = "/api/" + self.ingredientType + "/List";
@@ -48,20 +48,20 @@
                 },
                 {
                     "heading": "Name",
-                    "binding": "baseFermentable",
+                    "binding": "base",
                     "property": "name",
                     "isEditable": true,
                     "type": "selector"
                 },
                 {
                     "heading": "Lovibond °L",
-                    "binding": "baseFermentable",
+                    "binding": "base",
                     "property": "degreesLovibond",
                     "isEditable": false
                 },
                 {
                     "heading": "PPG",
-                    "binding": "baseFermentable",
+                    "binding": "base",
                     "property": "ppg",
                     "isEditable": false
                 }
@@ -70,32 +70,36 @@
                 {
                     "heading": "Amount",
                     "binding": "amount",
-                    "append": " oz"
+                    "append": " oz",
+                    "isEditable": true
                 },
                 {
                     "heading": "Time",
-                    "binding": "boilTime"
+                    "binding": "boilTime",
+                    "isEditable": true
                 },
                 {
                     "heading": "Name",
-                    "binding": "baseHop",
-                    "property": "name"
+                    "binding": "base",
+                    "property": "name",
+                    "isEditable": true,
+                    "type": "selector"
                 },
                 {
                     "heading": "AA",
-                    "binding": "baseHop",
+                    "binding": "base",
                     "property": "alphaAcid"
                 }
             ],
             "yeasts": [
                 {
                     "heading": "Name",
-                    "binding": "baseYeast",
+                    "binding": "base",
                     "property": "name"
                 },
                 {
                     "heading": "Attenuation",
-                    "binding": "baseYeast",
+                    "binding": "base",
                     "property": "attenuation",
                     "append": "%"
                 }
@@ -113,20 +117,17 @@
 
         function initialize() {
             $scope.$emit("loadingBar-start");
-            if (self.recipeItem && self.recipeItem[self.ingredientType] && self.recipeItem[self.ingredientType].length > 0) {
-                self.items = angular.copy(self.recipeItem[self.ingredientType]);
-                $timeout(function() {
-                    $scope.$emit("loadingBar-complete");
-                }, 10000);
-                
-            } else {
-                $http.get(self.crudEndpoint).then(function(result) {
-                    self.items = result.data;
-                    $timeout(function () {
-                        $scope.$emit("loadingBar-complete");
-                    }, 10000);
-                });
-            }
+
+            self.items = self.recipeItem[self.ingredientType];
+
+            ingredientService.allIngredients(self.ingredientType).then(function (data) {
+                self.selectableItems = data;
+                $scope.$emit("loadingBar-complete");
+            });
+
+
+
+            
         }
     }
 })();

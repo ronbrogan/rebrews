@@ -30,7 +30,7 @@
 			            return;
 
 			        scope.$apply(function () {
-			            thisCtrl.isEditing = false;
+			            thisCtrl.confirm();
 			        });
 			    });
 
@@ -40,13 +40,25 @@
 
     .controller("cellEditorController", cellEditorController);
 
-    cellEditorController.$inject = ["$scope", "$stateParams"];
+    cellEditorController.$inject = ["$scope", "$stateParams", "$filter"];
 
-    function cellEditorController($scope, $stateParams) {
+    function cellEditorController($scope, $stateParams, $filter) {
         var self = this;
 
+        self.confirm = function () {
+            if (self.isEditing) {
+                self.isEditing = false;
+                console.log(self.itemValue);
+            }
+        }
 
         function initialize() {
+            if (self.columnDefinition.type == "selector") {
+                self.itemValue = $filter('descenderFilter')(self.item[self.columnDefinition.binding], 'id');
+            }
+            else{
+                self.itemValue = $filter('descenderFilter')(self.item[self.columnDefinition.binding], self.columnDefinition.property);
+            }
 
         }
 
