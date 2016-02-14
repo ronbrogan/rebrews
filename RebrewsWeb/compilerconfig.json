@@ -10,5 +10,9 @@
   {
     "outputFile": "Content/bootstrap/variables.css",
     "inputFile": "Content/bootstrap/variables.less"
+  },
+  {
+    "outputFile": "Content/BeerGlasses.css",
+    "inputFile": "Content/BeerGlasses.less"
   }
 ]

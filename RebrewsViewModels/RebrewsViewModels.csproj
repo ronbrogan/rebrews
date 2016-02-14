@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\Base\BaseFermentableViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseHopViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseYeastViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\IngredientModifiedViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeFermentableViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeHopViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeProfileViewModel.cs" />

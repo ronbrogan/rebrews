@@ -17,20 +17,27 @@ namespace RebrewsWeb
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap/bootstrap.css",
-                      "~/Content/Site.css"));
+                      "~/Content/Site.css",
+                      "~/Content/BeerGlasses.css",
+                      "~/Content/angular-toastr.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                      "~/Scripts/angularjs/angular.js",
+                     "~/Scripts/angularjs/angular-animate.min.js",
+                     "~/Scripts/angularjs/angular-aria.min.js",
                      "~/Scripts/d3.js",
                      "~/Scripts/angular-ui-router.js",
                      "~/Scripts/ct-ui-router-extras.js",
+                     "~/Scripts/angular-toastr.min.js",
+                     "~/Scripts/angular-toastr.tpls.min.js",
                      "~/app/app.js",
                      "~/Scripts/lodash.min.js",
                      "~/app/_services/ingredientService.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/recipe").Include(
                     "~/app/recipe/recipeController.js",
-                    "~/app/_directives/ingredient-table/ingredient-table.js"
+                    "~/app/_directives/ingredient-table/ingredient-table.js",
+                    "~/app/recipe/recipe.color.display/recipe.color.display.js"
                     ));
 
             bundles.Add(new ScriptBundle("~/bundles/directives").Include(

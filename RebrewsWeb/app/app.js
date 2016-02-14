@@ -1,9 +1,9 @@
 ﻿(function() {
-    angular.module("rebrews", ["ui.router", "ct.ui.router.extras"]).config(config).run(run);
+    angular.module("rebrews", ["ui.router", "ct.ui.router.extras", "toastr"]).config(config).run(run);
 
-    config.$inject = ["$locationProvider", "$stateProvider", "$urlRouterProvider", "$stickyStateProvider", "$httpProvider"];
+    config.$inject = ["$locationProvider", "$stateProvider", "$urlRouterProvider", "$stickyStateProvider", "$httpProvider", "toastrConfig"];
 
-    function config($locationProvider, $stateProvider, $urlRouterProvider, $stickyStateProvider, $httpProvider) {
+    function config($locationProvider, $stateProvider, $urlRouterProvider, $stickyStateProvider, $httpProvider, toastrConfig) {
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
 
@@ -78,11 +78,43 @@
         ;
 
 
+        angular.extend(toastrConfig, {
+            autoDismiss: true,
+            containerId: 'toast-container',
+            maxOpened: 0,
+            newestOnTop: true,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: false,
+            preventOpenDuplicates: false,
+            target: 'body',
+
+
+            allowHtml: false,
+            closeButton: false,
+            closeHtml: '<button>&times;</button>',
+            extendedTimeOut: 1000,
+            iconClasses: {
+                error: 'toast-error',
+                info: 'toast-info',
+                success: 'toast-success',
+                warning: 'toast-warning'
+            },
+            messageClass: 'toast-message',
+            onHidden: null,
+            onShown: null,
+            onTap: null,
+            progressBar: false,
+            tapToDismiss: true,
+            timeOut: 4000,
+            titleClass: 'toast-title',
+            toastClass: 'toast'
+        });
+
     }
 
-    run.$inject = ["$rootScope"];
+    run.$inject = ["$rootScope", "$q", "toastr"];
 
-    function run($rootScope) {
+    function run($rootScope, $q, toastr) {
         $rootScope.requests = {};
         $rootScope.resolved = [];
         
@@ -97,9 +129,20 @@
 
             var duration = end - begin;
             $rootScope.resolved.push({ 'Request Length': duration + "ms", 'Time': new Date(end) });
-
         }
 
+        $rootScope.errHandler = function (result) {
+            //do stuff with result here, present toast, create datapoints, etc.
+
+            result.unwrappedError = result.data;
+
+            toastr.error(result.unwrappedError.message);
+
+            console.log("ErrorHandler: ");
+            console.log(result);
+
+            return $q.reject(result);
+        };
 
     };
 

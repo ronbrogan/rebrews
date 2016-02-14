@@ -23,8 +23,9 @@
                 <div class="col-md-2 text-center">
                     IBUs: {{recipeCtrl.recipe.profile.internationalBitteringUnits | number:2}}
                 </div>
-                <div class="col-md-2 text-center" style="color: rgb({{recipeCtrl.recipe.profile.colorRGB}});">
+                <div class="col-md-2 text-center">
                     SRM: {{recipeCtrl.recipe.profile.colorSRM | number:1}}
+                    <recipe-color-display rgb-value="{{recipeCtrl.recipe.profile.colorRGB}}"></recipe-color-display>
                 </div>
                 
             </div>

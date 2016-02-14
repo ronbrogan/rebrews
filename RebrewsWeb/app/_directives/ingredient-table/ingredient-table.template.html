@@ -1,12 +1,33 @@
 <table class="material-table">
     <thead>
         <tr>
-            <th class="buttons"><i class="glyphicon glyphicon-plus clickable"></i></th>
+            <th class="buttons">
+                <i class="glyphicon glyphicon-plus clickable" ng-if="!ctrl.itemAddMode" ng-click="ctrl.addNew()"></i>
+                <i class="glyphicon glyphicon-remove clickable red"  ng-if="ctrl.itemAddMode" ng-click="ctrl.cancelAdd()"></i>
+            </th>
             <th ng-repeat="column in ctrl.columnDefinition[ctrl.ingredientType]">{{column.heading}}</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="item in ctrl.items | orderBy:'amount':true" ng-mouseenter="item.hover = true" ng-mouseleave="item.hover = false">
+        <tr ng-if="ctrl.itemAddMode" class="new-row">
+            <td class="buttons">
+                <i class="glyphicon glyphicon-floppy-disk clickable" ng-click="ctrl.confirmAdd()"></i>
+            </td>
+
+            <td ng-repeat="column in ctrl.columnDefinition[ctrl.ingredientType]" ng-switch="column.type">
+                <div ng-if="column.isEditable">
+                    <div ng-switch-when="selector">
+                        <select ng-model="ctrl.newItem[column.binding]" ng-options="item as item.name for item in ctrl.selectableItems" class="form-control"></select>
+                    </div>
+                    <div ng-switch-default>
+                        <input type="text" ng-model="ctrl.newItem[column.binding]" class="form-control" />
+                    </div>
+                </div>
+                <div ng-if="!column.isEditable">{{ctrl.newItem[column.binding] | descenderFilter:column.property}}{{column.append}}</div>
+
+            </td>
+        </tr>
+        <tr ng-repeat="item in ctrl.recipeItem[ctrl.ingredientType] | orderBy:'amount':true" ng-mouseenter="item.hover = true" ng-mouseleave="item.hover = false">
             <td class="buttons"><i class="glyphicon glyphicon-remove clickable" ng-show="item.hover" ng-click="ctrl.remove(item)"></i></td>
             <td ng-repeat="column in ctrl.columnDefinition[ctrl.ingredientType]" ng-switch="column.type">
                 <div ng-switch-when="selector">
@@ -16,7 +37,7 @@
                     <cell-editor item="item" column-definition="column"></cell-editor>
                 </div>
 
-                
+
             </td>
         </tr>
     </tbody>

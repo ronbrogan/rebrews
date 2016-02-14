@@ -28,11 +28,54 @@
         self.listEndpoint = "/api/" + self.ingredientType + "/List";
         self.crudEndpoint = "/api/Ingredients/" + self.ingredientType + "/Recipe/" + self.recipeItem.id;
 
+        self.newItem = {};
+        self.itemAddMode = false;
+
         self.remove = function(item) {
-            $scope.$emit("loadingBar-increment", .2);
-            $timeout(function () {
+            $scope.$emit("loadingBar-start");
+
+            ingredientService.removeIngredient(self.ingredientType, item.id).then(function (data) {
+                console.log(data);
+
+                self.recipeItem.profile = data.recipeProfile;
+                self.recipeItem[self.ingredientType] = angular.copy(data.updatedIngredients);
+
                 $scope.$emit("loadingBar-complete");
-            }, 5000);
+            });   
+        };
+
+        self.addNew = function () {
+            _.forEach(self.columnDefinition[self.ingredientType], function(val) {
+                if(val.isEditable === true && val.type !== "selector") {
+                    self.newItem[val.binding] = "";
+                }
+            });
+
+            self.newItem["base"] = self.selectableItems[0];
+            self.newItem["base_Id"] = self.newItem.base.id;
+
+            self.itemAddMode = true;
+        };
+
+        self.cancelAdd = function () {
+            self.newItem = {};
+            self.itemAddMode = false;
+        };
+
+        self.confirmAdd = function () {
+            self.itemAddMode = false;
+            $scope.$emit("loadingBar-start");
+            ingredientService.addIngredient(self.ingredientType, self.recipeItem.id, self.newItem).then(function (data) {
+                self.recipeItem.profile = data.recipeProfile;
+                self.recipeItem[self.ingredientType] = angular.copy(data.updatedIngredients);
+            }).catch(function(result) {
+                self.itemAddMode = true;
+            }).finally(function() {
+                $scope.$emit("loadingBar-complete");
+            });
+
+
+
         };
 
         self.items = [];
@@ -95,7 +138,9 @@
                 {
                     "heading": "Name",
                     "binding": "base",
-                    "property": "name"
+                    "property": "name",
+                    "isEditable": true,
+                    "type": "selector"
                 },
                 {
                     "heading": "Attenuation",
@@ -118,7 +163,6 @@
         function initialize() {
             $scope.$emit("loadingBar-start");
 
-            self.items = self.recipeItem[self.ingredientType];
 
             ingredientService.allIngredients(self.ingredientType).then(function (data) {
                 self.selectableItems = data;

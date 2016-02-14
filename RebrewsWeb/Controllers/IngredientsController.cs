@@ -14,6 +14,7 @@ using RebrewsData;
 using RebrewsData.Models.Recipe;
 using RebrewsViewModels.ViewModels.Recipe;
 using System.Linq.Expressions;
+using RebrewsWeb.Core;
 
 namespace RebrewsWeb.Controllers
 {
@@ -53,7 +54,17 @@ namespace RebrewsWeb.Controllers
 
             db.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var recipe = db.Recipes
+                            .Include(r => r.Fermentables)
+                            .FirstOrDefault(r => r.Id == recipeId);
+
+            var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel
+            {
+                RecipeProfile = recipeVm.Profile,
+                UpdatedIngredients = recipeVm.Fermentables
+            });
         }
 
         [Route("api/Ingredients/Hops/Recipe/{recipeId}")]
@@ -67,7 +78,17 @@ namespace RebrewsWeb.Controllers
 
             db.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var recipe = db.Recipes
+                            .Include(r => r.Hops)
+                            .FirstOrDefault(r => r.Id == recipeId);
+
+            var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel
+            {
+                RecipeProfile = recipeVm.Profile,
+                UpdatedIngredients = recipeVm.Hops
+            });
         }
 
         [Route("api/Ingredients/Yeasts/Recipe/{recipeId}")]
@@ -81,7 +102,17 @@ namespace RebrewsWeb.Controllers
 
             db.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var recipe = db.Recipes
+                            .Include(r => r.Yeasts)
+                            .FirstOrDefault(r => r.Id == recipeId);
+
+            var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel
+            {
+                RecipeProfile = recipeVm.Profile,
+                UpdatedIngredients = recipeVm.Yeasts
+            });
         }
 
         #endregion
@@ -100,7 +131,17 @@ namespace RebrewsWeb.Controllers
 
             db.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var recipe = db.Recipes
+                            .Include(r => r.Fermentables)
+                            .FirstOrDefault(r => r.Id == recipeId);
+
+            var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel
+            {
+                RecipeProfile = recipeVm.Profile,
+                UpdatedIngredients = recipeVm.Fermentables
+            });
         }
 
         [Route("api/Ingredients/Hops/Recipe/{recipeId}")]
@@ -115,7 +156,17 @@ namespace RebrewsWeb.Controllers
 
             db.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var recipe = db.Recipes
+                            .Include(r => r.Hops)
+                            .FirstOrDefault(r => r.Id == recipeId);
+
+            var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel
+            {
+                RecipeProfile = recipeVm.Profile,
+                UpdatedIngredients = recipeVm.Hops
+            });
         }
 
         [Route("api/Ingredients/Yeasts/Recipe/{recipeId}")]
@@ -130,31 +181,57 @@ namespace RebrewsWeb.Controllers
 
             db.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var recipe = db.Recipes
+                            .Include(r => r.Yeasts)
+                            .FirstOrDefault(r => r.Id == recipeId);
+
+            var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
+
+            return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel
+            {
+                RecipeProfile = recipeVm.Profile,
+                UpdatedIngredients = recipeVm.Yeasts
+            });
         }
         #endregion
 
         [Route("api/Ingredients/{ingredientType}/{ingredientId}")]
         public HttpResponseMessage Delete(int ingredientId, string ingredientType)
         {
+            int recipeId;
             switch (ingredientType.ToLower())
             {
                 case "fermentables":
-                    db.Entry(db.RecipeFermentables.Find(ingredientId)).State = EntityState.Deleted;
+                    var ferm = db.RecipeFermentables.Find(ingredientId);
+                    recipeId = ferm.Recipe_Id.Value;
+                    db.Entry(ferm).State = EntityState.Deleted;
                     break;
                 case "hops":
-                    db.Entry(db.RecipeHops.Find(ingredientId)).State = EntityState.Deleted;
+                    var hop = db.RecipeHops.Find(ingredientId);
+                    recipeId = hop.Recipe_Id.Value;
+                    db.Entry(hop).State = EntityState.Deleted;
                     break;
                 case "yeasts":
-                    db.Entry(db.RecipeYeasts.Find(ingredientId)).State = EntityState.Deleted;
+                    var yeast = db.RecipeYeasts.Find(ingredientId);
+                    recipeId = yeast.Recipe_Id.Value;
+                    db.Entry(yeast).State = EntityState.Deleted;
                     break;
                 default:
                     return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
+            var recipe = db.Recipes
+                            .Include(ingredientType.Capitalize())
+                            .FirstOrDefault(r => r.Id == recipeId);
+
+            var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
+
             db.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel{
+                RecipeProfile = recipeVm.Profile,
+                UpdatedIngredients = recipeVm.GetType().GetProperty(ingredientType.Capitalize()).GetValue(recipeVm)
+            });
         }
 
     }

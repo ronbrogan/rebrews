@@ -209,6 +209,7 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\AutoMapperConfigurator.cs" />
+    <Compile Include="Core\ExtensionMethods.cs" />
     <Compile Include="Core\Services\AuthenticationHandler.cs" />
     <Compile Include="Core\Services\RecipeCalculationService.cs" />
     <Compile Include="Core\Services\ColorLookup.cs" />
@@ -227,6 +228,8 @@
     <Content Include="app\dashboard\dashboard.template.html" />
     <Content Include="app\discover\discover.template.html" />
     <Content Include="app\home\home.template.html" />
+    <Content Include="app\recipe\recipe.color.display\recipe.color.display.js" />
+    <Content Include="app\recipe\recipe.color.display\recipe.color.display.template.html" />
     <Content Include="app\recipe\recipe.template.html" />
     <Content Include="app\recipe\recipeController.js" />
     <Content Include="app\_directives\cell-editor\cell-editor.js" />
@@ -243,6 +246,13 @@
     <Content Include="app\_filters\descender-filter.js" />
     <Content Include="app\_services\ingredientService.js" />
     <Content Include="app\_services\rttService.js" />
+    <Content Include="Content\angular-toastr.css" />
+    <Content Include="Content\BeerGlasses.css">
+      <DependentUpon>BeerGlasses.less</DependentUpon>
+    </Content>
+    <Content Include="Content\BeerGlasses.min.css">
+      <DependentUpon>BeerGlasses.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
@@ -261,6 +271,9 @@
     </Content>
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-toastr.js" />
+    <Content Include="Scripts\angular-toastr.min.js" />
+    <Content Include="Scripts\angular-toastr.tpls.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
@@ -1042,10 +1055,11 @@
     <Content Include="Scripts\ct-ui-router-extras.js" />
     <Content Include="Scripts\d3.js" />
     <Content Include="Content\Site.less" />
+    <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
-    <Content Include="compilerconfig.json.defaults">
+    <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
-    </Content>
+    </None>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -1135,6 +1149,8 @@
     <Content Include="Scripts\angularjs\angular.min.js.map" />
     <Content Include="Scripts\angularjs\errors.json" />
     <Content Include="Scripts\angularjs\version.json" />
+    <Content Include="Content\fonts\BeerGlasses.woff" />
+    <Content Include="Content\BeerGlasses.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
