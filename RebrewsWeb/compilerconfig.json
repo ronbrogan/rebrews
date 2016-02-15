@@ -14,5 +14,9 @@
   {
     "outputFile": "Content/BeerGlasses.css",
     "inputFile": "Content/BeerGlasses.less"
+  },
+  {
+    "outputFile": "Content/homebrews-icons.css",
+    "inputFile": "Content/homebrews-icons.less"
   }
 ]

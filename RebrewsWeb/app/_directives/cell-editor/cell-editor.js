@@ -54,7 +54,7 @@
 
         function initialize() {
             if (self.columnDefinition.type == "selector") {
-                self.itemValue = $filter('descenderFilter')(self.item[self.columnDefinition.binding], 'id');
+                self.itemValue = $filter('descenderFilter')(self.item[self.columnDefinition.binding]);
             }
             else{
                 self.itemValue = $filter('descenderFilter')(self.item[self.columnDefinition.binding], self.columnDefinition.property);

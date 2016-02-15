@@ -1,0 +1,288 @@
+﻿@font-face {
+  font-family: "homebrews";
+  src: url("fonts/Homebrews.woff") format('woff');
+}
+.beerglass {
+  font-family: homebrews;
+  font-style: normal !important;
+  line-height: 0.85;
+  margin: 0;
+  padding: 0;
+}
+.beerglass.beerglass-tulip:before {
+  content: "a";
+}
+.beerglass.beerglass-tulip-outline:before {
+  content: "Q";
+}
+.beerglass.beerglass-tulip-contents:before {
+  content: "A";
+}
+.beerglass.beerglass-weizen:before {
+  content: "b";
+}
+.beerglass.beerglass-weizen-outline:before {
+  content: "R";
+}
+.beerglass.beerglass-weizen-contents:before {
+  content: "B";
+}
+.beerglass.beerglass-boot:before {
+  content: "c";
+}
+.beerglass.beerglass-boot-outline:before {
+  content: "S";
+}
+.beerglass.beerglass-boot-contents:before {
+  content: "C";
+}
+.beerglass.beerglass-snifter:before {
+  content: "d";
+}
+.beerglass.beerglass-snifter-outline:before {
+  content: "T";
+}
+.beerglass.beerglass-snifter-contents:before {
+  content: "D";
+}
+.beerglass.beerglass-goblet:before {
+  content: "e";
+}
+.beerglass.beerglass-goblet-outline:before {
+  content: "U";
+}
+.beerglass.beerglass-goblet-contents:before {
+  content: "E";
+}
+.beerglass.beerglass-pint:before {
+  content: "f";
+}
+.beerglass.beerglass-pint-outline:before {
+  content: "V";
+}
+.beerglass.beerglass-pint-contents:before {
+  content: "F";
+}
+.beerglass.beerglass-flute:before {
+  content: "g";
+}
+.beerglass.beerglass-flute-outline:before {
+  content: "W";
+}
+.beerglass.beerglass-flute-contents:before {
+  content: "G";
+}
+.beerglass.beerglass-mug:before {
+  content: "h";
+}
+.beerglass.beerglass-mug-outline:before {
+  content: "X";
+}
+.beerglass.beerglass-mug-contents:before {
+  content: "H";
+}
+.beerglass.beerglass-pilsner:before {
+  content: "i";
+}
+.beerglass.beerglass-pilsner-outline:before {
+  content: "Y";
+}
+.beerglass.beerglass-pilsner-contents:before {
+  content: "I";
+}
+.beerglass.beerglass-nonic:before {
+  content: "j";
+}
+.beerglass.beerglass-nonic-outline:before {
+  content: "Z";
+}
+.beerglass.beerglass-nonic-contents:before {
+  content: "J";
+}
+.beerglass.beerglass-chalice:before {
+  content: "k";
+}
+.beerglass.beerglass-chalice-outline:before {
+  content: "[";
+}
+.beerglass.beerglass-chalice-contents:before {
+  content: "K";
+}
+.hydrometer-icon {
+  font-family: homebrews;
+  font-style: normal !important;
+  line-height: 0.85;
+  margin: 0;
+  margin-top: -0.1em;
+  padding: 0;
+}
+.hydrometer-icon.icon-0:before {
+  content: "0";
+}
+.hydrometer-icon.icon-1:before {
+  content: "1";
+}
+.hydrometer-icon.icon-2:before {
+  content: "2";
+}
+.hydrometer-icon.icon-3:before {
+  content: "3";
+}
+.hydrometer-icon.icon-4:before {
+  content: "4";
+}
+.hydrometer-icon.icon-5:before {
+  content: "5";
+}
+.hydrometer-icon.icon-6:before {
+  content: "6";
+}
+.hydrometer-icon.icon-7:before {
+  content: "7";
+}
+.hydrometer-icon.icon-8:before {
+  content: "8";
+}
+.hydrometer-icon.icon-9:before {
+  content: "9";
+}
+.hydrometer-icon.icon-10:before {
+  content: ":";
+}
+.hydrometer-icon.icon-11:before {
+  content: ";";
+}
+.hopcone-icon {
+  font-family: homebrews;
+  font-style: normal !important;
+  line-height: 0.85;
+  margin: 0;
+  padding: 0;
+}
+.hopcone-icon.icon-0:before {
+  content: "p";
+}
+.hopcone-icon.icon-1:before {
+  content: "q";
+}
+.hopcone-icon.icon-2:before {
+  content: "r";
+}
+.hopcone-icon.icon-3:before {
+  content: "s";
+}
+.hopcone-icon.icon-4:before {
+  content: "t";
+}
+.hopcone-icon.icon-5:before {
+  content: "u";
+}
+.hopcone-icon.icon-6:before {
+  content: "v";
+}
+.hopcone-icon.icon-7:before {
+  content: "w";
+}
+.hopcone-icon.icon-8:before {
+  content: "x";
+}
+.hopcone-icon.icon-9:before {
+  content: "y";
+}
+.hopcone-icon.icon-10:before {
+  content: "z";
+}
+.hopcone-icon.icon-11:before {
+  content: "{";
+}
+.hopcone-icon.icon-12:before {
+  content: "|";
+}
+.hopcone-icon.icon-13:before {
+  content: "}";
+}
+.barley-icon {
+  font-family: homebrews;
+  font-style: normal !important;
+  line-height: 0.85;
+  margin: 0;
+  padding: 0;
+}
+.barley-icon.icon-0:before {
+  content: "!";
+}
+.barley-icon.icon-1:before {
+  content: "\"";
+}
+.barley-icon.icon-2:before {
+  content: "#";
+}
+.barley-icon.icon-3:before {
+  content: "$";
+}
+.barley-icon.icon-4:before {
+  content: "%";
+}
+.barley-icon.icon-5:before {
+  content: "&";
+}
+.barley-icon.icon-6:before {
+  content: "'";
+}
+.barley-icon.icon-7:before {
+  content: "(";
+}
+.barley-icon.icon-8:before {
+  content: ")";
+}
+.barley-icon.icon-9:before {
+  content: "*";
+}
+.barley-icon.icon-10:before {
+  content: "+";
+}
+.barley-icon.icon-11:before {
+  content: ",";
+}
+.barley-icon.icon-12:before {
+  content: "-";
+}
+.barley-icon.icon-13:before {
+  content: ".";
+}
+.barley-icon.icon-14:before {
+  content: "/";
+}
+.barley-icon.icon-15:before {
+  content: "<";
+}
+.barley-icon.icon-16:before {
+  content: "=";
+}
+.barley-icon.icon-17:before {
+  content: ">";
+}
+.barley-icon.icon-18:before {
+  content: "?";
+}
+.barley-icon.icon-19:before {
+  content: "L";
+}
+.barley-icon.icon-20:before {
+  content: "M";
+}
+.barley-icon.icon-21:before {
+  content: "N";
+}
+.barley-icon.icon-22:before {
+  content: "O";
+}
+.barley-icon.icon-23:before {
+  content: "\\";
+}
+.barley-icon.icon-24:before {
+  content: "]";
+}
+.barley-icon.icon-25:before {
+  content: "^";
+}

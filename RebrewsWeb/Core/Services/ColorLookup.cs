@@ -24,6 +24,7 @@ namespace RebrewsWeb.Core
 
         private static Dictionary<double, Color> dict = new Dictionary<double, Color>
         {
+            {0.0, Color.White },
             {0.1, Color.FromArgb(250, 250, 210)},
             {0.2, Color.FromArgb(250, 250, 204)},
             {0.3, Color.FromArgb(250, 250, 199)},

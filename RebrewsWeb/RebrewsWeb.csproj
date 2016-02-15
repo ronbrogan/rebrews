@@ -206,8 +206,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\AutoMapperConfigurator.cs" />
     <Compile Include="Core\ExtensionMethods.cs" />
     <Compile Include="Core\Services\AuthenticationHandler.cs" />
@@ -239,6 +237,7 @@
     <Content Include="app\_directives\ingredient-table\ingredient-table.js" />
     <Content Include="app\_directives\ingredient-table\ingredient-table.template.html" />
     <Content Include="app\_directives\loading-bar\loading-bar.js" />
+    <Content Include="app\_directives\loading-bar\loading.bar.scoped.js" />
     <Content Include="app\_directives\material-table\material-table.js" />
     <Content Include="app\_directives\material-table\material-table.template.html" />
     <Content Include="app\_directives\realtime-chart\realtime-chart.js" />
@@ -247,12 +246,6 @@
     <Content Include="app\_services\ingredientService.js" />
     <Content Include="app\_services\rttService.js" />
     <Content Include="Content\angular-toastr.css" />
-    <Content Include="Content\BeerGlasses.css">
-      <DependentUpon>BeerGlasses.less</DependentUpon>
-    </Content>
-    <Content Include="Content\BeerGlasses.min.css">
-      <DependentUpon>BeerGlasses.css</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
@@ -263,6 +256,12 @@
       <DependentUpon>variables.less</DependentUpon>
     </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\homebrews-icons.css">
+      <DependentUpon>homebrews-icons.less</DependentUpon>
+    </Content>
+    <Content Include="Content\homebrews-icons.min.css">
+      <DependentUpon>homebrews-icons.css</DependentUpon>
+    </Content>
     <Content Include="Content\Site.css">
       <DependentUpon>Site.less</DependentUpon>
     </Content>
@@ -1149,8 +1148,8 @@
     <Content Include="Scripts\angularjs\angular.min.js.map" />
     <Content Include="Scripts\angularjs\errors.json" />
     <Content Include="Scripts\angularjs\version.json" />
-    <Content Include="Content\fonts\BeerGlasses.woff" />
-    <Content Include="Content\BeerGlasses.less" />
+    <Content Include="Content\homebrews-icons.less" />
+    <Content Include="Content\fonts\Homebrews.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

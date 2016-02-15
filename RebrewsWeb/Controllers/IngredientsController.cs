@@ -220,13 +220,11 @@ namespace RebrewsWeb.Controllers
                     return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            var recipe = db.Recipes
-                            .Include(ingredientType.Capitalize())
-                            .FirstOrDefault(r => r.Id == recipeId);
+            db.SaveChanges();
+
+            var recipe = db.Recipes.Find(recipeId);
 
             var recipeVm = Mapper.Map<RecipeViewModel>(recipe);
-
-            db.SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK, new IngredientModifiedViewModel{
                 RecipeProfile = recipeVm.Profile,

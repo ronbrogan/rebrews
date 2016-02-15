@@ -18,7 +18,7 @@ namespace RebrewsWeb
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap/bootstrap.css",
                       "~/Content/Site.css",
-                      "~/Content/BeerGlasses.css",
+                      "~/Content/homebrews-icons.css",
                       "~/Content/angular-toastr.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
@@ -46,7 +46,8 @@ namespace RebrewsWeb
                     "~/app/_directives/realtime-chart/realtime-chart.js",
                     "~/app/_services/rttService.js",
                     "~/app/_filters/descender-filter.js",
-                    "~/app/_directives/loading-bar/loading-bar.js"
+                    "~/app/_directives/loading-bar/loading-bar.js",
+                    "~/app/_directives/loading-bar/loading.bar.scoped.js"
                     ));
         }
     }

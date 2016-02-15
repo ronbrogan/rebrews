@@ -5,7 +5,7 @@
     </span>
     <span ng-if="ctrl.selectorItems">
 
-        <select ng-model="ctrl.itemValue" ng-options="item.id as item.name for item in ctrl.selectorItems" class="form-control"></select>
+        <select ng-model="ctrl.itemValue" ng-options="item as item.name for item in ctrl.selectorItems" class="form-control"></select>
 
     </span>
 </div>

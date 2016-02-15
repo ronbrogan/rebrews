@@ -9,6 +9,26 @@
         self.recipeId = $stateParams.recipe_Id;
         self.recipe = {};
 
+        self.getClampedHydroReading = function (finalGravity) {
+            var min = 0;
+            var max = 33;
+
+            return parseInt(Math.min(Math.max(parseInt((finalGravity - 1) * 1000), min), max) / 3);
+        };
+
+        self.getHoppinessIndex = function (ibus) {
+            var min = 0;
+            var max = 13;
+
+            return parseInt(Math.min(Math.max(ibus / 8, min), max));
+        };
+
+        self.getBarleyIndex = function (gravity) {
+            var min = 0;
+            var max = 100;
+
+            return parseInt(Math.min(Math.max(parseInt((gravity - 1) * 1000), min), max) / 4);
+        };
 
         function initialize() {
             $http.get("/api/Recipes/" + self.recipeId).then(function(result) {

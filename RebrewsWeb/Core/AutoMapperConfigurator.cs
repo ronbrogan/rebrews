@@ -25,7 +25,9 @@ namespace RebrewsWeb.Core
             Mapper.CreateMap<RecipeHop, RecipeHopViewModel>().ReverseMap();
             Mapper.CreateMap<RecipeYeast, RecipeYeastViewModel>().ReverseMap();
 
-            Mapper.CreateMap<Recipe, RecipeViewModel>().ForMember(dest => dest.Profile, opts => opts.MapFrom(src => RecipeCalculationService.CalculateRecipeProfile(src)));
+            Mapper.CreateMap<Recipe, RecipeViewModel>()
+                .ForMember(dest => dest.Profile, opts => opts.MapFrom(src => RecipeCalculationService.CalculateRecipeProfile(src)));
+                
 
 
             Mapper.CreateMap<RecipeProfile, RecipeProfileViewModel>().ReverseMap();

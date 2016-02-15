@@ -16,7 +16,16 @@ namespace RebrewsWeb.Core
             var sugars = CalculateExtractedSugarPoints(recipe.Fermentables, 5, .75);
 
             profile.OriginalGravity = 1d + (sugars/1000);
-            profile.FinalGravity = 1d + (sugars * (1 - .75)) / 1000;
+
+            var recipeAttenuation = 0m;
+
+            if(recipe.Yeasts != null && recipe.Yeasts.Count > 0)
+            {
+                recipeAttenuation = recipe.Yeasts.Max(y => y.Base.Attenuation) / 100; 
+            }
+            
+
+            profile.FinalGravity = 1d + (sugars * (1 - (double)recipeAttenuation)) / 1000;
 
             profile.AlcoholByVolume = CalculateAlcoholByVolume(profile.OriginalGravity, profile.FinalGravity);
 
