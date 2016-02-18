@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201602050435139_UserRole.Designer.cs">
       <DependentUpon>201602050435139_UserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602180344392_Styles.cs" />
+    <Compile Include="Migrations\201602180344392_Styles.Designer.cs">
+      <DependentUpon>201602180344392_Styles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Authentication\ApiUser.cs" />
     <Compile Include="Models\Base\BaseFermentable.cs" />
@@ -224,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602050435139_UserRole.resx">
       <DependentUpon>201602050435139_UserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602180344392_Styles.resx">
+      <DependentUpon>201602180344392_Styles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
