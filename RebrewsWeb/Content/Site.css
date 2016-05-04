@@ -119,6 +119,9 @@ svg .line {
   font-size: large;
   margin: 0;
 }
+.card .card-body {
+  padding: 12px;
+}
 .card .card-footer {
   position: absolute;
   width: 100%;
