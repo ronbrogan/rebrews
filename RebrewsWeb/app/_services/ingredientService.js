@@ -33,6 +33,12 @@
                 return result.data;
             }).catch($rootScope.errHandler);
         }
+
+        self.updateIngredient = function (ingredientType, recipeId, newValue) {
+            return $http.put("api/Ingredients/" + ingredientType + "/Recipe/" + recipeId, newValue).then(function (result) {
+                return result.data;
+            }).catch($rootScope.errHandler);
+        }
     
 
         return self;

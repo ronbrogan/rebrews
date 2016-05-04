@@ -2,15 +2,16 @@
 
     angular.module("rebrews").directive("cellEditor", function () {
         return {
-            restrict: 'E',
+            restrict: "E",
             bindToController: {
                 item: "=",
                 columnDefinition: "=",
-                selectorItems: "="
+                selectorItems: "=",
+                itemChanged: "&"
             },
             scope: {},
             // view
-            templateUrl: '/app/_directives/cell-editor/cell-editor.template.html',
+            templateUrl: "/app/_directives/cell-editor/cell-editor.template.html",
             // controller
             controller: "cellEditorController as ctrl",
 			link: function(scope, element, attr, thisCtrl){
@@ -45,24 +46,32 @@
     function cellEditorController($scope, $stateParams, $filter) {
         var self = this;
 
+        var lastValue = "";
+
         self.confirm = function () {
             if (self.isEditing) {
                 self.isEditing = false;
-                console.log(self.itemValue);
+                var currValue = getItemVal(self.item, self.columnDefinition);
+                console.log(lastValue);
+                console.log(currValue);
+
+                if(lastValue !== currValue) {
+                    self.itemChanged()(self.item);
+                    lastValue = currValue;
+                }
+                
             }
         }
 
         function initialize() {
-            if (self.columnDefinition.type == "selector") {
-                self.itemValue = $filter('descenderFilter')(self.item[self.columnDefinition.binding]);
-            }
-            else{
-                self.itemValue = $filter('descenderFilter')(self.item[self.columnDefinition.binding], self.columnDefinition.property);
-            }
-
+            lastValue = getItemVal(self.item, self.columnDefinition);
         }
 
         //Call initialization function
         initialize();
+    }
+
+    function getItemVal(item, colDef) {
+        return angular.toJson(item[colDef.binding]);
     }
 })();

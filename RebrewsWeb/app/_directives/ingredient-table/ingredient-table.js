@@ -73,9 +73,24 @@
             }).finally(function() {
                 $scope.$emit("loadingBar-complete");
             });
+        };
+
+        self.updateItem = function (columnDef) {
 
 
+            return function (updatedItem) {
+                $scope.$emit("loadingBar-start");
 
+                if (columnDef.type === "selector")
+                    updatedItem[columnDef.binding + "_Id"] = updatedItem[columnDef.binding].id;
+
+                ingredientService.updateIngredient(self.ingredientType, self.recipeItem.id, updatedItem).then(function (data) {
+                    self.recipeItem.profile = data.recipeProfile;
+                    self.recipeItem[self.ingredientType] = angular.copy(data.updatedIngredients);
+
+                    $scope.$emit("loadingBar-complete");
+                });
+            };
         };
 
         self.items = [];

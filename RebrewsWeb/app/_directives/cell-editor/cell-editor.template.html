@@ -1,11 +1,11 @@
 <div ng-if="ctrl.isEditing">
     <span ng-if="!ctrl.selectorItems">
-        <input type="text" ng-model="ctrl.itemValue" class="form-control" />
+        <input type="text" ng-model="ctrl.item[ctrl.columnDefinition.binding]" class="form-control" />
 
     </span>
     <span ng-if="ctrl.selectorItems">
 
-        <select ng-model="ctrl.itemValue" ng-options="item as item.name for item in ctrl.selectorItems" class="form-control"></select>
+        <select ng-model="ctrl.item[ctrl.columnDefinition.binding].id" ng-options="item.id as item.name for item in ctrl.selectorItems" class="form-control"></select>
 
     </span>
 </div>

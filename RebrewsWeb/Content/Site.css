@@ -205,3 +205,12 @@ footer {
 .green {
   color: #4caf50;
 }
+.flex {
+  display: flex;
+  display: flexbox;
+}
+.flex-1 {
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}

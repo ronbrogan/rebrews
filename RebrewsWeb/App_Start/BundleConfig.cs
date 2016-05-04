@@ -22,9 +22,9 @@ namespace RebrewsWeb
                       "~/Content/angular-toastr.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                     "~/Scripts/angularjs/angular.js",
-                     "~/Scripts/angularjs/angular-animate.min.js",
-                     "~/Scripts/angularjs/angular-aria.min.js",
+                     "~/Scripts/angular.js",
+                     "~/Scripts/angular-animate.min.js",
+                     "~/Scripts/angular-aria.min.js",
                      "~/Scripts/d3.js",
                      "~/Scripts/angular-ui-router.js",
                      "~/Scripts/ct-ui-router-extras.js",
