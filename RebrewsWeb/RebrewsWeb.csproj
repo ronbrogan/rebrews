@@ -28,6 +28,7 @@
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
     <TargetFrameworkProfile />
+    <ApplicationInsightsResourceId>/subscriptions/c2154d2d-64df-4f71-b585-7db12e70de96/resourcegroups//subscriptions/c2154d2d-64df-4f71-b585-7db12e70de96/resourceGroups/Default-Web-EastUS/providers/microsoft.insights/components/homebrews</ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,11 +64,35 @@
       <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.16.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.0.0.4220, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.DependencyCollector, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector, Version=1.0.0.4231, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.Web, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Web.TelemetryChannel, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.TelemetryChannel.1.0.0\lib\net45\Microsoft.ApplicationInsights.Web.TelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Instrumentation.Extensions.Intercept, Version=0.17.0.194, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\lib\net45\Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Reflection.1.0.0.0\lib\Mono.Reflection.dll</HintPath>
       <Private>True</Private>
@@ -209,6 +234,7 @@
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Core\AutoMapperConfigurator.cs" />
+    <Compile Include="Core\Classes\AI.cs" />
     <Compile Include="Core\ExtensionMethods.cs" />
     <Compile Include="Core\Services\AuthenticationHandler.cs" />
     <Compile Include="Core\Services\RecipeCalculationService.cs" />
@@ -219,6 +245,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Core\Classes\ChallengeResult.cs" />
+    <Compile Include="SettingsProcessor.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -311,6 +338,7 @@
     <Content Include="Scripts\ct-ui-router-extras.js" />
     <Content Include="Scripts\d3.js" />
     <Content Include="Content\Site.less" />
+    <Content Include="ApplicationInsights.config" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -1179,12 +1207,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\_components\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
@@ -1200,9 +1231,15 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Any CPU'">
@@ -1249,7 +1286,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets'))" />
   </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

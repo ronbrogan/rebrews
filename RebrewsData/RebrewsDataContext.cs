@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using RebrewsData.Models;

@@ -18,6 +18,8 @@ namespace RebrewsWeb
         {
             ConfigureAuth(app);
             AutoMapperConfigurator.Configure();
+
+
         }
     }
 }
