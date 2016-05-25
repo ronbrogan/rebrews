@@ -30,6 +30,12 @@
             return parseInt(Math.min(Math.max(parseInt((gravity - 1) * 1000), min), max) / 4);
         };
 
+        self.formatGravity = function() {
+            return function(gravityValue) {
+                return parseFloat(gravityValue).toFixed(3);
+            }
+        }
+
         function initialize() {
             $http.get("/api/Recipes/" + self.recipeId).then(function(result) {
                 self.recipe = result.data;

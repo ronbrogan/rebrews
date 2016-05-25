@@ -1,0 +1,13 @@
+﻿<div class="targetted-slider-container">
+    <div class="marker" style="left: {{slider.leftOffset}}">
+        <div class="value" style="-moz-transform: translateX(-{{slider.leftOffset}}); -ms-transform: translateX(-{{slider.leftOffset}}); -o-transform: translateX(-{{slider.leftOffset}}); -webkit-transform: translateX(-{{slider.leftOffset}}); transform: translateX(-{{slider.leftOffset}});">{{slider.outputFormatter()(slider.actual)}}</div>
+    </div>
+    <div class="area area-danger"></div>
+    <div class="area area-warning"></div>
+    <div class="area area-optimal">
+        <div class="bound min">{{slider.outputFormatter()(slider.min)}}</div>
+        <div class="bound max">{{slider.outputFormatter()(slider.max)}}</div>
+    </div>
+    <div class="area area-warning"></div>
+    <div class="area area-danger"></div>
+</div>

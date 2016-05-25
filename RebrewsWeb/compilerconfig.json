@@ -18,5 +18,9 @@
   {
     "outputFile": "Content/homebrews-icons.css",
     "inputFile": "Content/homebrews-icons.less"
+  },
+  {
+    "outputFile": "Content/targetted-slider.css",
+    "inputFile": "Content/targetted-slider.less"
   }
 ]

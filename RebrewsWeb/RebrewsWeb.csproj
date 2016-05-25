@@ -259,6 +259,8 @@
     <Content Include="app\recipe\recipe.color.display\recipe.color.display.template.html" />
     <Content Include="app\recipe\recipe.template.html" />
     <Content Include="app\recipe\recipeController.js" />
+    <Content Include="app\_components\targettedSlider\targettedSlider.html" />
+    <Content Include="app\_components\targettedSlider\targettedSlider.js" />
     <Content Include="app\_directives\cell-editor\cell-editor.js" />
     <Content Include="app\_directives\cell-editor\cell-editor.template.html" />
     <Content Include="app\_directives\dbl-edit\dbl-edit.js" />
@@ -296,6 +298,12 @@
     </Content>
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\targetted-slider.css">
+      <DependentUpon>targetted-slider.less</DependentUpon>
+    </Content>
+    <Content Include="Content\targetted-slider.min.css">
+      <DependentUpon>targetted-slider.css</DependentUpon>
     </Content>
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Global.asax" />
@@ -442,6 +450,7 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Content\targetted-slider.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1217,9 +1226,7 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\_components\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>

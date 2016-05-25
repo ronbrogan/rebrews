@@ -7,6 +7,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using RebrewsData;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace RebrewsWeb
 {
@@ -21,6 +24,14 @@ namespace RebrewsWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            var db = new RebrewsDataContext();
+
+            if (!db.Database.CompatibleWithModel(false))
+            {
+                var mig = new DbMigrator(new DbMigrationsConfiguration());
+                mig.Update();
+            }
         }
     }
 }

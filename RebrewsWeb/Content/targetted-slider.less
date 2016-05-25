@@ -1,0 +1,121 @@
+﻿@import url("bootstrap/variables.less");
+
+@bar-height: 10px;
+@marker-height: 16px;
+@marker-offset: -3px; //(@marker-height - @bar-height)  / 2
+@bound-height: 20px;
+@value-lineheight: 16px;
+
+@animation-time: 0.5s;
+
+
+@optimal-color: #3dd33d;
+@danger-color: #e52626;
+@warning-color: #f5eb35;
+
+.targetted-slider-container {
+    width: 100%;
+    display: block;
+    position: relative;
+    margin-top: @value-lineheight;
+
+    .marker {
+        position: absolute;
+        left: 0%; //Denotes current value's position on scale
+        top: @marker-offset;
+        height: @marker-height;
+        width: 7px;
+        background-color: #000;
+        z-index: 5;
+        -moz-transition: left @animation-time;
+        -o-transition: left @animation-time;
+        -webkit-transition: left @animation-time;
+        transition: left @animation-time;
+
+
+        .value {
+            position: absolute;
+            top: -@value-lineheight;
+            -moz-transform: translateX(-0%);
+            -ms-transform: translateX(-0%);
+            -o-transform: translateX(-0%);
+            -webkit-transform: translateX(-0%);
+            transform: translateX(-0%); //Should match !!negative!! value of marker's left offset
+
+            line-height: @value-lineheight;
+            font-size: @value-lineheight;
+
+            -moz-transition: -moz-transform @animation-time;
+            -o-transition: -o-transform @animation-time;
+            -webkit-transition: -webkit-transform @animation-time;
+            transition: transform @animation-time;
+        }
+    }
+
+    .area {
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        height: @bar-height;
+
+        &.area-optimal {
+            width: 70%;
+            background-color: @optimal-color;
+            position: relative;
+
+            .bound {
+                position: absolute;
+                top: @bound-height;
+
+                &.min {
+                    left: -15%;
+
+                    &:before {
+                        content: "Min: ";
+                    }
+                }
+
+                &.max {
+                    right: -15%;
+
+                    &:before {
+                        content: "Max: ";
+                    }
+                }
+            }
+
+
+
+            &:before {
+                content: " ";
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: @bound-height;
+                width: 2px;
+                background-color: @optimal-color;
+            }
+
+            &:after {
+                content: " ";
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: @bound-height;
+                width: 2px;
+                background-color: @optimal-color;
+            }
+        }
+
+        &.area-danger {
+            width: 10%;
+            background-color: @danger-color;
+        }
+
+        &.area-warning {
+            width: 5%;
+            background-color: @warning-color;
+        }
+    }
+}
