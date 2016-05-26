@@ -1,6 +1,13 @@
 ﻿<div class="targetted-slider-container">
-    <div class="marker" style="left: {{slider.leftOffset}}">
-        <div class="value" style="-moz-transform: translateX(-{{slider.leftOffset}}); -ms-transform: translateX(-{{slider.leftOffset}}); -o-transform: translateX(-{{slider.leftOffset}}); -webkit-transform: translateX(-{{slider.leftOffset}}); transform: translateX(-{{slider.leftOffset}});">{{slider.outputFormatter()(slider.actual)}}</div>
+    <div class="marker" style="left: {{slider.actual | sliderOffset:slider.min:slider.max:true}};
+          -ms-transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%);
+          -webkit-transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%);
+          transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%);">
+        <div class="value" style="-ms-transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%) translateX({{7 * ((slider.actual | sliderOffset:slider.min:slider.max) / 100)}}px);
+              -webkit-transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%) translateX({{7 * ((slider.actual | sliderOffset:slider.min:slider.max) / 100)}}px);
+              transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%) translateX({{7 * ((slider.actual | sliderOffset:slider.min:slider.max) / 100)}}px);">
+            {{slider.outputFormatter()(slider.actual)}}
+        </div>
     </div>
     <div class="area area-danger"></div>
     <div class="area area-warning"></div>

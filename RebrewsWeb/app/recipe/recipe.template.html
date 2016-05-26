@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-sm-4 text-center">
                     <!--<p class="beer-profile-icon barley-icon" ng-class="'icon-' + recipeCtrl.getBarleyIndex(recipeCtrl.recipe.profile.originalGravity)"></p>-->
-                    <targetted-slider output-formatter="recipeCtrl.formatGravity()" min="1.02" max="1.08" actual="0.9"></targetted-slider>
+                    <targetted-slider output-formatter="recipeCtrl.formatGravity()" min="1.02" max="1.08" actual="recipeCtrl.recipe.profile.originalGravity"></targetted-slider>
                 </div>
                 <div class="col-sm-4 text-center">
                     <p class="beer-profile-icon hydrometer-icon" ng-class="'icon-' + recipeCtrl.getClampedHydroReading(recipeCtrl.recipe.profile.finalGravity)"></p>

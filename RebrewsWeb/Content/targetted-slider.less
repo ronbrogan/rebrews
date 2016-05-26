@@ -1,17 +1,23 @@
 ﻿@import url("bootstrap/variables.less");
 
+//optimal + 2*warning + 2*danger should come to 100%
+@optimal-width: 70%;
+@warning-width: 5%;
+@danger-width: 10%;
+
 @bar-height: 10px;
-@marker-height: 16px;
-@marker-offset: -3px; //(@marker-height - @bar-height)  / 2
 @bound-height: 20px;
 @value-lineheight: 16px;
 
-@animation-time: 0.5s;
+@marker-width: 7px;
+@marker-height: 17px;
+@marker-offset: -((@marker-height - @bar-height) / 2);
 
-
+@marker-color: #333;
 @optimal-color: #3dd33d;
 @danger-color: #e52626;
 @warning-color: #f5eb35;
+@animation-time: 0.5s;
 
 .targetted-slider-container {
     width: 100%;
@@ -24,14 +30,18 @@
         left: 0%; //Denotes current value's position on scale
         top: @marker-offset;
         height: @marker-height;
-        width: 7px;
-        background-color: #000;
+        width: @marker-width;
+        background-color: @marker-color;
         z-index: 5;
-        -moz-transition: left @animation-time;
-        -o-transition: left @animation-time;
-        -webkit-transition: left @animation-time;
-        transition: left @animation-time;
-
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        -moz-transition: all @animation-time;
+        -o-transition: all @animation-time;
+        -webkit-transition: all @animation-time;
+        transition: all @animation-time;
 
         .value {
             position: absolute;
@@ -41,14 +51,15 @@
             -o-transform: translateX(-0%);
             -webkit-transform: translateX(-0%);
             transform: translateX(-0%); //Should match !!negative!! value of marker's left offset
-
             line-height: @value-lineheight;
             font-size: @value-lineheight;
+            font-weight: 500;
+            color: #333;
 
-            -moz-transition: -moz-transform @animation-time;
-            -o-transition: -o-transform @animation-time;
-            -webkit-transition: -webkit-transform @animation-time;
-            transition: transform @animation-time;
+            -moz-transition: all @animation-time;
+            -o-transition: all @animation-time;
+            -webkit-transition: all @animation-time;
+            transition: all @animation-time;
         }
     }
 
@@ -60,7 +71,7 @@
         height: @bar-height;
 
         &.area-optimal {
-            width: 70%;
+            width: @optimal-width;
             background-color: @optimal-color;
             position: relative;
 
@@ -109,12 +120,12 @@
         }
 
         &.area-danger {
-            width: 10%;
+            width: @danger-width;
             background-color: @danger-color;
         }
 
         &.area-warning {
-            width: 5%;
+            width: @warning-width;
             background-color: @warning-color;
         }
     }

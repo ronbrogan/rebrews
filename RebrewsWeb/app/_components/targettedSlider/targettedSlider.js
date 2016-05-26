@@ -16,20 +16,15 @@
     app.controller("targettedSliderController", ["$timeout", function ($timeout) {
         var self = this;
 
-        self.leftOffset = "50%";
-
-        $timeout(function () {
-            self.leftOffset = self.leftOffsetCalc().toFixed(2) + "%";
-        }, 1000);
-
-        self.leftOffsetCalc = function() {
-            var top = self.actual - self.min;
-            var bottom = self.max - self.min;
-
-            return Math.max(Math.min(((top / bottom) * 70) + 15, 100), 0);
-        }
-
-        console.log("TargettedSlider is alive");
-
     }]);
+
+    app.filter("sliderOffset", function () {
+        return function (input, min, max, appendPercent) {
+            var value = Math.max(Math.min((((input - min) / (max - min)) * 70) + 15, 100), 0);
+            if(appendPercent) {
+                return value + "%";
+            }
+            return value;
+        }
+    });
 })();
