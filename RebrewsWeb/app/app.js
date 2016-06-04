@@ -1,13 +1,11 @@
 ﻿(function() {
-    angular.module("rebrews", ["ui.router", "ct.ui.router.extras", "toastr"]).config(config).run(run);
+    angular.module("rebrews", ["ui.router", "toastr"]).config(config).run(run);
 
-    config.$inject = ["$locationProvider", "$stateProvider", "$urlRouterProvider", "$stickyStateProvider", "$httpProvider", "toastrConfig"];
+    config.$inject = ["$locationProvider", "$stateProvider", "$urlRouterProvider", "$httpProvider", "toastrConfig"];
 
-    function config($locationProvider, $stateProvider, $urlRouterProvider, $stickyStateProvider, $httpProvider, toastrConfig) {
+    function config($locationProvider, $stateProvider, $urlRouterProvider, $httpProvider, toastrConfig) {
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
-
-        $stickyStateProvider.enableDebug(false);
 
         $urlRouterProvider.otherwise("/");
 
@@ -32,33 +30,30 @@
             })
             .state("account", {
                 url: "/account",
-                sticky: true,
-                abstract: true,
                 views: {
                     "main": {
                         template: "<div ui-view='maininner' />"
                     }
                 }
             })
-                .state("account.login", {
-                    url: "/login",
-                    views: {
-                        "maininner": {
-                            templateUrl: "/app/account/login.template.html"
-                        }
+            .state("account.login", {
+                url: "/login",
+                views: {
+                    "maininner": {
+                        templateUrl: "/app/account/login.template.html"
                     }
-                })
-                .state("account.register", {
-                    url: "/register",
-                    views: {
-                        "maininner": {
-                            templateUrl: "/app/account/register.template.html"
-                        }
+                }
+            })
+            .state("account.register", {
+                url: "/register",
+                views: {
+                    "maininner": {
+                        templateUrl: "/app/account/register.template.html"
                     }
-                })
+                }
+            })
             .state("dashboard", {
                 url: "/dashboard",
-                sticky: true,
                 views: {
                     "main": {
                         templateUrl: "/app/dashboard/dashboard.template.html"
@@ -66,10 +61,21 @@
                 }
             })
             .state("recipe", {
-                url: "/recipe/:recipe_Id",
-                sticky: true,
+                url: "/recipe",
+                abstract: true
+            })
+            .state("recipe.new", {
+                url: "/new",
                 views: {
-                    "main": {
+                    "main@": {
+                        template: "<new-recipe></new-recipe>"
+                    }
+                }
+            })
+            .state("recipe.detail", {
+                url: "/:recipe_Id",
+                views: {
+                    "main@": {
                         templateUrl: "/app/recipe/recipe.template.html",
                         controller: "recipeController as recipeCtrl"
                     }

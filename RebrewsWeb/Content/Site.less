@@ -1,9 +1,21 @@
-﻿@import (reference) "bootstrap/variables.less";
+﻿
 @import (reference) "bootstrap/bootstrap.less";
 
+@import "rebrews/formelements.less";
+
+@card-background: #fff;
+@card-border: #ddd;
+
+@body-background: #fafafa;
+@body-textcolor: #555555;
+
+
+@theme-primary: #d84315;
+@theme-secondary: #23c2ff;
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -12,7 +24,7 @@ body {
 }
 
 .clickable {
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }
@@ -24,7 +36,7 @@ body {
     padding-right: 15px;
 }
 
-.edit-window{
+.edit-window {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -38,7 +50,6 @@ body {
         width: 100%;
         .form-control();
     }
-
 }
 
 svg {
@@ -46,17 +57,16 @@ svg {
 
     .axis path,
     .axis line {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
     }
 
     .line {
-      fill: none;
-      stroke: #23c2ff;
-      stroke-width: 3px;
+        fill: none;
+        stroke: #23c2ff;
+        stroke-width: 3px;
     }
-
 }
 
 
@@ -64,14 +74,15 @@ svg {
     margin-top: @padding-base-horizontal;
     padding-top: @padding-base-horizontal;
     padding-bottom: @padding-base-horizontal;
-    background-color: #fff;
+    background-color: @card-background;
     box-shadow: rgba(0,0,0,.25) 0 0 10px;
     min-height: 15em;
     position: relative;
+    font-family: Roboto;
 
     .card-header {
         min-height: 30px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid @card-border;
         padding: 0 @padding-base-horizontal*2;
         margin-bottom: @padding-base-horizontal;
         text-align: left;
@@ -91,7 +102,7 @@ svg {
         width: 100%;
         bottom: 0;
         min-height: 20px;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid @card-border;
         padding: 5px @padding-base-horizontal*2;
     }
 
@@ -104,16 +115,16 @@ svg {
             box-shadow: 0 2px 10px 0 rgba(21, 99, 129, 0.30) inset;
         }
 
-        .buttons{
+        .buttons {
             white-space: nowrap;
             width: 45px;
         }
 
-        .important{
+        .important {
             width: 99%;
         }
 
-        td, th{
+        td, th {
             font-weight: normal;
             white-space: nowrap;
             color: #000;
@@ -130,11 +141,11 @@ svg {
 
         thead, tbody {
             tr {
-                >:first-child {
+                > :first-child {
                     padding-left: @padding-base-horizontal*2;
                 }
 
-                >:last-child {
+                > :last-child {
                     padding-right: @padding-base-horizontal*2;
                 }
             }
@@ -167,16 +178,15 @@ footer {
     background-color: #f5f5f5;
 }
 
-.loading-bar{
-
-    position:absolute;
-    top:0;
-    left:0;
-    height:2px;
-    width:0%;
-    background-color:#23c2ff;
+.loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #23c2ff;
     display: none;
-    content:'';
+    content: '';
     transition: width 0.25s ease;
     box-shadow: 0 2px 10px 0 rgba(35,194,255, .3);
     z-index: 9999;

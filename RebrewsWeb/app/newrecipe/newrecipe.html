@@ -1,0 +1,23 @@
+﻿<div class="card">
+    <div class="card-header">
+        <h1>New Recipe</h1>
+    </div>
+    <div class="card-body">
+
+        <div class="input-container">
+            <input type="text" ng-model="newRecipe.newRecipe.name" id="recipeName"/>
+            <label for="recipeName">Recipe Name</label>
+        </div>
+
+        <div class="input-container">
+            <select ng-model="newRecipe.newRecipe.style_Id" ng-options="style.id as style.name for style in newRecipe.recipeStyles" id="recipeStyle"></select>
+            <label for="recipeStyle">Recipe Style</label>
+        </div>
+
+        <div class="row text-right">
+            <button type="button" ng-click="newRecipe.createRecipe()">Create</button>
+        </div>
+
+    </div>
+        
+</div>

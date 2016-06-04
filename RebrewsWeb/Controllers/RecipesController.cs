@@ -7,6 +7,8 @@ using System.Web.Http;
 using AutoMapper;
 using RebrewsData;
 using RebrewsViewModels.ViewModels.Recipe;
+using System.Data.Entity;
+using RebrewsData.Models.Recipe;
 
 namespace RebrewsWeb.Controllers
 {
@@ -24,10 +26,27 @@ namespace RebrewsWeb.Controllers
         [Route("api/Recipes/{id}")]
         public HttpResponseMessage GetRecipesById(int id)
         {
-            var recipe = db.Recipes.Find(id);
+            var recipe = db.Recipes.Include(r => r.Style).FirstOrDefault(r => r.Id == id);
+
+            if (recipe == null)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Could not find recipe for Id: " + id);
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<RecipeViewModel>(recipe));
         }
 
+        [Route("api/Recipes"), HttpPost]
+        public HttpResponseMessage CreateRecipe(RecipeViewModel vm)
+        {
+            var recipe = new Recipe
+            {
+                Name = vm.Name,
+                Style_Id = vm.Style_Id
+            };
+
+            db.Recipes.Add(recipe);
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<RecipeViewModel>(recipe));
+        }
     }
 }

@@ -4,49 +4,29 @@
             <div class="card-header">
                 <h1>
                     <span ng-click="recipeCtrl.showIcons = !recipeCtrl.showIcons">{{recipeCtrl.recipe.name}}</span><Br />
-                    <small>{{recipeCtrl.recipe.style || '(No style information)'}}</small>
+                    <small>{{recipeCtrl.recipe.style.styleName || '(No style information)'}}</small>
                 </h1>
             </div>
-            <div class="row">
-                <div class="col-sm-4 text-center">
-                    Style Shite:
+            <div class="card-body row">
+                <div class="col-sm-4">
+                    Batch Size: {{recipeCtrl.recipe.batchSize}}
                 </div>
                 <div class="col-sm-4 text-center">
-                    OG: {{recipeCtrl.recipe.profile.originalGravity | number:3}}
-                    
+                    <strong>OG:</strong> {{recipeCtrl.recipe.profile.originalGravity | number:3}}
+                    <targetted-slider ng-if="!recipeCtrl.showIcons" output-formatter="recipeCtrl.formatGravity()" min="recipeCtrl.recipe.style.lowOG" max="recipeCtrl.recipe.style.hiog" actual="recipeCtrl.recipe.profile.originalGravity" expanded="recipeCtrl.ogExpanded" ng-click="recipeCtrl.ogExpanded = !recipeCtrl.ogExpanded"></targetted-slider>
+                    <strong>FG:</strong> {{recipeCtrl.recipe.profile.finalGravity | number:3}}
+                    <targetted-slider ng-if="!recipeCtrl.showIcons" output-formatter="recipeCtrl.formatGravity()" min="recipeCtrl.recipe.style.lowFG" max="recipeCtrl.recipe.style.hifg" actual="recipeCtrl.recipe.profile.finalGravity" expanded="recipeCtrl.fgExpanded" ng-click="recipeCtrl.fgExpanded = !recipeCtrl.fgExpanded"></targetted-slider>
+                    <strong>ABV:</strong> {{recipeCtrl.recipe.profile.alcoholByVolume | number:2}}%
+                    <targetted-slider ng-if="!recipeCtrl.showIcons" output-formatter="recipeCtrl.formatAbv()" min="recipeCtrl.recipe.style.lowABV" max="recipeCtrl.recipe.style.hiabv" actual="recipeCtrl.recipe.profile.alcoholByVolume" expanded="recipeCtrl.abvExpanded" ng-click="recipeCtrl.abvExpanded = !recipeCtrl.abvExpanded"></targetted-slider>
+
                 </div>
                 <div class="col-sm-4 text-center">
-                    FG: {{recipeCtrl.recipe.profile.finalGravity | number:3}}
+                    <strong>IBUs:</strong> {{recipeCtrl.recipe.profile.internationalBitteringUnits | number:2}}
+                    <targetted-slider ng-if="!recipeCtrl.showIcons" output-formatter="recipeCtrl.formatAbv()" min="recipeCtrl.recipe.style.lowIBU" max="recipeCtrl.recipe.style.hiibu" actual="recipeCtrl.recipe.profile.internationalBitteringUnits" expanded="recipeCtrl.ibuExpanded" ng-click="recipeCtrl.ibuExpanded = !recipeCtrl.ibuExpanded"></targetted-slider>
+                    <strong>SRM:</strong> {{recipeCtrl.recipe.profile.colorSRM | number:1}}
+                    <targetted-slider ng-if="!recipeCtrl.showIcons" output-formatter="recipeCtrl.formatAbv()" min="recipeCtrl.recipe.style.lowSRM" max="recipeCtrl.recipe.style.hisrm" actual="recipeCtrl.recipe.profile.colorSRM" expanded="recipeCtrl.srmExpanded" ng-click="recipeCtrl.srmExpanded = !recipeCtrl.srmExpanded"></targetted-slider>
+                    <div ng-if="!recipeCtrl.showIcons" style="background-color: rgb({{recipeCtrl.recipe.profile.colorRGB}}); width: 90%; height: 40px; margin-top: 5px; margin-left: 5%;"></div>
                 </div>
-                <!--<div class="col-sm-2 text-center">
-                    ABV: {{recipeCtrl.recipe.profile.alcoholByVolume | number:2}}%
-                </div>
-                <div class="col-sm-2 text-center">
-                    IBUs: {{recipeCtrl.recipe.profile.internationalBitteringUnits | number:2}}
-                </div>
-                <div class="col-sm-2 text-center">
-                    SRM: {{recipeCtrl.recipe.profile.colorSRM | number:1}}
-                </div>-->
-            </div>
-            <div class="row" ng-if="!recipeCtrl.showIcons">
-                <div class="col-sm-4 text-center">
-                    
-                </div>
-                <div class="col-sm-4 text-center">
-                    <!--<p class="beer-profile-icon barley-icon" ng-class="'icon-' + recipeCtrl.getBarleyIndex(recipeCtrl.recipe.profile.originalGravity)"></p>-->
-                    <targetted-slider output-formatter="recipeCtrl.formatGravity()" min="1.02" max="1.08" actual="recipeCtrl.recipe.profile.originalGravity"></targetted-slider>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <p class="beer-profile-icon hydrometer-icon" ng-class="'icon-' + recipeCtrl.getClampedHydroReading(recipeCtrl.recipe.profile.finalGravity)"></p>
-                </div>
-                <!--<div class="col-sm-2 text-center">
-                </div>
-                <div class="col-sm-2 text-center">
-                    <p class="beer-profile-icon hopcone-icon" ng-class="'icon-' + recipeCtrl.getHoppinessIndex(recipeCtrl.recipe.profile.internationalBitteringUnits)"></p>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <recipe-color-display rgb-value="{{recipeCtrl.recipe.profile.colorRGB}}"></recipe-color-display>
-                </div>-->
             </div>
         </div>
     </div>

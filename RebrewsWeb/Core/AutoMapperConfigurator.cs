@@ -31,6 +31,7 @@ namespace RebrewsWeb.Core
 
 
             Mapper.CreateMap<RecipeProfile, RecipeProfileViewModel>().ReverseMap();
+            Mapper.CreateMap<RecipeStyle, RecipeStyleViewModel>().ReverseMap();
         }
 
 

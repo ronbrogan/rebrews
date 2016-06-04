@@ -1,8 +1,45 @@
-﻿.targetted-slider-container {
+﻿@media screen and (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 767px) {
+}
+.targetted-slider-container {
   width: 100%;
   display: block;
   position: relative;
-  margin-top: 16px;
+  margin-top: 23px;
+  height: 40.5px;
+  -moz-transition: all ease .2s;
+  -o-transition: all ease .2s;
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+}
+.targetted-slider-container.collapsed {
+  margin-top: 7px;
+  height: 17px;
+}
+.targetted-slider-container.collapsed .marker > .value {
+  visibility: hidden;
+  opacity: 0;
+}
+.targetted-slider-container.collapsed .area.area-optimal > .bound {
+  opacity: 0;
+  visibility: hidden;
+}
+.targetted-slider-container.collapsed .area.area-optimal:before,
+.targetted-slider-container.collapsed .area.area-optimal:after {
+  display: none;
 }
 .targetted-slider-container .marker {
   position: absolute;
@@ -34,10 +71,11 @@
   font-size: 16px;
   font-weight: 500;
   color: #333;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  opacity: 1;
+  -moz-transition: all 0.5s ease, opacity 0.2s ease;
+  -o-transition: all 0.5s ease, opacity 0.2s ease;
+  -webkit-transition: all 0.5s ease, opacity 0.2s ease;
+  transition: all 0.5s ease, opacity 0.2s ease;
 }
 .targetted-slider-container .area {
   display: block;
@@ -54,6 +92,11 @@
 .targetted-slider-container .area.area-optimal .bound {
   position: absolute;
   top: 20px;
+  opacity: 1;
+  -moz-transition: all ease .2s;
+  -o-transition: all ease .2s;
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
 }
 .targetted-slider-container .area.area-optimal .bound.min {
   left: -15%;

@@ -233,6 +233,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
+    <Compile Include="Controllers\StylesController.cs" />
     <Compile Include="Core\AutoMapperConfigurator.cs" />
     <Compile Include="Core\Classes\AI.cs" />
     <Compile Include="Core\ExtensionMethods.cs" />
@@ -255,6 +256,8 @@
     <Content Include="app\dashboard\dashboard.template.html" />
     <Content Include="app\discover\discover.template.html" />
     <Content Include="app\home\home.template.html" />
+    <Content Include="app\newrecipe\newrecipe.html" />
+    <Content Include="app\newrecipe\newrecipe.js" />
     <Content Include="app\recipe\recipe.color.display\recipe.color.display.js" />
     <Content Include="app\recipe\recipe.color.display\recipe.color.display.template.html" />
     <Content Include="app\recipe\recipe.template.html" />
@@ -275,7 +278,9 @@
     <Content Include="app\_directives\realtime-chart\realtime-chart.template.html" />
     <Content Include="app\_filters\descender-filter.js" />
     <Content Include="app\_services\ingredientService.js" />
+    <Content Include="app\_services\recipeService.js" />
     <Content Include="app\_services\rttService.js" />
+    <Content Include="app\_services\styleService.js" />
     <Content Include="Content\angular-toastr.css" />
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
@@ -285,6 +290,9 @@
     </Content>
     <Content Include="Content\bootstrap\variables.css">
       <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
     </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\homebrews-icons.css">
@@ -334,7 +342,9 @@
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
-    <Content Include="Scripts\angular-ui-router.min.js" />
+    <Content Include="Scripts\angular-ui-router.min.js">
+      <DependentUpon>angular-ui-router.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
@@ -451,6 +461,7 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Content\targetted-slider.less" />
+    <Content Include="Content\rebrews\formelements.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

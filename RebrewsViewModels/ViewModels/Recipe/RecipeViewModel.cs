@@ -27,5 +27,11 @@ namespace RebrewsViewModels.ViewModels.Recipe
         [DataMember]
         public RecipeProfileViewModel Profile { get; set; }
 
+        [DataMember]
+        public RecipeStyleViewModel Style { get; set; }
+
+        [DataMember]
+        public int Style_Id { get; set; }
+
     }
 }

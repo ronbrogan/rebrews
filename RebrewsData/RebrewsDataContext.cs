@@ -25,7 +25,6 @@ namespace RebrewsData
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<RecipeStyle> RecipeStyles { get; set; }
 
-
         //Brewday Items
 
 

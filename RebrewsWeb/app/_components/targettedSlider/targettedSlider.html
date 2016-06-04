@@ -1,4 +1,4 @@
-﻿<div class="targetted-slider-container">
+﻿<div class="targetted-slider-container" ng-class="{expanded: slider.expanded, collapsed: slider.expanded != true}">
     <div class="marker" style="left: {{slider.actual | sliderOffset:slider.min:slider.max:true}};
           -ms-transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%);
           -webkit-transform: translateX(-{{slider.actual | sliderOffset:slider.min:slider.max}}%);

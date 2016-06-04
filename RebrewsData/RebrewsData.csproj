@@ -177,6 +177,10 @@
     <Compile Include="Migrations\201605170303557_EmptyMigration.Designer.cs">
       <DependentUpon>201605170303557_EmptyMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606040259131_RecipeStyle.cs" />
+    <Compile Include="Migrations\201606040259131_RecipeStyle.Designer.cs">
+      <DependentUpon>201606040259131_RecipeStyle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Authentication\ApiUser.cs" />
     <Compile Include="Models\Base\BaseFermentable.cs" />
@@ -239,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605170303557_EmptyMigration.resx">
       <DependentUpon>201605170303557_EmptyMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606040259131_RecipeStyle.resx">
+      <DependentUpon>201606040259131_RecipeStyle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

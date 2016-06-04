@@ -4,5 +4,11 @@
     "inputFiles": [
       "Scripts/angular-toastr.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/angular-ui-router.js",
+    "inputFiles": [
+      "Scripts/angular-ui-router.js"
+    ]
   }
 ]

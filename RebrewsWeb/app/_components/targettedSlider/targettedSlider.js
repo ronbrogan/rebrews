@@ -15,12 +15,17 @@
 
     app.controller("targettedSliderController", ["$timeout", function ($timeout) {
         var self = this;
-
+        self.expanded = self.expanded || false;
     }]);
 
     app.filter("sliderOffset", function () {
         return function (input, min, max, appendPercent) {
-            var value = Math.max(Math.min((((input - min) / (max - min)) * 70) + 15, 100), 0);
+            input = parseFloat(input).toFixed(3);
+
+            var value = parseInt(((input - min) / (max - min)) * 70) + 15;
+
+            value = Math.max(Math.min(value, 100), 0);
+
             if(appendPercent) {
                 return value + "%";
             }

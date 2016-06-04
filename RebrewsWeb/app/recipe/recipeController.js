@@ -36,6 +36,12 @@
             }
         }
 
+        self.formatAbv = function() {
+            return function(abvValue) {
+                return parseFloat(abvValue).toFixed(1) + "%";
+            }
+        }
+
         function initialize() {
             $http.get("/api/Recipes/" + self.recipeId).then(function(result) {
                 self.recipe = result.data;

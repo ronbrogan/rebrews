@@ -1,7 +1,7 @@
 //
 // Variables
 // --------------------------------------------------
-
+@import (reference) "../Site.less";
 @import (reference) "colors.less";
 
 //== Colors
@@ -27,7 +27,7 @@
 @brand-warning:         @warning;
 @brand-danger:          @danger;
 
-@homebrew-primary:      @deep-orange-900;
+@homebrew-primary:      @theme-primary;
 @homebrew-light:        lighten(@homebrew-primary, 50%);
 @homebrew-dark:         darken(@homebrew-primary, 25%);
 
@@ -37,9 +37,9 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #FAFAFA;
+@body-bg:               @body-background;
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            @body-textcolor;
 
 //** Global textual link color.
 @link-color:            @brand-primary;

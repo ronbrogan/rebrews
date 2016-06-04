@@ -21,7 +21,10 @@ namespace RebrewsData.Models.Recipe
         [InverseProperty("Recipe")]
         public virtual ICollection<RecipeYeast> Yeasts { get; set; }
 
-        public RecipeProfile Profile { get; set; }
+        [ForeignKey("Style")]
+        public int Style_Id { get; set; }
+
+        public RecipeStyle Style { get; set; }
 
         public int Owner_Id { get; set; }
 

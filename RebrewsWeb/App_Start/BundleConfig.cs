@@ -28,12 +28,13 @@ namespace RebrewsWeb
                      "~/Scripts/angular-aria.min.js",
                      "~/Scripts/d3.js",
                      "~/Scripts/angular-ui-router.js",
-                     "~/Scripts/ct-ui-router-extras.js",
                      "~/Scripts/angular-toastr.min.js",
                      "~/Scripts/angular-toastr.tpls.min.js",
                      "~/app/app.js",
                      "~/Scripts/lodash.min.js",
-                     "~/app/_services/ingredientService.js"));
+                     "~/app/_services/ingredientService.js",
+                     "~/app/_services/styleService.js",
+                     "~/app/_services/recipeService.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/recipe").Include(
                     "~/app/recipe/recipeController.js",
@@ -49,7 +50,8 @@ namespace RebrewsWeb
                     "~/app/_filters/descender-filter.js",
                     "~/app/_directives/loading-bar/loading-bar.js",
                     "~/app/_directives/loading-bar/loading.bar.scoped.js",
-                    "~/app/_components/targettedSlider/targettedSlider.js"
+                    "~/app/_components/targettedSlider/targettedSlider.js",
+                    "~/app/newrecipe/newrecipe.js"
                     ));
         }
     }

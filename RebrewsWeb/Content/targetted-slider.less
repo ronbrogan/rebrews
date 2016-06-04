@@ -1,6 +1,7 @@
 ﻿@import url("bootstrap/variables.less");
 
 //optimal + 2*warning + 2*danger should come to 100%
+//if this changes the calculations for offsets need to change in the filter
 @optimal-width: 70%;
 @warning-width: 5%;
 @danger-width: 10%;
@@ -23,7 +24,33 @@
     width: 100%;
     display: block;
     position: relative;
-    margin-top: @value-lineheight;
+    margin-top: @value-lineheight + (-2 * @marker-offset);
+    height: @bound-height + @marker-height + (-1 * @marker-offset);
+    -moz-transition: all ease .2s;
+    -o-transition: all ease .2s;
+    -webkit-transition: all ease .2s;
+    transition: all ease .2s;
+
+    &.collapsed {
+        margin-top: -2 * @marker-offset;
+        height: @marker-height;
+
+        .marker > .value {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .area.area-optimal {
+            > .bound {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &:before, &:after {
+                display: none;
+            }
+        }
+    }
 
     .marker {
         position: absolute;
@@ -55,11 +82,11 @@
             font-size: @value-lineheight;
             font-weight: 500;
             color: #333;
-
-            -moz-transition: all @animation-time;
-            -o-transition: all @animation-time;
-            -webkit-transition: all @animation-time;
-            transition: all @animation-time;
+            opacity: 1;
+            -moz-transition: all @animation-time ease, opacity .2s ease;
+            -o-transition: all @animation-time ease, opacity .2s ease;
+            -webkit-transition: all @animation-time ease, opacity .2s ease;
+            transition: all @animation-time ease, opacity .2s ease;
         }
     }
 
@@ -78,6 +105,11 @@
             .bound {
                 position: absolute;
                 top: @bound-height;
+                opacity: 1;
+                -moz-transition: all ease .2s;
+                -o-transition: all ease .2s;
+                -webkit-transition: all ease .2s;
+                transition: all ease .2s;
 
                 &.min {
                     left: -15%;
