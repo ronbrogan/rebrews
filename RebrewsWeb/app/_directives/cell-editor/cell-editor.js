@@ -52,8 +52,6 @@
             if (self.isEditing) {
                 self.isEditing = false;
                 var currValue = getItemVal(self.item, self.columnDefinition);
-                console.log(lastValue);
-                console.log(currValue);
 
                 if(lastValue !== currValue) {
                     self.itemChanged()(self.item);

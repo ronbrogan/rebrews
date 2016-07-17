@@ -142,7 +142,8 @@
 
             result.unwrappedError = result.data;
 
-            toastr.error(result.unwrappedError.message);
+            if (result.unwrappedError && result.unwrappedError.message)
+                toastr.error(result.unwrappedError.message);
 
             console.log("ErrorHandler: ");
             console.log(result);

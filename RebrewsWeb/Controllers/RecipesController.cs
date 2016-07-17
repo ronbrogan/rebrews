@@ -48,5 +48,11 @@ namespace RebrewsWeb.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<RecipeViewModel>(recipe));
         }
+
+        [Route("api/Recipes"), HttpGet]
+        public HttpResponseMessage GetAllRecipes()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map < List < RecipeViewModel >>( db.Recipes.ToList()));
+        }
     }
 }

@@ -254,6 +254,8 @@
     <Content Include="app\account\register.template.html" />
     <Content Include="app\app.js" />
     <Content Include="app\dashboard\dashboard.template.html" />
+    <Content Include="app\discover\all-recipes\all-recipes.html" />
+    <Content Include="app\discover\all-recipes\all-recipes.js" />
     <Content Include="app\discover\discover.template.html" />
     <Content Include="app\home\home.template.html" />
     <Content Include="app\newrecipe\newrecipe.html" />

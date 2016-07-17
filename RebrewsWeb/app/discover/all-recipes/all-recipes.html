@@ -1,0 +1,14 @@
+﻿<div class="card">
+    <div class="card-header">
+        <h1>All Recipes</h1>
+    </div>
+
+    <div ng-repeat="recipe in recipes.allRecipes" ng-click="recipes.gotoRecipe(recipe.id)" class="hover hover-light-gray recipe-item">
+        <h4>
+            {{recipe.name}}<br />
+            <small>{{recipe.style.styleName}}</small>
+        </h4>
+
+    </div>
+
+</div>

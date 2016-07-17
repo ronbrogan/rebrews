@@ -11,7 +11,7 @@
 
 
 @theme-primary: #d84315;
-@theme-secondary: #23c2ff;
+@theme-secondary: #1fa4d7;
 
 html {
     position: relative;
@@ -184,7 +184,7 @@ footer {
     left: 0;
     height: 2px;
     width: 0%;
-    background-color: #23c2ff;
+    background-color: #209bcb;
     display: none;
     content: '';
     transition: width 0.25s ease;
@@ -213,4 +213,23 @@ footer {
     -ms-flex: 1;
     -webkit-flex: 1;
     flex: 1;
+}
+
+.hover {
+    cursor: pointer;
+
+    &:hover {
+        &.hover-light-gray {
+            background-color: #eee;
+        }
+    }
+}
+
+.recipe-item {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #333;
+    width: 33.33%;
+
+
 }

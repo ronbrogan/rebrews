@@ -24,7 +24,7 @@ namespace RebrewsData.Models.Recipe
         [ForeignKey("Style")]
         public int Style_Id { get; set; }
 
-        public RecipeStyle Style { get; set; }
+        public virtual RecipeStyle Style { get; set; }
 
         public int Owner_Id { get; set; }
 

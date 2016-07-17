@@ -35,11 +35,11 @@
 }
 .input-container input:focus,
 .input-container select:focus {
-  border-color: #23c2ff;
+  border-color: #1fa4d7;
 }
 .input-container input:focus ~ label,
 .input-container select:focus ~ label {
-  color: #23c2ff;
+  color: #1fa4d7;
 }
 label {
   color: #9e9e9e;
@@ -62,7 +62,7 @@ textarea {
   line-height: normal;
 }
 button {
-  background-color: #23c2ff;
+  background-color: #1fa4d7;
   padding: 10px 35px;
   margin: 5px 10px;
   border: none;
@@ -249,7 +249,7 @@ footer {
   left: 0;
   height: 2px;
   width: 0%;
-  background-color: #23c2ff;
+  background-color: #209bcb;
   display: none;
   content: '';
   transition: width 0.25s ease;
@@ -273,4 +273,16 @@ footer {
   -ms-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+}
+.hover {
+  cursor: pointer;
+}
+.hover:hover.hover-light-gray {
+  background-color: #eee;
+}
+.recipe-item {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #333;
+  width: 33.33%;
 }

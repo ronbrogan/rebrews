@@ -10,6 +10,11 @@
             }).catch($rootScope.errHandler);
         };
 
+        self.allRecipes = function () {
+            return $http.get("/api/Recipes").then(function (result) {
+                return result.data;
+            }).catch($rootScope.errHandler);
+        };
 
         return self;
     }]);

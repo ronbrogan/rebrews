@@ -53,6 +53,8 @@ namespace RebrewsWeb
                     "~/app/_components/targettedSlider/targettedSlider.js",
                     "~/app/newrecipe/newrecipe.js"
                     ));
+
+            bundles.Add(new ScriptBundle("~/bundles/discover").IncludeDirectory("~/app/discover", "*.js", true));
         }
     }
 }
