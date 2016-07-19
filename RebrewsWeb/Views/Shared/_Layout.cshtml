@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using RebrewsWeb.Core
+<!DOCTYPE html>
 <html ng-app="rebrews">
 <head>
     <base href="/">
@@ -31,12 +32,27 @@
                     <li><a href="/recipe/new">Recipe</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/account/register">Register</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/account/login">Login</a></li>
-                </ul>
+                @if (WebContext.Current != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/account/logout">Logout</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/account/details">Hello @WebContext.Current.User.FirstName</a></li>
+                    </ul>
+                    
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/account/register">Register</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/account/login">Login</a></li>
+                    </ul>
+                }
+
+               
             </div>
         </div>
     </div>
@@ -55,6 +71,7 @@
 @Scripts.Render("~/bundles/directives")
 @Scripts.Render("~/bundles/recipe")
 @Scripts.Render("~/bundles/discover")
+@Scripts.Render("~/bundles/pages")
 @RenderSection("scripts", required: false)
 </body>
 </html>

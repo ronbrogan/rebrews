@@ -42,17 +42,19 @@ namespace RebrewsWeb
                     "~/app/recipe/recipe.color.display/recipe.color.display.js"
                     ));
 
-            bundles.Add(new ScriptBundle("~/bundles/directives").Include(
-                    "~/app/_directives/material-table/material-table.js",
-                    "~/app/_directives/cell-editor/cell-editor.js",
-                    "~/app/_directives/realtime-chart/realtime-chart.js",
+            bundles.Add(new ScriptBundle("~/bundles/directives")
+                .Include(
                     "~/app/_services/rttService.js",
                     "~/app/_filters/descender-filter.js",
-                    "~/app/_directives/loading-bar/loading-bar.js",
-                    "~/app/_directives/loading-bar/loading.bar.scoped.js",
-                    "~/app/_components/targettedSlider/targettedSlider.js",
                     "~/app/newrecipe/newrecipe.js"
-                    ));
+                )
+                .IncludeDirectory("~/app/_directives", "*.js", true)
+                .IncludeDirectory("~/app/_components", "*.js", true));
+
+            bundles.Add(new ScriptBundle("~/bundles/pages")
+                .IncludeDirectory("~/app/account", "*.js", true)
+
+            );
 
             bundles.Add(new ScriptBundle("~/bundles/discover").IncludeDirectory("~/app/discover", "*.js", true));
         }

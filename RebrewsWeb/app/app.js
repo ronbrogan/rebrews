@@ -40,7 +40,8 @@
                 url: "/login",
                 views: {
                     "maininner": {
-                        templateUrl: "/app/account/login.template.html"
+                        templateUrl: "/app/account/login.html",
+                        controller: "loginController as login"
                     }
                 }
             })
@@ -48,7 +49,8 @@
                 url: "/register",
                 views: {
                     "maininner": {
-                        templateUrl: "/app/account/register.template.html"
+                        templateUrl: "/app/account/register.html",
+                        controller: "registerController as register"
                     }
                 }
             })
@@ -142,8 +144,11 @@
 
             result.unwrappedError = result.data;
 
-            if (result.unwrappedError && result.unwrappedError.message)
+            if (result.unwrappedError.exceptionMessage) {
+                toastr.error(result.unwrappedError.exceptionMessage);
+            } else if (result.unwrappedError && result.unwrappedError.message) {
                 toastr.error(result.unwrappedError.message);
+            }
 
             console.log("ErrorHandler: ");
             console.log(result);

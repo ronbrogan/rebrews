@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Microsoft.ApplicationInsights;
 using RebrewsWeb.Controllers;
 
-namespace RebrewsWeb.Controllers
+namespace RebrewsWeb.Core.Classes
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class AiHandleErrorAttribute : HandleErrorAttribute
@@ -22,13 +22,5 @@ namespace RebrewsWeb.Controllers
             }
             base.OnException(filterContext);
         }
-    }
-}
-// then register AiHandleErrorAttribute in FilterConfig:
-public class FilterConfig
-{
-    public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-    {
-        filters.Add(new AiHandleErrorAttribute());
     }
 }

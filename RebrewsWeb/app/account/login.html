@@ -1,0 +1,39 @@
+﻿<div class="row">
+
+    <div class="col-md-8">
+
+        <div class="card">
+            <div class="card-header">
+                <h1>Log in to Homebrews</h1>
+            </div>
+            <div class="card-body">
+                <form action="/api/Account/Login" method="post" >
+                    <input type="text" class="form-control" placeholder="Email Address" name="email" />
+                    <input type="password" class="form-control" placeholder="Password" name="password" />
+                    <div class="text-right">
+                        <p>
+                            <button type="submit" class="btn btn-primary">Log in</button>
+                        </p>
+                        <p>
+                            <a href="/account/forgot">Forgot password?</a><br />
+                            <a href="/account/register">No account?</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h1>External Log-in</h1>
+            </div>
+            <div class="card-body">
+                Microsoft Account
+                Google
+            </div>
+        </div>
+    </div>
+
+</div>

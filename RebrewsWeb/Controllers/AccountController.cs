@@ -14,6 +14,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using RebrewsData.Enums;
 using RebrewsData.Models.Authentication;
 using RebrewsViewModels.ViewModels.Authentication;
 using RebrewsWeb.Providers;
@@ -78,7 +79,7 @@ namespace RebrewsWeb.Controllers
             if (user == null)
                 throw new Exception("Invalid user or password. Please try again.");
 
-            AuthenticationHandler authHandler = new AuthenticationHandler(Authentication);
+            var authHandler = new AuthenticationHandler(Authentication);
 
             authHandler.SignInUser(user, true);
 
@@ -341,23 +342,28 @@ namespace RebrewsWeb.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterViewModel model)
+        public async Task<HttpResponseMessage> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            var user = new ApiUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApiUser()
+            {
+                UserName = model.Email,
+                Email = model.Email, 
+                Role = UserRole.User
+            };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
-                return GetErrorResult(result);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, string.Join(", ", result.Errors));
             }
 
-            return Ok();
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         // POST api/Account/RegisterExternal

@@ -237,9 +237,11 @@
     <Compile Include="Core\AutoMapperConfigurator.cs" />
     <Compile Include="Core\Classes\AI.cs" />
     <Compile Include="Core\ExtensionMethods.cs" />
+    <Compile Include="Core\Filters\RebrewsAuthenticationFilter.cs" />
     <Compile Include="Core\Services\AuthenticationHandler.cs" />
     <Compile Include="Core\Services\RecipeCalculationService.cs" />
     <Compile Include="Core\Services\ColorLookup.cs" />
+    <Compile Include="Core\WebContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,8 +252,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\account\login.template.html" />
-    <Content Include="app\account\register.template.html" />
+    <Content Include="app\account\login.js" />
+    <Content Include="app\account\login.html" />
+    <Content Include="app\account\register.html" />
+    <Content Include="app\account\register.js" />
     <Content Include="app\app.js" />
     <Content Include="app\dashboard\dashboard.template.html" />
     <Content Include="app\discover\all-recipes\all-recipes.html" />

@@ -8,9 +8,10 @@
                 <h1>Register</h1>
             </div>
             <div class="card-body">
-                <input type="text" class="form-control" placeholder="Email Address" />
-                <input type="password" class="form-control" placeholder="Password" />
-                <button type="submit" class="btn btn-primary">Register</button>
+                <input type="text" class="form-control" placeholder="Email Address" ng-model="register.creds.email" />
+                <input type="password" class="form-control" placeholder="Password" ng-model="register.creds.password" />
+                <input type="password" class="form-control" placeholder="Repeat Password" ng-model="register.creds.confirmPassword" />
+                <button type="submit" class="btn btn-primary" ng-click="register.register()">Register</button>
             </div>
         </div>
     </div>

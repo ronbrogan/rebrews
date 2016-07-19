@@ -82,6 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Authentication\ApiUserViewModel.cs" />
     <Compile Include="ViewModels\Authentication\AuthenticationViewModels.cs" />
+    <Compile Include="ViewModels\Authentication\CookieViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseFermentableViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseHopViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseYeastViewModel.cs" />
