@@ -11,6 +11,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using System.IO.Compression;
+using Newtonsoft.Json;
 
 namespace RebrewsViewModels.ViewModels.Authentication
 {
@@ -25,19 +26,14 @@ namespace RebrewsViewModels.ViewModels.Authentication
             CookieVersion = output;
         }
 
-        public static CookieViewModel  DecompressCookieViewModel(string Base64Data)
+        public static CookieViewModel  DeserializeCookie(string data)
         {
-            var bytes = Convert.FromBase64String(Base64Data);
-            return (CookieViewModel) new BinaryFormatter().Deserialize(new MemoryStream(bytes));
+            return JsonConvert.DeserializeObject<CookieViewModel>(data);
         }
 
         public string GetSerialized()
         {
-            using (var input = new MemoryStream())
-            {
-                new BinaryFormatter().Serialize(input, this);
-                return Convert.ToBase64String(input.ToArray());
-            }
+            return JsonConvert.SerializeObject(this);
         }
 
         [DataMember]
@@ -62,7 +58,10 @@ namespace RebrewsViewModels.ViewModels.Authentication
         [DataMember]
         public UserRole Role { get; set; }
 
+        [DataMember]
         public int CookieVersion { get; set; }
+        //private int CalcField { get; set;}
+
 
     }
 }

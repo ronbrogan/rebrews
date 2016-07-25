@@ -88,7 +88,7 @@ namespace RebrewsWeb.Controllers
 
 
         // POST api/Account/Logout
-        [Route("Logout")]
+        [Route("Logout"), HttpGet, HttpPost]
         public IHttpActionResult Logout()
         {
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);

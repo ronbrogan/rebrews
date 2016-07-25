@@ -19,9 +19,18 @@ namespace RebrewsWeb.Core.Filters
 
             if(!string.IsNullOrEmpty(userPayload?.Value))
             {
-                var userObject = CookieViewModel.DecompressCookieViewModel(userPayload.Value);
+                var userObject = CookieViewModel.DeserializeCookie(userPayload.Value);
 
-                filterContext.HttpContext.Items.Add("WebContext", WebContext.CreateContext(userObject));
+                if(userObject.CookieVersion != new CookieViewModel().CookieVersion)
+                {
+                    filterContext.HttpContext.GetOwinContext().Authentication.SignOut();
+                    var defaultPrincipal = new ClaimsPrincipal(new ClaimsIdentity(new List<Claim> { new Claim("name", "") }));
+                    filterContext.HttpContext.User = defaultPrincipal;
+                }
+                else
+                {   
+                    filterContext.HttpContext.Items.Add("WebContext", WebContext.CreateContext(userObject));
+                }
             }
 
             base.OnActionExecuting(filterContext);

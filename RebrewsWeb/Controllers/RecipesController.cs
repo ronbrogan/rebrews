@@ -12,6 +12,7 @@ using RebrewsData.Models.Recipe;
 
 namespace RebrewsWeb.Controllers
 {
+    [Authorize]
     public class RecipesController : ApiController
     {
         private RebrewsDataContext db = new RebrewsDataContext();

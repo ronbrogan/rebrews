@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using RebrewsWeb.Core.Filters;
 
 namespace RebrewsWeb
 {
@@ -18,6 +19,7 @@ namespace RebrewsWeb
             //config.SuppressDefaultHostAuthentication();
             // Or not motherfucker
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.Filters.Add(new RebrewsApiAuthenticationFilter());
 
             var formatters = GlobalConfiguration.Configuration.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
