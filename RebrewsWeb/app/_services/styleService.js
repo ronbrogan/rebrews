@@ -1,5 +1,5 @@
 ﻿(function() {
-    var app = angular.module("rebrews");
+    var app = angular.module("Rebrews");
 
     app.service("styleService", ["$http", "$rootScope", function ($http, $rootScope) {
         var self = this;

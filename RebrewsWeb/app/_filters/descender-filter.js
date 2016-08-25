@@ -1,4 +1,4 @@
-﻿angular.module("rebrews").filter("descenderFilter", descenderFilter);
+﻿angular.module("Rebrews").filter("descenderFilter", descenderFilter);
 
 function descenderFilter() {
     return function (inputValue, property) {

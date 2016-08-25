@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "target": "es5",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./Scripts/app"
+  },
+  "exclude": [
+    "Service References",
+    "App_Data",
+    "App_Start",
+    "bin",
+    "Content",
+    "Controllers",
+    "Core",
+    "obj",
+    "Views"
+  ],
+  "compileOnSave": true
+}

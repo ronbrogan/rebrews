@@ -48,7 +48,7 @@
         return serviceReturn;
     }
 
-    angular.module("rebrews").directive("materialTable", function() {
+    angular.module("Rebrews").directive("materialTable", function() {
             return {
                 restrict: 'E',
                 replace: true,

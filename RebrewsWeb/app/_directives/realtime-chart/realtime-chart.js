@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module("rebrews").directive("realtimeChart", function () {
+    angular.module("Rebrews").directive("realtimeChart", function () {
         return {
             restrict: "E",
             scope: {

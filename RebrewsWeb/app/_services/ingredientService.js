@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("rebrews").service("ingredientService", ingredientService);
+    angular.module("Rebrews").service("ingredientService", ingredientService);
 
     ingredientService.$inject = ["$http", "$q", "$rootScope"];
     

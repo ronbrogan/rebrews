@@ -1,5 +1,5 @@
 ﻿(function() {
-    var app = angular.module("rebrews");
+    var app = angular.module("Rebrews");
 
     app.service("recipeService", ["$rootScope", "$http", "$state", function ($rootScope, $http, $state) {
         var self = this;

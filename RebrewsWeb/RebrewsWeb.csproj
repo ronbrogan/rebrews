@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.Default.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.NuGet.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.NuGet.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -359,6 +360,17 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app\app\rebrews.js" />
+    <Content Include="Scripts\app\app\_components\tsTest\tsTest.js" />
+    <Content Include="Scripts\app\app\_services\AccountService.js" />
+    <Content Include="Scripts\app\app\_services\FermentableService.js" />
+    <Content Include="Scripts\app\app\_services\HopService.js" />
+    <Content Include="Scripts\app\app\_services\IngredientsService.js" />
+    <Content Include="Scripts\app\app\_services\RecipesService.js" />
+    <Content Include="Scripts\app\app\_services\StylesService.js" />
+    <Content Include="Scripts\app\app\_services\YeastService.js" />
+    <Content Include="Scripts\app\rebrews.js" />
+    <Content Include="Scripts\app\_components\tsTest\tsTest.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ct-ui-router-extras.js" />
@@ -470,6 +482,17 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Content\targetted-slider.less" />
     <Content Include="Content\rebrews\formelements.less" />
+    <Content Include="Scripts\app\_components\tsTest\tsTest.js.map" />
+    <Content Include="Scripts\app\app\rebrews.js.map" />
+    <Content Include="Scripts\app\app\_services\IngredientsService.js.map" />
+    <Content Include="Scripts\app\app\_services\AccountService.js.map" />
+    <Content Include="Scripts\app\app\_services\FermentableService.js.map" />
+    <Content Include="Scripts\app\app\_services\HopService.js.map" />
+    <Content Include="Scripts\app\app\_services\RecipesService.js.map" />
+    <Content Include="Scripts\app\app\_services\StylesService.js.map" />
+    <Content Include="Scripts\app\app\_services\YeastService.js.map" />
+    <Content Include="Scripts\app\app\_components\tsTest\tsTest.js.map" />
+    <Content Include="Scripts\app\rebrews.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1244,8 +1267,116 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="typings\globals\angular\typings.json" />
+    <Content Include="typings\globals\es6-shim\typings.json" />
+    <Content Include="typings\globals\jquery\typings.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="app\rebrews.ts" />
+    <TypeScriptCompile Include="app\_components\tsTest\tsTest.ts" />
+    <None Include="app\_services\Services.tst" />
+    <TypeScriptCompile Include="app\_services\AccountService.ts">
+      <DependentUpon>Services.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\AccountController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="app\_services\FermentableService.ts">
+      <DependentUpon>Services.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\IngredientControllers\FermentableController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="app\_services\HopService.ts">
+      <DependentUpon>Services.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\IngredientControllers\HopController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="app\_services\IngredientsService.ts">
+      <DependentUpon>Services.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\IngredientsController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="app\_services\RecipesService.ts">
+      <DependentUpon>Services.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\RecipesController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="app\_services\StylesService.ts">
+      <DependentUpon>Services.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\StylesController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="app\_services\YeastService.ts">
+      <DependentUpon>Services.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\IngredientControllers\YeastController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <None Include="typings\Enums.tst" />
+    <TypeScriptCompile Include="typings\ApiUserViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Authentication\ApiUserViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\AuthenticationViewModels.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Authentication\AuthenticationViewModels.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\BaseFermentableViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Base\BaseFermentableViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\BaseHopViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Base\BaseHopViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\BaseYeastViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Base\BaseYeastViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\CookieViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Authentication\CookieViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\FermentablePhType.ts">
+      <DependentUpon>Enums.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsData\Enums\FermentablePhType.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\globals\angular\angular-animate.d.ts" />
+    <TypeScriptCompile Include="typings\globals\angular\angular-component-router.d.ts" />
+    <TypeScriptCompile Include="typings\globals\angular\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="typings\globals\angular\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="typings\globals\angular\angular-resource.d.ts" />
+    <TypeScriptCompile Include="typings\globals\angular\angular-route.d.ts" />
+    <TypeScriptCompile Include="typings\globals\angular\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="typings\globals\angular\angular.d.ts" />
+    <TypeScriptCompile Include="typings\globals\es6-shim\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
+    <None Include="typings\ViewModels.tst" />
+    <TypeScriptCompile Include="typings\IngredientModifiedViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\IngredientModifiedViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\RecipeFermentableViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeFermentableViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\RecipeHopViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeHopViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\RecipeProfileViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeProfileViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\RecipeStyleViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeStyleViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\RecipeViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\RecipeYeastViewModel.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeYeastViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\UserRole.ts">
+      <DependentUpon>Enums.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsData\Enums\UserRole.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -1264,10 +1395,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -1276,6 +1409,7 @@
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.targets')" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Any CPU'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
@@ -1290,7 +1424,6 @@
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
@@ -1323,6 +1456,11 @@
     <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>2.0</SsdtUnitTestVersion>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

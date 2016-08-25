@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module("rebrews").directive("dblEdit", function() {
+    angular.module("Rebrews").directive("dblEdit", function() {
         return {
             restrict: "A",
             scope: {

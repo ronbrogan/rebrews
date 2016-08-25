@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module("rebrews").directive("loadingBar", ["$timeout", function($timeout) {
+    angular.module("Rebrews").directive("loadingBar", ["$timeout", function($timeout) {
         return {
             restrict: 'A',
             scope: false,

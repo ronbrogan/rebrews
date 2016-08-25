@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("rebrews").service("rttService", rttService);
+    angular.module("Rebrews").service("rttService", rttService);
 
     function rttService() {
         var service = this;

@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module("rebrews").controller("recipeController", recipeController);
+    angular.module("Rebrews").controller("recipeController", recipeController);
 
     recipeController.$inject = ["$stateParams", "rttService", "$http"];
 

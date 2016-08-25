@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module("rebrews").directive("ingredientTable", function () {
+    angular.module("Rebrews").directive("ingredientTable", function () {
         return {
             restrict: 'E',
             bindToController: {

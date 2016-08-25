@@ -1,5 +1,5 @@
 ﻿(function() {
-    angular.module("rebrews", ["ui.router", "toastr"]).config(config).run(run);
+    angular.module("Rebrews", ["ui.router", "toastr"]).config(config).run(run);
 
     config.$inject = ["$locationProvider", "$stateProvider", "$urlRouterProvider", "$httpProvider", "toastrConfig"];
 

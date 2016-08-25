@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    angular.module("rebrews").directive("recipeColorDisplay", function () {
+    angular.module("Rebrews").directive("recipeColorDisplay", function () {
         return {
             restrict: 'E',
             scope: {},

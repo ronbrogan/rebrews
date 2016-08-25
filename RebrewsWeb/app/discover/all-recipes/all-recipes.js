@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("rebrews");
+    var app = angular.module("Rebrews");
 
 
     app.component("allRecipes", {
