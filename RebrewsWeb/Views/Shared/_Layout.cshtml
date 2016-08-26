@@ -1,6 +1,6 @@
 ﻿@using RebrewsWeb.Core
 <!DOCTYPE html>
-<html ng-app="rebrews">
+<html ng-app="Rebrews">
 <head>
     <base href="/">
     <meta charset="utf-8"/>
@@ -65,13 +65,8 @@
     
 
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/bundles/angular")
-@Scripts.Render("~/bundles/directives")
-@Scripts.Render("~/bundles/recipe")
-@Scripts.Render("~/bundles/discover")
-@Scripts.Render("~/bundles/pages")
+@Scripts.Render("~/bundles/lib")
+@Scripts.Render("~/bundles/app")
 @RenderSection("scripts", required: false)
 </body>
 </html>
