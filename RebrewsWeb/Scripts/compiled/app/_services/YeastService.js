@@ -1,20 +1,25 @@
 var Rebrews;
 (function (Rebrews) {
-    var YeastController = (function () {
-        function YeastController($http) {
+    var YeastService = (function () {
+        function YeastService($http, $rootScope) {
             var _this = this;
             this.$http = $http;
+            this.$rootScope = $rootScope;
             this.get = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Yeasts/List",
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
         }
-        return YeastController;
+        YeastService.$inject = ["$http", "$rootScope"];
+        return YeastService;
     }());
-    Rebrews.YeastController = YeastController;
-    angular.module("Rebrews").service("YeastService", ["$http", YeastController]);
+    Rebrews.YeastService = YeastService;
+    angular.module("Rebrews").service("YeastService", YeastService);
 })(Rebrews || (Rebrews = {}));
 //# sourceMappingURL=YeastService.js.map

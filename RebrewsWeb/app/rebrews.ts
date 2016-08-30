@@ -8,7 +8,7 @@
     }
 
     export interface ErrorHandlingFunction {
-        (result: any): void
+        (result: any): ng.IHttpPromiseCallbackArg<any>
     }
 
     export interface RebrewsRootScope extends ng.IRootScopeService {
@@ -130,16 +130,15 @@
                     url: "/new",
                     views: {
                         "main@": {
-                            template: "<new-recipe></new-recipe>"
-                        }
+                            component: "newRecipe"
+                        }  
                     }
                 })
                 .state("recipe.detail", {
                     url: "/:recipe_Id",
                     views: {
                         "main@": {
-                            templateUrl: "/app/recipe/recipe.template.html",
-                            controller: "recipeController as recipeCtrl"
+                            component: "recipeDisplay"
                         }
                     }
                 })

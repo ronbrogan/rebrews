@@ -2,8 +2,13 @@ var Rebrews;
 (function (Rebrews) {
     var Recipe;
     (function (Recipe) {
+        var RecipeComponent = {
+            bindings: {},
+            templateUrl: "/app/recipe/recipe.html",
+            controller: "RecipeController as recipeCtrl"
+        };
         var RecipeController = (function () {
-            function RecipeController($stateParams, rttService, $http) {
+            function RecipeController($stateParams, rttService, $http, RecipesService) {
                 var self = this;
                 self.recipeId = $stateParams.recipe_Id;
                 self.recipe = {};
@@ -34,18 +39,18 @@ var Rebrews;
                     };
                 };
                 function initialize() {
-                    $http.get("/api/Recipes/" + self.recipeId).then(function (result) {
-                        self.recipe = result.data;
+                    RecipesService.getRecipeById(self.recipeId).then(function (data) {
+                        self.recipe = data;
                     });
                 }
                 initialize();
             }
-            RecipeController.providerName = "recipeController";
-            RecipeController.$inject = ["$stateParams", "rttService", "$http"];
+            RecipeController.providerName = "RecipeController";
+            RecipeController.$inject = ["$stateParams", "rttService", "$http", "RecipesService"];
             return RecipeController;
         }());
         Recipe.RecipeController = RecipeController;
-        angular.module("Rebrews").controller(RecipeController.providerName, RecipeController);
+        angular.module("Rebrews").controller(RecipeController.providerName, RecipeController).component("recipeDisplay", RecipeComponent);
     })(Recipe = Rebrews.Recipe || (Rebrews.Recipe = {}));
 })(Rebrews || (Rebrews = {}));
-//# sourceMappingURL=recipeController.js.map
+//# sourceMappingURL=recipe.js.map

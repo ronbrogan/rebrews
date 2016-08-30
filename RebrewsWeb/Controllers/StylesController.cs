@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using RebrewsData;
+using RebrewsData.Models.Recipe;
+using RebrewsViewModels.ViewModels.Recipe;
 
 namespace RebrewsWeb.Controllers
 {
@@ -14,11 +16,11 @@ namespace RebrewsWeb.Controllers
         private RebrewsDataContext db = new RebrewsDataContext();
 
 
-        public HttpResponseMessage GetList()
+        public ICollection<RecipeStyleListViewModel> GetList()
         {
-            var styles = db.RecipeStyles.ToList();
+            var styles = db.RecipeStyles.Select(s => new RecipeStyleListViewModel { Name = s.StyleName, Id = s.Id }).ToList();
 
-            return Request.CreateResponse(HttpStatusCode.OK, styles.Select(s => new { Name = s.StyleName, Id = s.Id }));
+            return styles;
         }
     }
 }

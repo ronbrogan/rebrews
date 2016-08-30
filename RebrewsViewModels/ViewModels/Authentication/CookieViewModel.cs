@@ -19,9 +19,16 @@ namespace RebrewsViewModels.ViewModels.Authentication
     [DataContract]
     public class CookieViewModel
     {
-        public CookieViewModel()
+        public CookieViewModel(bool generateVersion = true)
         {
-            var output = GetType().GetProperties().Aggregate(0, (current, prop) => current + prop.GetHashCode());
+            if (!generateVersion)
+                return;
+
+            var data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new CookieViewModel(false)));
+            var stream = new MemoryStream();
+            stream.Write(data, 0, data.Length);
+            var hasher = SHA1.Create();
+            var output = Convert.ToBase64String(hasher.ComputeHash(stream));
 
             CookieVersion = output;
         }
@@ -59,7 +66,7 @@ namespace RebrewsViewModels.ViewModels.Authentication
         public UserRole Role { get; set; }
 
         [DataMember]
-        public int CookieVersion { get; set; }
+        public string CookieVersion { get; set; }
         //private int CalcField { get; set;}
 
 

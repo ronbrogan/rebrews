@@ -1,41 +1,55 @@
 var Rebrews;
 (function (Rebrews) {
-    var RecipesController = (function () {
-        function RecipesController($http) {
+    var RecipesService = (function () {
+        function RecipesService($http, $rootScope) {
             var _this = this;
             this.$http = $http;
+            this.$rootScope = $rootScope;
             this.getRecipes = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/recipes/",
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
-            this.getRecipesById = function (id) {
-                return _this.$http({
-                    url: "api/Recipes/${id}",
+            this.getRecipeById = function (id) {
+                var self = _this;
+                return self.$http({
+                    url: "api/Recipes/" + id,
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.createRecipe = function (vm) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Recipes",
                     method: "post",
                     data: vm
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.getAllRecipes = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Recipes",
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
         }
-        return RecipesController;
+        RecipesService.$inject = ["$http", "$rootScope"];
+        return RecipesService;
     }());
-    Rebrews.RecipesController = RecipesController;
-    angular.module("Rebrews").service("RecipesService", ["$http", RecipesController]);
+    Rebrews.RecipesService = RecipesService;
+    angular.module("Rebrews").service("RecipesService", RecipesService);
 })(Rebrews || (Rebrews = {}));
 //# sourceMappingURL=RecipesService.js.map

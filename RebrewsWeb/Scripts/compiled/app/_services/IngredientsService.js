@@ -1,69 +1,95 @@
 var Rebrews;
 (function (Rebrews) {
-    var IngredientsController = (function () {
-        function IngredientsController($http) {
+    var IngredientsService = (function () {
+        function IngredientsService($http, $rootScope) {
             var _this = this;
             this.$http = $http;
+            this.$rootScope = $rootScope;
             this.get = function (recipeId, ingredientType) {
-                return _this.$http({
-                    url: "api/Ingredients/${ingredientType}/Recipe/${recipeId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/" + ingredientType + "/Recipe/" + recipeId,
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.postFermentable = function (recipeId, newIngredient) {
-                return _this.$http({
-                    url: "api/Ingredients/Fermentables/Recipe/${recipeId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/Fermentables/Recipe/" + recipeId,
                     method: "post",
                     data: newIngredient
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.postHop = function (recipeId, newIngredient) {
-                return _this.$http({
-                    url: "api/Ingredients/Hops/Recipe/${recipeId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/Hops/Recipe/" + recipeId,
                     method: "post",
                     data: newIngredient
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.postYeast = function (recipeId, newIngredient) {
-                return _this.$http({
-                    url: "api/Ingredients/Yeasts/Recipe/${recipeId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/Yeasts/Recipe/" + recipeId,
                     method: "post",
                     data: newIngredient
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.putFermentable = function (recipeId, updatedIngredient) {
-                return _this.$http({
-                    url: "api/Ingredients/Fermentables/Recipe/${recipeId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/Fermentables/Recipe/" + recipeId,
                     method: "put",
                     data: updatedIngredient
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.putHop = function (recipeId, updatedIngredient) {
-                return _this.$http({
-                    url: "api/Ingredients/Hops/Recipe/${recipeId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/Hops/Recipe/" + recipeId,
                     method: "put",
                     data: updatedIngredient
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.putYeast = function (recipeId, updatedIngredient) {
-                return _this.$http({
-                    url: "api/Ingredients/Yeasts/Recipe/${recipeId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/Yeasts/Recipe/" + recipeId,
                     method: "put",
                     data: updatedIngredient
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.delete = function (ingredientId, ingredientType) {
-                return _this.$http({
-                    url: "api/Ingredients/${ingredientType}/${ingredientId}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Ingredients/" + ingredientType + "/" + ingredientId,
                     method: "delete",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
         }
-        return IngredientsController;
+        IngredientsService.$inject = ["$http", "$rootScope"];
+        return IngredientsService;
     }());
-    Rebrews.IngredientsController = IngredientsController;
-    angular.module("Rebrews").service("IngredientsService", ["$http", IngredientsController]);
+    Rebrews.IngredientsService = IngredientsService;
+    angular.module("Rebrews").service("IngredientsService", IngredientsService);
 })(Rebrews || (Rebrews = {}));
 //# sourceMappingURL=IngredientsService.js.map

@@ -1,20 +1,25 @@
 var Rebrews;
 (function (Rebrews) {
-    var StylesController = (function () {
-        function StylesController($http) {
+    var StylesService = (function () {
+        function StylesService($http, $rootScope) {
             var _this = this;
             this.$http = $http;
+            this.$rootScope = $rootScope;
             this.getList = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/styles/",
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
         }
-        return StylesController;
+        StylesService.$inject = ["$http", "$rootScope"];
+        return StylesService;
     }());
-    Rebrews.StylesController = StylesController;
-    angular.module("Rebrews").service("StylesService", ["$http", StylesController]);
+    Rebrews.StylesService = StylesService;
+    angular.module("Rebrews").service("StylesService", StylesService);
 })(Rebrews || (Rebrews = {}));
 //# sourceMappingURL=StylesService.js.map

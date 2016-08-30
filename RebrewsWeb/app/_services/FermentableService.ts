@@ -1,21 +1,24 @@
 
 module Rebrews { 
 
-    export class FermentableController {
+    export class FermentableService {
 
-        public static $inject = ["$http"];
-        constructor(private $http: ng.IHttpService) { 
+        public static $inject = ["$http", "$rootScope"];
+        constructor(private $http: ng.IHttpService, private $rootScope: RebrewsRootScope) { 
         } 
         
         public get = () : ng.IHttpPromise<any> => {
-            
-            return this.$http<any>({
-                url: "api/Fermentables/List", 
+            let self = this;
+
+            return self.$http<any>({
+                url: `api/Fermentables/List`, 
                 method: "get", 
                 data: null
-            });
+            }).then(function(result){
+                return result.data;
+            }).catch(self.$rootScope.errHandler);
         };
     }
     
-    angular.module("Rebrews").service("FermentableService", [FermentableController.$inject, FermentableController]);
+    angular.module("Rebrews").service("FermentableService", FermentableService);
 }

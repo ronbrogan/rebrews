@@ -5,6 +5,6 @@ declare module Rebrews.ViewModels {
         userName: string;
         firstName: string;
         role: Enums.UserRole;
-        cookieVersion: number;
+        cookieVersion: string;
     }
 }

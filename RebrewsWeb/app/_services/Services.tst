@@ -37,21 +37,24 @@
 }
 module Rebrews { $Classes(:ApiController)[
 
-    export class $Name {
+    export class $ServiceName {
 
-        public static $inject = ["$http"];
-        constructor(private $http: ng.IHttpService) { 
+        public static $inject = ["$http", "$rootScope"];
+        constructor(private $http: ng.IHttpService, private $rootScope: RebrewsRootScope) { 
         } $Methods[
         
         public $name = ($Parameters[$name: $FullType][, ]) : ng.IHttpPromise<$ReturnType> => {
-            
-            return this.$http<$ReturnType>({
-                url: "$Url", 
+            let self = this;
+
+            return self.$http<$ReturnType>({
+                url: `$Url`, 
                 method: "$HttpMethod", 
                 data: $RequestData
-            });
+            }).then(function(result){
+                return result.data;
+            }).catch(self.$rootScope.errHandler);
         };]
     }
     
-    angular.module("Rebrews").service("$ServiceName", [$Name.$inject, $Name]);]
+    angular.module("Rebrews").service("$ServiceName", $ServiceName);]
 }

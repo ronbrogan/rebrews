@@ -35,19 +35,13 @@ namespace RebrewsWeb
                 "~/Scripts/compiled/app/rebrews.js"
             );
 
-            appBundle.IncludeDirectory("~/app/_services", "*.js", true);
             appBundle.IncludeDirectory("~/Scripts/compiled/app/_services", "*.js", true);
-            appBundle.IncludeDirectory("~/app/_filters", "*.js", true);
             appBundle.IncludeDirectory("~/Scripts/compiled/app/_filters", "*.js", true);
-            appBundle.IncludeDirectory("~/app/_directives", "*.js", true);
             appBundle.IncludeDirectory("~/Scripts/compiled/app/_directives", "*.js", true);
-            appBundle.IncludeDirectory("~/app/_components", "*.js", true);
             appBundle.IncludeDirectory("~/Scripts/compiled/app/_components", "*.js", true);
-            appBundle.IncludeDirectory("~/app/recipe", "*.js", true);
             appBundle.IncludeDirectory("~/Scripts/compiled/app/recipe", "*.js", true);
-            appBundle.IncludeDirectory("~/app/account", "*.js", true);
+            appBundle.IncludeDirectory("~/Scripts/compiled/app/newrecipe", "*.js", true);
             appBundle.IncludeDirectory("~/Scripts/compiled/app/account", "*.js", true);
-            appBundle.IncludeDirectory("~/app/discover", "*.js", true);
             appBundle.IncludeDirectory("~/Scripts/compiled/app/discover", "*.js", true);
 
             bundles.Add(libBundle);

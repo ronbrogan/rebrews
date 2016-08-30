@@ -1,10 +1,16 @@
 ﻿module Rebrews.Recipe {
 
-    export class RecipeController {
-        static providerName = "recipeController";
-        static $inject = ["$stateParams", "rttService", "$http"];
+    let RecipeComponent: ng.IComponentOptions = {
+        bindings: {},
+        templateUrl: "/app/recipe/recipe.html",
+        controller: "RecipeController as recipeCtrl" 
+    };
 
-        constructor($stateParams: any, rttService: any, $http: angular.IHttpService) {
+    export class RecipeController {
+        static providerName = "RecipeController";
+        static $inject = ["$stateParams", "rttService", "$http", "RecipesService"];
+
+        constructor($stateParams: any, rttService: any, $http: angular.IHttpService, RecipesService: RecipesService) {
             let self: any = this;
             self.recipeId = $stateParams.recipe_Id;
             self.recipe = {};
@@ -43,8 +49,8 @@
             }
 
             function initialize() {
-                $http.get("/api/Recipes/" + self.recipeId).then(function (result) {
-                    self.recipe = result.data;
+                RecipesService.getRecipeById(self.recipeId).then(function (data) {
+                    self.recipe = data;
                 });
             }
 
@@ -52,5 +58,5 @@
         }
     }
 
-    angular.module("Rebrews").controller(RecipeController.providerName, RecipeController);
+    angular.module("Rebrews").controller(RecipeController.providerName, RecipeController).component("recipeDisplay", RecipeComponent);
 }

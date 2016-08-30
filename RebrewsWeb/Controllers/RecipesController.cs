@@ -25,7 +25,7 @@ namespace RebrewsWeb.Controllers
         }
 
         [Route("api/Recipes/{id}")]
-        public HttpResponseMessage GetRecipesById(int id)
+        public HttpResponseMessage GetRecipeById(int id)
         {
             var recipe = db.Recipes.Include(r => r.Style).FirstOrDefault(r => r.Id == id);
 

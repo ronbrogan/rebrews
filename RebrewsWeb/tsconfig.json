@@ -6,7 +6,8 @@
     "target": "es5",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "outDir": "./Scripts/compiled"
+    "outDir": "./Scripts/compiled/app",
+    "rootDir": "./app"
   },
   "exclude": [
     "Service References",

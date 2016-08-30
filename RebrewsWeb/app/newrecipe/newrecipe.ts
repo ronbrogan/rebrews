@@ -1,24 +1,41 @@
-﻿(function() {
-    var app = angular.module("Rebrews");
+﻿module Rebrews.NewRecipe {
 
-    app.component("newRecipe", {
+    let NewRecipeComponent: ng.IComponentOptions = {
         controller: "newRecipeController as newRecipe",
-        templateUrl: "/app/newrecipe/newrecipe.html"
-    });
+        templateUrl:"/app/newrecipe/newrecipe.html"
+    }
 
-    app.controller("newRecipeController", ["styleService", "recipeService", function (styleService, recipeService) {
-        var self = this;
-        self.recipeStyles = [];
-        self.newRecipe = {};
+    interface INewRecipeController {
+        recipeStyles: ViewModels.RecipeStyleListViewModel[],
+        newRecipe: ViewModels.RecipeViewModel,
+        createRecipe(): void
+    }
 
-        styleService.getStyleList().then(function (data) {
-            self.recipeStyles = data;
-        });
+    export class NewRecipeController implements INewRecipeController, ng.IComponentController {
+        static providerName = "newRecipeController";
+        static $injector = ["StylesService", "RecipesService"];
 
-        self.createRecipe = function() {
-            recipeService.createRecipe(self.newRecipe);
+        recipeStyles;
+        newRecipe;
+
+        constructor(public StylesService: StylesService, private RecipesService: RecipesService) {
+            
         }
 
-    }]);
+        createRecipe = (): void => {
+            let self = this;
 
-})();
+            self.RecipesService.createRecipe(self.newRecipe);
+        }
+        
+        $onInit = ():void => {
+            let self = this;
+            console.log("WHAT");
+            self.StylesService.getList().then(function (data) {
+                self.recipeStyles = data;
+            });
+        }
+    }
+
+    angular.module("Rebrews").controller(NewRecipeController.providerName, NewRecipeController).component("newRecipe", NewRecipeComponent);
+}

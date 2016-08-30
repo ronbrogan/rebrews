@@ -1,104 +1,145 @@
 var Rebrews;
 (function (Rebrews) {
-    var AccountController = (function () {
-        function AccountController($http) {
+    var AccountService = (function () {
+        function AccountService($http, $rootScope) {
             var _this = this;
             this.$http = $http;
+            this.$rootScope = $rootScope;
             this.getUserInfo = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/UserInfo",
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.login = function (login) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/account/",
                     method: "post",
                     data: login
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.logout = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/Logout",
                     method: "post",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.getManageInfo = function (returnUrl, generateState) {
-                return _this.$http({
-                    url: "api/Account/ManageInfo?returnUrl=${returnUrl}&generateState=${generateState}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Account/ManageInfo?returnUrl=" + returnUrl + "&generateState=" + generateState,
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.changePassword = function (model) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/ChangePassword",
                     method: "post",
                     data: model
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.setPassword = function (model) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/SetPassword",
                     method: "post",
                     data: model
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.addExternalLogin = function (model) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/AddExternalLogin",
                     method: "post",
                     data: model
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.removeLogin = function (model) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/RemoveLogin",
                     method: "post",
                     data: model
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.getExternalLogin = function (provider, error) {
-                return _this.$http({
-                    url: "api/Account/ExternalLogin?provider=${provider}&error=${error}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Account/ExternalLogin?provider=" + provider + "&error=" + error,
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.getExternalLogins = function (returnUrl, generateState) {
-                return _this.$http({
-                    url: "api/Account/ExternalLogins?returnUrl=${returnUrl}&generateState=${generateState}",
+                var self = _this;
+                return self.$http({
+                    url: "api/Account/ExternalLogins?returnUrl=" + returnUrl + "&generateState=" + generateState,
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.register = function (model) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/Register",
                     method: "post",
                     data: model
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.registerExternal = function (model) {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Account/RegisterExternal",
                     method: "post",
                     data: model
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
             this.getWhoami = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/account/",
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
         }
-        return AccountController;
+        AccountService.$inject = ["$http", "$rootScope"];
+        return AccountService;
     }());
-    Rebrews.AccountController = AccountController;
-    angular.module("Rebrews").service("AccountService", ["$http", AccountController]);
+    Rebrews.AccountService = AccountService;
+    angular.module("Rebrews").service("AccountService", AccountService);
 })(Rebrews || (Rebrews = {}));
 //# sourceMappingURL=AccountService.js.map

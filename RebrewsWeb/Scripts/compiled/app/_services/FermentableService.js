@@ -1,20 +1,25 @@
 var Rebrews;
 (function (Rebrews) {
-    var FermentableController = (function () {
-        function FermentableController($http) {
+    var FermentableService = (function () {
+        function FermentableService($http, $rootScope) {
             var _this = this;
             this.$http = $http;
+            this.$rootScope = $rootScope;
             this.get = function () {
-                return _this.$http({
+                var self = _this;
+                return self.$http({
                     url: "api/Fermentables/List",
                     method: "get",
                     data: null
-                });
+                }).then(function (result) {
+                    return result.data;
+                }).catch(self.$rootScope.errHandler);
             };
         }
-        return FermentableController;
+        FermentableService.$inject = ["$http", "$rootScope"];
+        return FermentableService;
     }());
-    Rebrews.FermentableController = FermentableController;
-    angular.module("Rebrews").service("FermentableService", ["$http", FermentableController]);
+    Rebrews.FermentableService = FermentableService;
+    angular.module("Rebrews").service("FermentableService", FermentableService);
 })(Rebrews || (Rebrews = {}));
 //# sourceMappingURL=FermentableService.js.map

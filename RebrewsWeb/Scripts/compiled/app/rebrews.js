@@ -96,7 +96,7 @@ var Rebrews;
                 url: "/new",
                 views: {
                     "main@": {
-                        template: "<new-recipe></new-recipe>"
+                        component: "newRecipe"
                     }
                 }
             })
@@ -104,8 +104,7 @@ var Rebrews;
                 url: "/:recipe_Id",
                 views: {
                     "main@": {
-                        templateUrl: "/app/recipe/recipe.template.html",
-                        controller: "recipeController as recipeCtrl"
+                        component: "recipeDisplay"
                     }
                 }
             });

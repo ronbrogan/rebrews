@@ -268,7 +268,7 @@
     <Content Include="app\newrecipe\newrecipe.ts" />
     <Content Include="app\recipe\recipe.color.display\recipe.color.display.ts" />
     <Content Include="app\recipe\recipe.color.display\recipe.color.display.template.html" />
-    <Content Include="app\recipe\recipe.template.html" />
+    <Content Include="app\recipe\recipe.html" />
     <Content Include="app\_components\targettedSlider\targettedSlider.html" />
     <Content Include="app\_components\targettedSlider\targettedSlider.ts" />
     <Content Include="app\_directives\cell-editor\cell-editor.ts" />
@@ -328,8 +328,8 @@
     <Content Include="Scripts\compiled\app\newrecipe\newrecipe.js" />
     <Content Include="Scripts\compiled\app\rebrews.js" />
     <Content Include="Scripts\compiled\app\recipe\recipe.color.display\recipe.color.display.js" />
-    <Content Include="Scripts\compiled\app\recipe\recipeController.js" />
-    <Content Include="Scripts\compiled\app\_components\tsTest\tsTest.js" />
+    <Content Include="Scripts\compiled\app\recipe\recipe.js" />
+    <Content Include="Scripts\compiled\app\_components\targettedSlider\targettedSlider.js" />
     <Content Include="Scripts\compiled\app\_directives\cell-editor\cell-editor.js" />
     <Content Include="Scripts\compiled\app\_directives\dbl-edit\dbl-edit.js" />
     <Content Include="Scripts\compiled\app\_directives\ingredient-table\ingredient-table.js" />
@@ -494,16 +494,14 @@
     <Content Include="Scripts\libs\angular\angular-animate.min.js.map" />
     <Content Include="Content\targetted-slider.less" />
     <Content Include="Content\rebrews\formelements.less" />
+    <Content Include="Scripts\compiled\app\account\login.js.map" />
+    <Content Include="Scripts\compiled\app\account\register.js.map" />
+    <Content Include="Scripts\compiled\app\discover\all-recipes\all-recipes.js.map" />
+    <Content Include="Scripts\compiled\app\newrecipe\newrecipe.js.map" />
     <Content Include="Scripts\compiled\app\rebrews.js.map" />
-    <Content Include="Scripts\compiled\app\_components\tsTest\tsTest.js.map" />
-    <Content Include="Scripts\compiled\app\_services\AccountService.js.map" />
-    <Content Include="Scripts\compiled\app\_services\FermentableService.js.map" />
-    <Content Include="Scripts\compiled\app\_services\HopService.js.map" />
-    <Content Include="Scripts\compiled\app\_services\IngredientsService.js.map" />
-    <Content Include="Scripts\compiled\app\_services\RecipesService.js.map" />
-    <Content Include="Scripts\compiled\app\_services\StylesService.js.map" />
-    <Content Include="Scripts\compiled\app\_services\YeastService.js.map" />
-    <Content Include="Scripts\compiled\app\recipe\recipeController.js.map" />
+    <Content Include="Scripts\compiled\app\recipe\recipe.color.display\recipe.color.display.js.map" />
+    <Content Include="Scripts\compiled\app\recipe\recipe.js.map" />
+    <Content Include="Scripts\compiled\app\_components\targettedSlider\targettedSlider.js.map" />
     <Content Include="Scripts\compiled\app\_directives\cell-editor\cell-editor.js.map" />
     <Content Include="Scripts\compiled\app\_directives\dbl-edit\dbl-edit.js.map" />
     <Content Include="Scripts\compiled\app\_directives\ingredient-table\ingredient-table.js.map" />
@@ -512,15 +510,17 @@
     <Content Include="Scripts\compiled\app\_directives\material-table\material-table.js.map" />
     <Content Include="Scripts\compiled\app\_directives\realtime-chart\realtime-chart.js.map" />
     <Content Include="Scripts\compiled\app\_filters\descender-filter.js.map" />
+    <Content Include="Scripts\compiled\app\_services\AccountService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\FermentableService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\HopService.js.map" />
     <Content Include="Scripts\compiled\app\_services\ingredientService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\IngredientsService.js.map" />
     <Content Include="Scripts\compiled\app\_services\recipeService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\RecipesService.js.map" />
     <Content Include="Scripts\compiled\app\_services\rttService.js.map" />
     <Content Include="Scripts\compiled\app\_services\styleService.js.map" />
-    <Content Include="Scripts\compiled\app\account\login.js.map" />
-    <Content Include="Scripts\compiled\app\account\register.js.map" />
-    <Content Include="Scripts\compiled\app\discover\all-recipes\all-recipes.js.map" />
-    <Content Include="Scripts\compiled\app\newrecipe\newrecipe.js.map" />
-    <Content Include="Scripts\compiled\app\recipe\recipe.color.display\recipe.color.display.js.map" />
+    <Content Include="Scripts\compiled\app\_services\StylesService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\YeastService.js.map" />
     <None Include="Scripts\libs\jquery\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\libs\angular\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\libs\angular\i18n\angular-locale_aa-er.js" />
@@ -1298,7 +1298,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\rebrews.ts" />
     <None Include="app\_services\Services.tst" />
-    <TypeScriptCompile Include="app\recipe\recipeController.ts" />
+    <TypeScriptCompile Include="app\recipe\recipe.ts" />
     <TypeScriptCompile Include="app\_services\AccountService.ts">
       <DependentUpon>Services.tst</DependentUpon>
       <CustomToolNamespace>Controllers\AccountController.cs</CustomToolNamespace>
@@ -1386,6 +1386,10 @@
     <TypeScriptCompile Include="typings\RecipeProfileViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeProfileViewModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings\RecipeStyleListViewModel.d.ts">
+      <DependentUpon>ViewModels.tst</DependentUpon>
+      <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeStyleListViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="typings\RecipeStyleViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>

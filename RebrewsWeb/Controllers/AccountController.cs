@@ -72,7 +72,7 @@ namespace RebrewsWeb.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public HttpResponseMessage Login(LoginViewModel login)
+        public IHttpActionResult Login(LoginViewModel login)
         {
             ApiUser user = UserManager.Find(login.Email, login.Password);
 
@@ -83,7 +83,7 @@ namespace RebrewsWeb.Controllers
 
             authHandler.SignInUser(user, true);
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Redirect(new Uri("/", UriKind.Relative));
         }
 
 
