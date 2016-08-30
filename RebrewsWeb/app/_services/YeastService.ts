@@ -3,6 +3,7 @@ module Rebrews {
 
     export class YeastController {
 
+        public static $inject = ["$http"];
         constructor(private $http: ng.IHttpService) { 
         } 
         
@@ -16,5 +17,5 @@ module Rebrews {
         };
     }
     
-    angular.module("Rebrews").service("YeastService", ["$http", YeastController]);
+    angular.module("Rebrews").service("YeastService", [YeastController.$inject, YeastController]);
 }

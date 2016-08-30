@@ -17,21 +17,33 @@
 				return "any";
 
 			default:
-				return m.Type.Name;
+				return "ViewModels." + m.Type.Name;
 		}
 	}
 
     string ServiceName(Class c) => c.Name.Replace("Controller", "Service");
+
+    string FullType(Parameter p){
+       if(p.Type.IsEnum){
+            return "Enums." + p.Type.Name;
+       }
+
+       if(!p.Type.IsPrimitive)
+        return "ViewModels." + p.Type.Name;
+
+       return p.Type.Name;
+    }
 
 }
 module Rebrews { $Classes(:ApiController)[
 
     export class $Name {
 
+        public static $inject = ["$http"];
         constructor(private $http: ng.IHttpService) { 
         } $Methods[
         
-        public $name = ($Parameters[$name: $Type][, ]) : ng.IHttpPromise<$ReturnType> => {
+        public $name = ($Parameters[$name: $FullType][, ]) : ng.IHttpPromise<$ReturnType> => {
             
             return this.$http<$ReturnType>({
                 url: "$Url", 
@@ -41,5 +53,5 @@ module Rebrews { $Classes(:ApiController)[
         };]
     }
     
-    angular.module("Rebrews").service("$ServiceName", ["$http", $Name]);]
+    angular.module("Rebrews").service("$ServiceName", [$Name.$inject, $Name]);]
 }

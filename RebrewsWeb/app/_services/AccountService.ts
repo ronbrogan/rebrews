@@ -3,19 +3,20 @@ module Rebrews {
 
     export class AccountController {
 
+        public static $inject = ["$http"];
         constructor(private $http: ng.IHttpService) { 
         } 
         
-        public getUserInfo = () : ng.IHttpPromise<UserInfoViewModel> => {
+        public getUserInfo = () : ng.IHttpPromise<ViewModels.UserInfoViewModel> => {
             
-            return this.$http<UserInfoViewModel>({
+            return this.$http<ViewModels.UserInfoViewModel>({
                 url: "api/Account/UserInfo", 
                 method: "get", 
                 data: null
             });
         };
         
-        public login = (login: LoginViewModel) : ng.IHttpPromise<any> => {
+        public login = (login: ViewModels.LoginViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/account/", 
@@ -33,16 +34,16 @@ module Rebrews {
             });
         };
         
-        public getManageInfo = (returnUrl: string, generateState: boolean) : ng.IHttpPromise<ManageInfoViewModel> => {
+        public getManageInfo = (returnUrl: string, generateState: boolean) : ng.IHttpPromise<ViewModels.ManageInfoViewModel> => {
             
-            return this.$http<ManageInfoViewModel>({
+            return this.$http<ViewModels.ManageInfoViewModel>({
                 url: "api/Account/ManageInfo?returnUrl=${returnUrl}&generateState=${generateState}", 
                 method: "get", 
                 data: null
             });
         };
         
-        public changePassword = (model: ChangePasswordViewModel) : ng.IHttpPromise<any> => {
+        public changePassword = (model: ViewModels.ChangePasswordViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Account/ChangePassword", 
@@ -51,7 +52,7 @@ module Rebrews {
             });
         };
         
-        public setPassword = (model: SetPasswordViewModel) : ng.IHttpPromise<any> => {
+        public setPassword = (model: ViewModels.SetPasswordViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Account/SetPassword", 
@@ -60,7 +61,7 @@ module Rebrews {
             });
         };
         
-        public addExternalLogin = (model: AddExternalLoginViewModel) : ng.IHttpPromise<any> => {
+        public addExternalLogin = (model: ViewModels.AddExternalLoginViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Account/AddExternalLogin", 
@@ -69,7 +70,7 @@ module Rebrews {
             });
         };
         
-        public removeLogin = (model: RemoveLoginViewModel) : ng.IHttpPromise<any> => {
+        public removeLogin = (model: ViewModels.RemoveLoginViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Account/RemoveLogin", 
@@ -87,16 +88,16 @@ module Rebrews {
             });
         };
         
-        public getExternalLogins = (returnUrl: string, generateState: boolean) : ng.IHttpPromise<ExternalLoginViewModel[]> => {
+        public getExternalLogins = (returnUrl: string, generateState: boolean) : ng.IHttpPromise<ViewModels.ExternalLoginViewModel[]> => {
             
-            return this.$http<ExternalLoginViewModel[]>({
+            return this.$http<ViewModels.ExternalLoginViewModel[]>({
                 url: "api/Account/ExternalLogins?returnUrl=${returnUrl}&generateState=${generateState}", 
                 method: "get", 
                 data: null
             });
         };
         
-        public register = (model: RegisterViewModel) : ng.IHttpPromise<any> => {
+        public register = (model: ViewModels.RegisterViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Account/Register", 
@@ -105,7 +106,7 @@ module Rebrews {
             });
         };
         
-        public registerExternal = (model: RegisterExternalViewModel) : ng.IHttpPromise<any> => {
+        public registerExternal = (model: ViewModels.RegisterExternalViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Account/RegisterExternal", 
@@ -124,5 +125,5 @@ module Rebrews {
         };
     }
     
-    angular.module("Rebrews").service("AccountService", ["$http", AccountController]);
+    angular.module("Rebrews").service("AccountService", [AccountController.$inject, AccountController]);
 }

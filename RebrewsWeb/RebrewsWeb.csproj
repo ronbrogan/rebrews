@@ -255,40 +255,39 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\account\login.js" />
+    <Content Include="app\account\login.ts" />
     <Content Include="app\account\login.html" />
     <Content Include="app\account\register.html" />
-    <Content Include="app\account\register.js" />
+    <Content Include="app\account\register.ts" />
     <Content Include="app\dashboard\dashboard.template.html" />
     <Content Include="app\discover\all-recipes\all-recipes.html" />
-    <Content Include="app\discover\all-recipes\all-recipes.js" />
+    <Content Include="app\discover\all-recipes\all-recipes.ts" />
     <Content Include="app\discover\discover.template.html" />
     <Content Include="app\home\home.template.html" />
     <Content Include="app\newrecipe\newrecipe.html" />
-    <Content Include="app\newrecipe\newrecipe.js" />
-    <Content Include="app\recipe\recipe.color.display\recipe.color.display.js" />
+    <Content Include="app\newrecipe\newrecipe.ts" />
+    <Content Include="app\recipe\recipe.color.display\recipe.color.display.ts" />
     <Content Include="app\recipe\recipe.color.display\recipe.color.display.template.html" />
     <Content Include="app\recipe\recipe.template.html" />
-    <Content Include="app\recipe\recipeController.js" />
     <Content Include="app\_components\targettedSlider\targettedSlider.html" />
-    <Content Include="app\_components\targettedSlider\targettedSlider.js" />
-    <Content Include="app\_directives\cell-editor\cell-editor.js" />
+    <Content Include="app\_components\targettedSlider\targettedSlider.ts" />
+    <Content Include="app\_directives\cell-editor\cell-editor.ts" />
     <Content Include="app\_directives\cell-editor\cell-editor.template.html" />
-    <Content Include="app\_directives\dbl-edit\dbl-edit.js" />
+    <Content Include="app\_directives\dbl-edit\dbl-edit.ts" />
     <Content Include="app\_directives\dbl-edit\dbl-edit.template.html" />
-    <Content Include="app\_directives\ingredient-table\ingredient-table.js" />
+    <Content Include="app\_directives\ingredient-table\ingredient-table.ts" />
     <Content Include="app\_directives\ingredient-table\ingredient-table.template.html" />
-    <Content Include="app\_directives\loading-bar\loading-bar.js" />
-    <Content Include="app\_directives\loading-bar\loading.bar.scoped.js" />
-    <Content Include="app\_directives\material-table\material-table.js" />
+    <Content Include="app\_directives\loading-bar\loading-bar.ts" />
+    <Content Include="app\_directives\loading-bar\loading.bar.scoped.ts" />
+    <Content Include="app\_directives\material-table\material-table.ts" />
     <Content Include="app\_directives\material-table\material-table.template.html" />
-    <Content Include="app\_directives\realtime-chart\realtime-chart.js" />
+    <Content Include="app\_directives\realtime-chart\realtime-chart.ts" />
     <Content Include="app\_directives\realtime-chart\realtime-chart.template.html" />
-    <Content Include="app\_filters\descender-filter.js" />
-    <Content Include="app\_services\ingredientService.js" />
-    <Content Include="app\_services\recipeService.js" />
-    <Content Include="app\_services\rttService.js" />
-    <Content Include="app\_services\styleService.js" />
+    <Content Include="app\_filters\descender-filter.ts" />
+    <Content Include="app\_services\ingredientService.ts" />
+    <Content Include="app\_services\recipeService.ts" />
+    <Content Include="app\_services\rttService.ts" />
+    <Content Include="app\_services\styleService.ts" />
     <Content Include="Content\angular-toastr.css" />
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
@@ -323,31 +322,33 @@
     </Content>
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\compiled\app\account\login.js" />
+    <Content Include="Scripts\compiled\app\account\register.js" />
+    <Content Include="Scripts\compiled\app\discover\all-recipes\all-recipes.js" />
+    <Content Include="Scripts\compiled\app\newrecipe\newrecipe.js" />
     <Content Include="Scripts\compiled\app\rebrews.js" />
+    <Content Include="Scripts\compiled\app\recipe\recipe.color.display\recipe.color.display.js" />
     <Content Include="Scripts\compiled\app\recipe\recipeController.js" />
     <Content Include="Scripts\compiled\app\_components\tsTest\tsTest.js" />
+    <Content Include="Scripts\compiled\app\_directives\cell-editor\cell-editor.js" />
+    <Content Include="Scripts\compiled\app\_directives\dbl-edit\dbl-edit.js" />
+    <Content Include="Scripts\compiled\app\_directives\ingredient-table\ingredient-table.js" />
+    <Content Include="Scripts\compiled\app\_directives\loading-bar\loading-bar.js" />
+    <Content Include="Scripts\compiled\app\_directives\loading-bar\loading.bar.scoped.js" />
+    <Content Include="Scripts\compiled\app\_directives\material-table\material-table.js" />
+    <Content Include="Scripts\compiled\app\_directives\realtime-chart\realtime-chart.js" />
+    <Content Include="Scripts\compiled\app\_filters\descender-filter.js" />
     <Content Include="Scripts\compiled\app\_services\AccountService.js" />
     <Content Include="Scripts\compiled\app\_services\FermentableService.js" />
     <Content Include="Scripts\compiled\app\_services\HopService.js" />
+    <Content Include="Scripts\compiled\app\_services\ingredientService.js" />
     <Content Include="Scripts\compiled\app\_services\IngredientsService.js" />
+    <Content Include="Scripts\compiled\app\_services\recipeService.js" />
     <Content Include="Scripts\compiled\app\_services\RecipesService.js" />
+    <Content Include="Scripts\compiled\app\_services\rttService.js" />
+    <Content Include="Scripts\compiled\app\_services\styleService.js" />
     <Content Include="Scripts\compiled\app\_services\StylesService.js" />
     <Content Include="Scripts\compiled\app\_services\YeastService.js" />
-    <Content Include="Scripts\compiled\typings\ApiUserViewModel.js" />
-    <Content Include="Scripts\compiled\typings\AuthenticationViewModels.js" />
-    <Content Include="Scripts\compiled\typings\BaseFermentableViewModel.js" />
-    <Content Include="Scripts\compiled\typings\BaseHopViewModel.js" />
-    <Content Include="Scripts\compiled\typings\BaseYeastViewModel.js" />
-    <Content Include="Scripts\compiled\typings\CookieViewModel.js" />
-    <Content Include="Scripts\compiled\typings\FermentablePhType.js" />
-    <Content Include="Scripts\compiled\typings\IngredientModifiedViewModel.js" />
-    <Content Include="Scripts\compiled\typings\RecipeFermentableViewModel.js" />
-    <Content Include="Scripts\compiled\typings\RecipeHopViewModel.js" />
-    <Content Include="Scripts\compiled\typings\RecipeProfileViewModel.js" />
-    <Content Include="Scripts\compiled\typings\RecipeStyleViewModel.js" />
-    <Content Include="Scripts\compiled\typings\RecipeViewModel.js" />
-    <Content Include="Scripts\compiled\typings\RecipeYeastViewModel.js" />
-    <Content Include="Scripts\compiled\typings\UserRole.js" />
     <Content Include="Scripts\libs\angular\angular-animate.js" />
     <Content Include="Scripts\libs\angular\angular-animate.min.js" />
     <Content Include="Scripts\libs\angular\angular-aria.js" />
@@ -502,22 +503,24 @@
     <Content Include="Scripts\compiled\app\_services\RecipesService.js.map" />
     <Content Include="Scripts\compiled\app\_services\StylesService.js.map" />
     <Content Include="Scripts\compiled\app\_services\YeastService.js.map" />
-    <Content Include="Scripts\compiled\typings\ApiUserViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\AuthenticationViewModels.js.map" />
-    <Content Include="Scripts\compiled\typings\BaseFermentableViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\BaseHopViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\BaseYeastViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\CookieViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\FermentablePhType.js.map" />
-    <Content Include="Scripts\compiled\typings\IngredientModifiedViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\RecipeFermentableViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\RecipeHopViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\RecipeProfileViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\RecipeStyleViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\RecipeViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\RecipeYeastViewModel.js.map" />
-    <Content Include="Scripts\compiled\typings\UserRole.js.map" />
     <Content Include="Scripts\compiled\app\recipe\recipeController.js.map" />
+    <Content Include="Scripts\compiled\app\_directives\cell-editor\cell-editor.js.map" />
+    <Content Include="Scripts\compiled\app\_directives\dbl-edit\dbl-edit.js.map" />
+    <Content Include="Scripts\compiled\app\_directives\ingredient-table\ingredient-table.js.map" />
+    <Content Include="Scripts\compiled\app\_directives\loading-bar\loading-bar.js.map" />
+    <Content Include="Scripts\compiled\app\_directives\loading-bar\loading.bar.scoped.js.map" />
+    <Content Include="Scripts\compiled\app\_directives\material-table\material-table.js.map" />
+    <Content Include="Scripts\compiled\app\_directives\realtime-chart\realtime-chart.js.map" />
+    <Content Include="Scripts\compiled\app\_filters\descender-filter.js.map" />
+    <Content Include="Scripts\compiled\app\_services\ingredientService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\recipeService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\rttService.js.map" />
+    <Content Include="Scripts\compiled\app\_services\styleService.js.map" />
+    <Content Include="Scripts\compiled\app\account\login.js.map" />
+    <Content Include="Scripts\compiled\app\account\register.js.map" />
+    <Content Include="Scripts\compiled\app\discover\all-recipes\all-recipes.js.map" />
+    <Content Include="Scripts\compiled\app\newrecipe\newrecipe.js.map" />
+    <Content Include="Scripts\compiled\app\recipe\recipe.color.display\recipe.color.display.js.map" />
     <None Include="Scripts\libs\jquery\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\libs\angular\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\libs\angular\i18n\angular-locale_aa-er.js" />
@@ -1325,31 +1328,32 @@
       <CustomToolNamespace>Controllers\IngredientControllers\YeastController.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <None Include="typings\Enums.tst" />
-    <TypeScriptCompile Include="typings\ApiUserViewModel.ts">
+    <TypeScriptCompile Include="typings\ApiUserViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Authentication\ApiUserViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\AuthenticationViewModels.ts">
+    <TypeScriptCompile Include="typings\AuthenticationViewModels.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Authentication\AuthenticationViewModels.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\BaseFermentableViewModel.ts">
+    <TypeScriptCompile Include="typings\BaseFermentableViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Base\BaseFermentableViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\BaseHopViewModel.ts">
+    <TypeScriptCompile Include="typings\BaseHopViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Base\BaseHopViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\BaseYeastViewModel.ts">
+    <TypeScriptCompile Include="typings\BaseYeastViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Base\BaseYeastViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\CookieViewModel.ts">
+    <TypeScriptCompile Include="typings\Color.d.ts" />
+    <TypeScriptCompile Include="typings\CookieViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Authentication\CookieViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\FermentablePhType.ts">
+    <TypeScriptCompile Include="typings\FermentablePhType.d.ts">
       <DependentUpon>Enums.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsData\Enums\FermentablePhType.cs</CustomToolNamespace>
     </TypeScriptCompile>
@@ -1362,38 +1366,40 @@
     <TypeScriptCompile Include="typings\globals\angular\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="typings\globals\angular\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="typings\globals\angular\angular.d.ts" />
+    <TypeScriptCompile Include="typings\globals\d3\d3.d.ts" />
     <TypeScriptCompile Include="typings\globals\es6-shim\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
     <None Include="typings\ViewModels.tst" />
-    <TypeScriptCompile Include="typings\IngredientModifiedViewModel.ts">
+    <TypeScriptCompile Include="typings\globals\lodash\lodash.d.ts" />
+    <TypeScriptCompile Include="typings\IngredientModifiedViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\IngredientModifiedViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\RecipeFermentableViewModel.ts">
+    <TypeScriptCompile Include="typings\RecipeFermentableViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeFermentableViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\RecipeHopViewModel.ts">
+    <TypeScriptCompile Include="typings\RecipeHopViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeHopViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\RecipeProfileViewModel.ts">
+    <TypeScriptCompile Include="typings\RecipeProfileViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeProfileViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\RecipeStyleViewModel.ts">
+    <TypeScriptCompile Include="typings\RecipeStyleViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeStyleViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\RecipeViewModel.ts">
+    <TypeScriptCompile Include="typings\RecipeViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\RecipeYeastViewModel.ts">
+    <TypeScriptCompile Include="typings\RecipeYeastViewModel.d.ts">
       <DependentUpon>ViewModels.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsViewModels\ViewModels\Recipe\RecipeYeastViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings\UserRole.ts">
+    <TypeScriptCompile Include="typings\UserRole.d.ts">
       <DependentUpon>Enums.tst</DependentUpon>
       <CustomToolNamespace>..\RebrewsData\Enums\UserRole.cs</CustomToolNamespace>
     </TypeScriptCompile>

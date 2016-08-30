@@ -3,6 +3,7 @@ module Rebrews {
 
     export class RecipesController {
 
+        public static $inject = ["$http"];
         constructor(private $http: ng.IHttpService) { 
         } 
         
@@ -24,7 +25,7 @@ module Rebrews {
             });
         };
         
-        public createRecipe = (vm: RecipeViewModel) : ng.IHttpPromise<any> => {
+        public createRecipe = (vm: ViewModels.RecipeViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Recipes", 
@@ -43,5 +44,5 @@ module Rebrews {
         };
     }
     
-    angular.module("Rebrews").service("RecipesService", ["$http", RecipesController]);
+    angular.module("Rebrews").service("RecipesService", [RecipesController.$inject, RecipesController]);
 }

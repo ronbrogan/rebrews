@@ -3,6 +3,7 @@ module Rebrews {
 
     export class IngredientsController {
 
+        public static $inject = ["$http"];
         constructor(private $http: ng.IHttpService) { 
         } 
         
@@ -15,7 +16,7 @@ module Rebrews {
             });
         };
         
-        public postFermentable = (recipeId: number, newIngredient: RecipeFermentableViewModel) : ng.IHttpPromise<any> => {
+        public postFermentable = (recipeId: number, newIngredient: ViewModels.RecipeFermentableViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Ingredients/Fermentables/Recipe/${recipeId}", 
@@ -24,7 +25,7 @@ module Rebrews {
             });
         };
         
-        public postHop = (recipeId: number, newIngredient: RecipeHopViewModel) : ng.IHttpPromise<any> => {
+        public postHop = (recipeId: number, newIngredient: ViewModels.RecipeHopViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Ingredients/Hops/Recipe/${recipeId}", 
@@ -33,7 +34,7 @@ module Rebrews {
             });
         };
         
-        public postYeast = (recipeId: number, newIngredient: RecipeYeastViewModel) : ng.IHttpPromise<any> => {
+        public postYeast = (recipeId: number, newIngredient: ViewModels.RecipeYeastViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Ingredients/Yeasts/Recipe/${recipeId}", 
@@ -42,7 +43,7 @@ module Rebrews {
             });
         };
         
-        public putFermentable = (recipeId: number, updatedIngredient: RecipeFermentableViewModel) : ng.IHttpPromise<any> => {
+        public putFermentable = (recipeId: number, updatedIngredient: ViewModels.RecipeFermentableViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Ingredients/Fermentables/Recipe/${recipeId}", 
@@ -51,7 +52,7 @@ module Rebrews {
             });
         };
         
-        public putHop = (recipeId: number, updatedIngredient: RecipeHopViewModel) : ng.IHttpPromise<any> => {
+        public putHop = (recipeId: number, updatedIngredient: ViewModels.RecipeHopViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Ingredients/Hops/Recipe/${recipeId}", 
@@ -60,7 +61,7 @@ module Rebrews {
             });
         };
         
-        public putYeast = (recipeId: number, updatedIngredient: RecipeYeastViewModel) : ng.IHttpPromise<any> => {
+        public putYeast = (recipeId: number, updatedIngredient: ViewModels.RecipeYeastViewModel) : ng.IHttpPromise<any> => {
             
             return this.$http<any>({
                 url: "api/Ingredients/Yeasts/Recipe/${recipeId}", 
@@ -79,5 +80,5 @@ module Rebrews {
         };
     }
     
-    angular.module("Rebrews").service("IngredientsService", ["$http", IngredientsController]);
+    angular.module("Rebrews").service("IngredientsService", [IngredientsController.$inject, IngredientsController]);
 }

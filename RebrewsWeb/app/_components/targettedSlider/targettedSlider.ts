@@ -1,18 +1,35 @@
-﻿//module Rebrews.Components {
+﻿(function () {
+    var app = angular.module("Rebrews");
 
-//    export class TargettedSlider implements ng.IComponentOptions {
-//        static providerName = "targettedSlider";
+    app.component("targettedSlider", {
+        bindings: {
+            min: "<",
+            max: "<",
+            actual: "<",
+            expanded: "<",
+            outputFormatter: "&"
+        },
+        templateUrl: "/app/_components/targettedSlider/targettedSlider.html",
+        controller: "targettedSliderController as slider"
+    });
 
-//        constructor() {
+    app.controller("targettedSliderController", ["$timeout", function ($timeout) {
+        var self = this;
+        self.expanded = self.expanded || false;
+    }]);
 
+    app.filter("sliderOffset", function () {
+        return function (input, min, max, appendPercent) : string {
+            input = parseFloat(input).toFixed(3);
 
-//        }
+            var value = (((input - min) / (max - min)) * 70) + 15;
 
+            value = Math.max(Math.min(value, 100), 0);
 
-//    }
-
-//    angular.module("Rebrews").component(TargettedSlider.providerName, TargettedSlider);
-
-
-
-//}
+            if(appendPercent) {
+                return value + "%";
+            }
+            return value.toString();
+        }
+    });
+})();
